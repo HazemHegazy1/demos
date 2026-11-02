@@ -1,0 +1,858 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Stride Physiotherapy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { ink: 'var(--ink)', muted: 'var(--muted)', faint: 'var(--faint)', green: 'var(--green)', line: 'var(--line)' },
+      fontFamily: { display: ['var(--font-display)'], body: ['var(--font-body)'] }
+    }
+  }
+}
+</script>
+<style>
+/* Layout concept: one green "stride line" runs through the page. Hero splits text (start) from an animated spine (end).
+   Cards use leaf corners (two big, two small) instead of uniform rounding. Single deliberate dark navy look. */
+:root{
+  color-scheme:dark;
+  --n950:#06122A; --n900:#0A1B38; --n800:#102849; --n700:#1B3A67;
+  --body-fill:#13305A; --body-line:#2F5C9C;
+  --ink:#EAF0FA; --muted:#A5B5D0; --faint:#7388AB;
+  --green:#3DE49A; --green-d:#1FBF7A; --green-ink:#04261A; --glow:rgba(61,228,154,.38);
+  --line:rgba(160,190,235,.16);
+  --font-display:'Alexandria','Segoe UI',Tahoma,system-ui,sans-serif;
+  --font-body:'IBM Plex Sans Arabic','Segoe UI',Tahoma,system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--n950);color:var(--ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--n950);z-index:10}
+#app{overflow-x:clip;font-family:var(--font-body);font-size:1.0625rem;line-height:1.8;color:var(--ink);background:var(--n950);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.sec{padding-block:clamp(56px,9vw,104px);scroll-margin-top:72px}
+.sec-alt{background:var(--n900)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* type */
+.hd{font-family:var(--font-display);font-weight:800;line-height:1.35;text-wrap:balance}
+.h1{font-size:clamp(2.6rem,9vw,4.8rem);line-height:1.2}
+.h2{font-size:clamp(1.8rem,5vw,2.8rem)}
+.h3{font-size:1.25rem;font-weight:700}
+.lead{color:var(--muted);font-size:1.125rem;max-width:34rem}
+.muted{color:var(--muted)}
+.eyebrow{font-family:var(--font-display);font-size:.82rem;font-weight:600;color:var(--green);display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--green);border-radius:2px}
+#app[lang="en"] .eyebrow{text-transform:uppercase;letter-spacing:.14em}
+.hl{color:var(--green);white-space:nowrap;background:linear-gradient(transparent 80%,rgba(61,228,154,.3) 80%)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:999px;padding:.85rem 1.5rem;font-family:var(--font-display);font-weight:600;font-size:1rem;line-height:1.4;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
+.btn-wa{background:var(--green);color:var(--green-ink);box-shadow:0 10px 32px -10px var(--glow)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px var(--glow)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.btn-sm{padding:.5rem 1rem;font-size:.9rem}
+.ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;display:inline-block}
+.ic-fill{fill:currentColor;stroke:none}
+#app[dir="rtl"] .arrow-flip .ic,#app[dir="rtl"] .link .ic{transform:scaleX(-1)}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(6,18,42,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:.6rem}
+.logo-mark{width:34px;height:34px;border-radius:11px 4px 11px 4px;background:var(--green);display:grid;place-items:center;color:var(--green-ink)}
+.logo-word{font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:-.01em;direction:ltr}
+.demo-tag{font-size:.7rem;color:var(--faint);border:1px dashed var(--line);border-radius:99px;padding:.1rem .6rem;line-height:1.6}
+.nav a{color:var(--muted);font-size:.95rem;padding:.4rem .2rem;transition:color .2s;cursor:pointer}
+.nav a:hover{color:var(--green)}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:52px 52px;-webkit-mask-image:radial-gradient(60% 75% at 72% 45%,#000,transparent);mask-image:radial-gradient(60% 75% at 72% 45%,#000,transparent);opacity:.7}
+.hero .wrap{position:relative;z-index:1}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:.4;transform:translateY(16px)}to{opacity:1;transform:none}}
+.badge{display:inline-flex;align-items:center;gap:.55rem;border:1px solid var(--line);background:rgba(16,40,73,.55);border-radius:999px;padding:.4rem .95rem;font-size:.9rem;color:var(--ink)}
+.badge .ic{color:var(--green)}
+.spine-wrap{position:absolute;inset-inline-end:-36px;top:20px;width:210px;opacity:.2;pointer-events:none}
+@media (min-width:768px){.spine-wrap{position:relative;inset:auto;width:min(100%,270px);opacity:1;pointer-events:auto}}
+.v{fill:var(--n800);stroke:var(--n700);stroke-width:1.5;animation:vwave 4.2s ease-in-out infinite;animation-delay:calc(var(--i) * .1s)}
+.sp{fill:var(--n700);stroke:none}
+@keyframes vwave{0%,100%{fill:var(--n800);stroke:var(--n700)}10%{fill:var(--green);stroke:var(--green)}32%{fill:#16463f;stroke:#2c8f6e}}
+.spine-lab{font-family:var(--font-display);font-size:13px;font-weight:600;fill:var(--faint)}
+
+/* cards */
+.card{background:linear-gradient(180deg,var(--n800),rgba(16,40,73,.55));border:1px solid var(--line);border-start-start-radius:34px;border-end-end-radius:34px;border-start-end-radius:10px;border-end-start-radius:10px}
+.pad{padding:clamp(22px,4vw,36px)}
+.rv{opacity:.35;transform:translateY(22px);transition:opacity .7s ease var(--d,0s),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.cond{padding:clamp(22px,3.5vw,34px);display:flex;flex-direction:column;gap:.7rem;transition:transform .3s,border-color .3s}
+.cond:hover{transform:translateY(-4px);border-color:rgba(61,228,154,.5)}
+.cond-ic{width:52px;height:52px;border-radius:16px 6px 16px 6px;background:rgba(61,228,154,.12);color:var(--green);display:grid;place-items:center;font-size:1.5rem}
+.link{display:inline-flex;align-items:center;gap:.5rem;color:var(--green);font-family:var(--font-display);font-weight:600;font-size:.95rem;margin-top:.4rem}
+.link:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* team */
+.venn{display:flex;justify-content:center;align-items:center}
+.vc{width:clamp(150px,38vw,230px);aspect-ratio:1;max-width:100%;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.4rem;padding:1rem;font-family:var(--font-display);font-weight:700}
+.vc small{font-family:var(--font-body);font-weight:400;font-size:.85rem;color:var(--muted)}
+.vc .ic{width:2rem;height:2rem}
+.vc-a{background:rgba(61,228,154,.14);border:1.5px solid var(--green);color:var(--ink)}
+.vc-a .ic{color:var(--green)}
+.vc-b{background:rgba(160,190,235,.1);border:1.5px solid var(--faint);margin-inline-start:-46px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);border-radius:999px;padding:.5rem 1.1rem;font-size:.95rem;cursor:pointer;transition:all .2s;font-family:var(--font-body)}
+.chip:hover{border-color:var(--green)}
+.chip[aria-pressed="true"]{background:var(--green);color:var(--green-ink);border-color:var(--green);font-weight:600}
+
+/* pain map */
+.pm-grid{display:grid;gap:clamp(20px,3vw,36px)}
+@media (min-width:900px){.pm-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}}
+.step-h{display:flex;align-items:center;gap:.8rem;font-family:var(--font-display);font-weight:700;font-size:1.1rem;margin-bottom:.9rem}
+.step-n{width:30px;height:30px;border-radius:50%;background:var(--green);color:var(--green-ink);display:grid;place-items:center;font-size:.9rem;flex:none}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:rgba(6,18,42,.5)}
+.seg button{padding:.35rem 1.1rem;border-radius:999px;font-size:.9rem;color:var(--muted);cursor:pointer;transition:all .2s}
+.seg button[aria-pressed="true"]{background:var(--n700);color:var(--ink)}
+.body-svg{width:min(100%,230px);height:auto;display:block;margin-inline:auto;direction:ltr}
+.bl{fill:var(--body-line);stroke:var(--body-line);stroke-width:5;stroke-linejoin:round}
+.bf{fill:var(--body-fill)}
+.detail{fill:none;stroke:var(--body-line);stroke-width:1.6;stroke-linecap:round;opacity:.9}
+.zone{cursor:pointer;outline:none}
+.zone circle{transform-box:fill-box;transform-origin:center}
+.zone .zdot{fill:var(--green);transition:transform .2s}
+.zone .zring{fill:none;stroke:var(--green);stroke-width:1.5;animation:zpulse 2.4s ease-out infinite}
+.zone .zhalo{fill:var(--green);opacity:0;transition:opacity .2s}
+.zone .zhit{fill:transparent;stroke:transparent;stroke-width:2}
+.zone:hover .zdot,.zone:focus-visible .zdot{transform:scale(1.4)}
+.zone:focus-visible .zhit{stroke:var(--ink)}
+.zone.sel .zdot{transform:scale(1.7)}
+.zone.sel .zhalo{opacity:.26}
+.zone.sel .zring{animation:none;opacity:.9;transform:scale(1.4);stroke-width:2}
+@keyframes zpulse{0%{transform:scale(.7);opacity:.85}100%{transform:scale(2);opacity:0}}
+.cap{min-height:1.8rem;text-align:center;color:var(--muted);font-size:.95rem;margin-top:.6rem}
+.cap b{color:var(--green);font-weight:600}
+.areas{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1rem}
+.areas .chip{padding:.35rem .9rem;font-size:.88rem}
+.durs{display:grid;gap:.7rem}
+@media (min-width:560px){.durs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.dur{display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;text-align:start;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);padding:.9rem 1.1rem;border-radius:18px 6px 18px 6px;cursor:pointer;transition:all .2s;font-family:var(--font-body);line-height:1.5}
+.dur:hover{border-color:var(--green)}
+.dur[aria-pressed="true"]{border-color:var(--green);background:rgba(61,228,154,.12)}
+.dur-bars{display:flex;gap:4px;direction:ltr}
+.dur-bars i{width:22px;height:6px;border-radius:3px;background:var(--n700)}
+.dur[data-dur="acute"] i:nth-child(-n+1),.dur[data-dur="sub"] i:nth-child(-n+2),.dur[data-dur="chronic"] i{background:var(--green)}
+.nudge{animation:nudge .9s ease}
+@keyframes nudge{0%,100%{transform:none}25%{transform:translateY(-4px)}60%{transform:translateY(2px)}}
+.result{margin-top:1.4rem;padding:clamp(20px,3.5vw,32px)}
+.pop{animation:pop .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pop{from{opacity:.2;transform:translateY(10px)}to{opacity:1;transform:none}}
+.tag{display:inline-block;border:1px solid var(--line);background:rgba(61,228,154,.1);color:var(--green);border-radius:99px;padding:.1rem .8rem;font-size:.85rem;line-height:1.7}
+.ex{font-size:.88rem;color:var(--faint);border:1px dashed var(--line);border-radius:10px;padding:.4rem .8rem;margin-bottom:1rem}
+.phase{background:rgba(6,18,42,.55);border:1px solid var(--line);border-radius:14px 4px 14px 4px;padding:1rem 1.2rem;margin-block:1rem}
+.phase strong{display:block;font-family:var(--font-display);color:var(--green);margin-bottom:.2rem}
+.sub{font-family:var(--font-display);font-weight:700;font-size:1.02rem;margin-top:1.3rem;margin-bottom:.6rem}
+.ticks{display:grid;gap:.5rem}
+.ticks li{display:flex;gap:.7rem;align-items:flex-start}
+.ticks .ic{color:var(--green);margin-top:.3rem}
+.steps{counter-reset:s;display:grid;gap:.7rem}
+.steps li{counter-increment:s;display:flex;gap:.8rem;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--green);color:var(--green);display:grid;place-items:center;font-size:.8rem;font-family:var(--font-display);margin-top:.15rem}
+.note{color:var(--muted);font-size:.93rem;margin-top:1rem}
+.warn{display:flex;gap:.7rem;align-items:flex-start;background:rgba(255,196,87,.08);border:1px solid rgba(255,196,87,.35);border-radius:12px;padding:.8rem 1rem;margin-top:1.1rem;font-size:.9rem;color:#F2DDAE}
+.warn .ic{margin-top:.3rem;color:#FFC457}
+.disc{font-size:.9rem;color:var(--muted);margin-block:1rem 1.2rem;font-weight:500}
+
+/* hours */
+.rail-wrap{position:relative;padding-top:46px;direction:ltr}
+.rail{position:relative;height:16px;border-radius:99px;background:var(--n900);border:1px solid var(--line)}
+.rail-open{position:absolute;top:-1px;bottom:-1px;left:45.833%;width:50%;border-radius:99px;background:linear-gradient(90deg,var(--green-d),var(--green));box-shadow:0 0 28px -4px var(--glow)}
+.rail-lab{position:absolute;top:0;font-family:var(--font-display);font-size:.85rem;font-weight:600;color:var(--green);white-space:nowrap}
+.rail-lab.s{left:45.833%;transform:translateX(-50%)}
+.rail-lab.e{left:95.833%;transform:translateX(-100%)}
+.ticks-row{display:flex;justify-content:space-between;margin-top:.7rem;font-size:.8rem;color:var(--faint);direction:ltr}
+.fact{border:1px solid var(--line);border-radius:16px 5px 16px 5px;padding:1rem 1.2rem;background:rgba(6,18,42,.4)}
+.fact b{display:block;font-family:var(--font-display);font-size:2.4rem;line-height:1.1;color:var(--green);font-variant-numeric:tabular-nums}
+
+/* reviews */
+.big{font-family:var(--font-display);font-weight:800;font-size:clamp(5rem,18vw,8rem);line-height:1;font-variant-numeric:tabular-nums;direction:ltr;display:inline-block}
+.stars{display:flex;gap:.3rem;color:var(--green);direction:ltr}
+.stars .ic{width:1.9rem;height:1.9rem;transform:scale(.7);opacity:.5;transition:transform .5s cubic-bezier(.3,1.5,.5,1),opacity .5s;transition-delay:calc(var(--k) * .09s)}
+.stars.in .ic{transform:none;opacity:1}
+.dots{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:8px;max-width:380px}
+.dot{aspect-ratio:1;border-radius:50%;background:rgba(61,228,154,.22);transition:background .5s,transform .5s}
+.dots.in .dot{background:var(--green);transform:scale(1)}
+
+/* location */
+.map{width:100%;height:auto;display:block;border-radius:30px 10px 30px 10px;border:1px solid var(--line);background:var(--n800)}
+.m-road{fill:none;stroke:var(--n700);stroke-width:9;stroke-linecap:round}
+.m-road2{fill:none;stroke:var(--n700);stroke-width:4;stroke-linecap:round}
+.m-block{fill:rgba(160,190,235,.06)}
+.m-pin{fill:var(--green)}
+.m-pulse{fill:var(--green);opacity:.25;transform-box:fill-box;transform-origin:center;animation:zpulse 2.6s ease-out infinite}
+.m-txt{font-family:var(--font-display);font-weight:700;font-size:15px;fill:var(--ink)}
+
+/* cta + footer */
+.cta{background:radial-gradient(70% 140% at 85% 0%,rgba(61,228,154,.2),transparent 60%),var(--n800);border:1px solid var(--line);border-start-start-radius:44px;border-end-end-radius:44px;border-start-end-radius:12px;border-end-start-radius:12px}
+.foot{border-top:1px solid var(--line);padding-block:40px calc(104px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:.95rem}
+.unoff{display:inline-flex;align-items:center;gap:.5rem;border:1px dashed var(--faint);border-radius:99px;padding:.15rem .9rem;font-size:.82rem;color:var(--muted)}
+.fab{position:fixed;z-index:30;bottom:calc(16px + env(safe-area-inset-bottom,0px));inset-inline-end:max(16px,env(safe-area-inset-left,0px),env(safe-area-inset-right,0px))}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+
+<div id="app" lang="ar" dir="rtl">
+
+  <header class="site-head">
+    <div class="wrap flex items-center justify-between gap-3" style="height:64px">
+      <a class="logo" href="#top" data-go="top" aria-label="Stride">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19l6-7 4 4 8-11"/></svg></span>
+        <span class="logo-word">Stride</span>
+        <span class="demo-tag hidden sm:inline-flex" data-en="Unofficial demo">نسخة تجريبية غير رسمية</span>
+      </a>
+      <nav class="nav hidden lg:flex items-center gap-6" aria-label="Sections">
+        <a href="#conditions" data-go="conditions" data-en="Conditions">الحالات</a>
+        <a href="#team" data-go="team" data-en="Team">الفريق</a>
+        <a href="#painmap" data-go="painmap" data-en="Pain Map">خريطة الألم</a>
+        <a href="#hours" data-go="hours" data-en="Hours">المواعيد</a>
+        <a href="#reviews" data-go="reviews" data-en="Reviews">التقييمات</a>
+        <a href="#location" data-go="location" data-en="Location">المكان</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="langBtn" class="btn btn-ghost btn-sm" type="button">English</button>
+        <a class="btn btn-wa btn-sm" data-wa="general" href="#" target="_blank" rel="noopener"><i data-icon="chat"></i><span class="hidden sm:inline" data-en="Book now">احجز دلوقتي</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="spine-wrap" aria-hidden="true"><svg id="spine" viewBox="0 0 240 520" style="width:100%;height:auto;display:block;direction:ltr"></svg></div>
+      <div class="wrap grid md:grid-cols-12 gap-10 items-center" style="padding-block:clamp(44px,8vw,96px)">
+        <div class="md:col-span-7">
+          <p class="eyebrow rise" data-en="Physiotherapy &amp; rehab · Zahraa Maadi, Cairo">علاج طبيعي وتأهيل · الزهراء المعادي، القاهرة</p>
+          <h1 class="hd h1 rise" style="--d:.08s" data-en="Move without the <span class='hl'>pain.</span>">اتحرك من غير <span class="hl">وجع.</span></h1>
+          <p class="lead rise" style="--d:.16s;margin-top:1.3rem" data-en="At Stride we assess your case and build a rehab plan around you, with both male and female physiotherapists, open 11 AM to 11 PM.">في Stride بنفحص حالتك وبنعملك برنامج علاج وتأهيل على مقاسك، مع أخصائيين وأخصائيات، من 11 الصبح لـ 11 بالليل.</p>
+          <div class="flex flex-wrap gap-3 rise" style="--d:.24s;margin-top:1.8rem">
+            <a class="btn btn-wa" data-wa="general" href="#" target="_blank" rel="noopener"><i data-icon="chat"></i><span data-en="Book a session on WhatsApp">احجز جلستك على واتساب</span></a>
+            <a class="btn btn-ghost arrow-flip" href="#painmap" data-go="painmap"><span data-en="Try the Pain Map">جرّب خريطة الألم</span><i data-icon="arrow"></i></a>
+          </div>
+          <div class="flex flex-wrap gap-2.5 rise" style="--d:.32s;margin-top:2rem">
+            <span class="badge"><i data-icon="star"></i><span data-en="5.0 from 65 Google reviews">5.0 من 65 تقييم على Google</span></span>
+            <span class="badge"><i data-icon="clock"></i><span data-en="11 AM – 11 PM, six days a week">11 ص – 11 م، 6 أيام في الأسبوع</span></span>
+            <span class="badge"><i data-icon="users"></i><span data-en="Male &amp; female therapists">أخصائيين وأخصائيات</span></span>
+          </div>
+        </div>
+        <div class="md:col-span-5 hidden md:block"></div>
+      </div>
+    </section>
+
+    <!-- CONDITIONS -->
+    <section class="sec" id="conditions">
+      <div class="wrap">
+        <div class="rv" style="max-width:40rem">
+          <p class="eyebrow" data-en="Conditions we treat">الحالات</p>
+          <h2 class="hd h2" data-en="What we help with">بنساعدك في إيه؟</h2>
+          <p class="lead" style="margin-top:.8rem" data-en="Pick your condition and message us on WhatsApp.">اختار حالتك وابعتلنا على واتساب.</p>
+        </div>
+        <div class="grid md:grid-cols-12 gap-5" style="margin-top:2.4rem">
+          <article class="card cond md:col-span-7 rv" style="--d:.05s">
+            <div class="cond-ic"><i data-icon="spine"></i></div>
+            <h3 class="hd h3" data-en="Back and neck pain">آلام الضهر والرقبة</h3>
+            <p class="muted" data-en="Tight muscles, pain from long hours sitting, or pain that keeps coming back.">شد في العضلات، وجع من القعدة الطويلة، أو وجع بيرجع كل شوية.</p>
+            <a class="link" data-wa="cond:back" href="#" target="_blank" rel="noopener"><span data-en="Ask about this">اسأل عن الحالة دي</span><i data-icon="arrow"></i></a>
+          </article>
+          <article class="card cond md:col-span-5 rv" style="--d:.12s">
+            <div class="cond-ic"><i data-icon="bolt"></i></div>
+            <h3 class="hd h3" data-en="Sports injuries">إصابات الملاعب</h3>
+            <p class="muted" data-en="Strains, sprains and training injuries, with a safe way back to your sport.">شد وتواء وإصابات التمرين، ورجوع آمن للرياضة بتاعتك.</p>
+            <a class="link" data-wa="cond:sports" href="#" target="_blank" rel="noopener"><span data-en="Ask about this">اسأل عن الحالة دي</span><i data-icon="arrow"></i></a>
+          </article>
+          <article class="card cond md:col-span-5 rv" style="--d:.05s">
+            <div class="cond-ic"><i data-icon="plus"></i></div>
+            <h3 class="hd h3" data-en="Post-surgery rehab">التأهيل بعد العمليات</h3>
+            <p class="muted" data-en="A step-by-step program to regain movement and strength once your surgeon clears you.">برنامج متدرج يرجّعلك الحركة والقوة بعد ما دكتورك يسمحلك.</p>
+            <a class="link" data-wa="cond:surgery" href="#" target="_blank" rel="noopener"><span data-en="Ask about this">اسأل عن الحالة دي</span><i data-icon="arrow"></i></a>
+          </article>
+          <article class="card cond md:col-span-7 rv" style="--d:.12s">
+            <div class="cond-ic"><i data-icon="joint"></i></div>
+            <h3 class="hd h3" data-en="Knee and shoulder">الركبة والكتف</h3>
+            <p class="muted" data-en="Pain, stiffness or limited movement in the knee and shoulder joints.">وجع أو تيبّس أو محدودية في حركة الركبة والكتف.</p>
+            <a class="link" data-wa="cond:joints" href="#" target="_blank" rel="noopener"><span data-en="Ask about this">اسأل عن الحالة دي</span><i data-icon="arrow"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="sec sec-alt" id="team">
+      <div class="wrap grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-6 rv">
+          <p class="eyebrow" data-en="The team">الفريق</p>
+          <h2 class="hd h2" data-en="Male and female therapists, pick what feels right">أخصائيين وأخصائيات، اختار اللي مريحك</h2>
+          <p class="lead" style="margin-top:1rem" data-en="Comfort is part of treatment. Stride's team includes both male and female physiotherapists, so you can book with whoever you feel most at ease with.">الراحة جزء من العلاج. في Stride فريق فيه أخصائيين رجالة وأخصائيات ستات، فتقدر تحجز مع اللي تحس معاه براحة.</p>
+          <p style="margin-top:1.6rem;font-weight:600;font-family:var(--font-display);font-size:.95rem" data-en="I'd prefer a session with:">تفضّل الجلسة تكون مع:</p>
+          <div class="flex flex-wrap gap-2" style="margin-top:.7rem" id="prefs" role="group">
+            <button class="chip" type="button" data-pref="male" aria-pressed="false" data-en="A male therapist">أخصائي</button>
+            <button class="chip" type="button" data-pref="female" aria-pressed="false" data-en="A female therapist">أخصائية</button>
+            <button class="chip" type="button" data-pref="any" aria-pressed="true" data-en="No preference">مفرقش معايا</button>
+          </div>
+          <p class="muted" style="font-size:.88rem;margin-top:.8rem" data-en="Your choice is added to your WhatsApp message.">اختيارك بيتضاف على رسالة واتساب.</p>
+        </div>
+        <div class="md:col-span-6 rv" style="--d:.1s">
+          <div class="venn" aria-hidden="true">
+            <div class="vc vc-a"><i data-icon="user"></i><span data-en="Male therapists">أخصائيين</span></div>
+            <div class="vc vc-b"><i data-icon="user"></i><span data-en="Female therapists">أخصائيات</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN MAP -->
+    <section class="sec" id="painmap">
+      <div class="wrap">
+        <div class="rv" style="max-width:42rem">
+          <p class="eyebrow">AI Pain Map</p>
+          <h2 class="hd h2" data-en="Where does it hurt?">فين الوجع؟</h2>
+          <p class="lead" style="margin-top:.8rem" data-en="Tap where it hurts, tell us how long it's been going on, and get a suggested program and what to expect in your first session.">اضغط على المكان اللي بيوجعك، قولنا بقالك قد إيه، وهتلاقي اقتراح برنامج وتوقّعات أول جلسة.</p>
+        </div>
+        <div class="pm-grid" style="margin-top:2.4rem">
+          <!-- step 1 -->
+          <div class="card pad rv" style="--d:.05s">
+            <div class="step-h"><span class="step-n">1</span><span data-en="Tap where it hurts">اضغط على مكان الوجع</span></div>
+            <div style="display:flex;justify-content:center;margin-bottom:1rem">
+              <div class="seg" role="group">
+                <button type="button" id="vFront" data-view="front" aria-pressed="true" data-en="Front">من قدام</button>
+                <button type="button" id="vBack" data-view="back" aria-pressed="false" data-en="Back">من ورا</button>
+              </div>
+            </div>
+            <svg id="bodySvg" class="body-svg" viewBox="14 8 172 424" role="group" aria-label="Body map">
+              <defs>
+                <g id="bodyShapes">
+                  <circle cx="100" cy="34" r="20"/>
+                  <rect x="91" y="48" width="18" height="24" rx="7"/>
+                  <path d="M64 78 Q100 64 136 78 Q148 82 148 96 L144 172 Q142 192 136 204 L138 218 L62 218 L64 204 Q58 192 56 172 L52 96 Q52 82 64 78 Z"/>
+                  <rect x="34" y="86" width="20" height="110" rx="10" transform="rotate(5 44 86)"/>
+                  <rect x="146" y="86" width="20" height="110" rx="10" transform="rotate(-5 156 86)"/>
+                  <path d="M62 210 L99 210 L96 318 L92 406 Q92 422 78 422 L70 422 Q60 422 62 406 L68 318 Z"/>
+                  <path d="M138 210 L101 210 L104 318 L108 406 Q108 422 122 422 L130 422 Q140 422 138 406 L132 318 Z"/>
+                </g>
+              </defs>
+              <use href="#bodyShapes" class="bl"/>
+              <use href="#bodyShapes" class="bf"/>
+              <g id="detailFront">
+                <path class="detail" d="M76 82 Q88 88 98 84 M124 82 Q112 88 102 84"/>
+                <circle cx="100" cy="190" r="2" fill="#2F5C9C"/>
+              </g>
+              <g id="detailBack" hidden>
+                <path class="detail" d="M100 72 L100 206" stroke-dasharray="3 5"/>
+                <path class="detail" d="M68 102 Q78 124 92 116 M132 102 Q122 124 108 116"/>
+              </g>
+              <g id="zones"></g>
+            </svg>
+            <p class="cap" id="caption" aria-live="polite"></p>
+            <div class="areas" id="areaChips" role="group"></div>
+          </div>
+          <!-- step 2 + 3 -->
+          <div class="rv" style="--d:.12s">
+            <div id="durBlock">
+              <div class="step-h"><span class="step-n">2</span><span data-en="How long has it hurt?">بقالك قد إيه؟</span></div>
+              <div class="durs" id="durs" role="group">
+                <button class="dur" type="button" data-dur="acute" aria-pressed="false"><span class="dur-bars"><i></i><i></i><i></i></span><span data-en="Less than 2 weeks">أقل من أسبوعين</span></button>
+                <button class="dur" type="button" data-dur="sub" aria-pressed="false"><span class="dur-bars"><i></i><i></i><i></i></span><span data-en="2 weeks to 3 months">من أسبوعين لـ 3 شهور</span></button>
+                <button class="dur" type="button" data-dur="chronic" aria-pressed="false"><span class="dur-bars"><i></i><i></i><i></i></span><span data-en="More than 3 months">أكتر من 3 شهور</span></button>
+              </div>
+            </div>
+            <div class="step-h" style="margin-top:1.8rem"><span class="step-n">3</span><span data-en="Our suggestion">اقتراحنا ليك</span></div>
+            <div id="result" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOURS -->
+    <section class="sec sec-alt" id="hours">
+      <div class="wrap grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-5 rv">
+          <p class="eyebrow" data-en="Opening hours">المواعيد</p>
+          <h2 class="hd h2" data-en="11 AM to 11 PM">11 الصبح لـ 11 بالليل</h2>
+          <p class="lead" style="margin-top:1rem" data-en="Six days a week, with late hours that suit the evening after work.">ستة أيام في الأسبوع، ومواعيد ممتدة لحد بالليل تناسبك بعد الشغل.</p>
+          <div style="margin-top:1.6rem">
+            <a class="btn btn-ghost" data-wa="hours" href="#" target="_blank" rel="noopener"><i data-icon="chat"></i><span data-en="Ask about available times">اسأل عن المواعيد المتاحة</span></a>
+          </div>
+        </div>
+        <div class="md:col-span-7 card pad rv" style="--d:.1s">
+          <div class="rail-wrap">
+            <span class="rail-lab s" data-en="Opens 11 AM">بنفتح 11 ص</span>
+            <span class="rail-lab e" data-en="Closes 11 PM">بنقفل 11 م</span>
+            <div class="rail"><div class="rail-open"></div></div>
+            <div class="ticks-row"><span data-en="12 AM">12 ص</span><span data-en="6 AM">6 ص</span><span data-en="12 PM">12 م</span><span data-en="6 PM">6 م</span><span data-en="12 AM">12 ص</span></div>
+          </div>
+          <div class="grid grid-cols-2 gap-3" style="margin-top:1.8rem">
+            <div class="fact"><b>12</b><span class="muted" data-en="hours open each day">ساعة شغل كل يوم</span></div>
+            <div class="fact"><b>6</b><span class="muted" data-en="days a week">أيام في الأسبوع</span></div>
+          </div>
+          <p class="muted" style="font-size:.9rem;margin-top:1.1rem" data-en="Not sure which day is the weekly day off? Ask us on WhatsApp.">مش متأكد يوم الراحة الأسبوعي إيه؟ اسألنا على واتساب.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="sec" id="reviews">
+      <div class="wrap grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-6 rv">
+          <p class="eyebrow" data-en="Google reviews">التقييمات</p>
+          <div class="big">5.0</div>
+          <div class="stars" data-io style="margin-top:.6rem">
+            <i data-icon="star" style="--k:0"></i><i data-icon="star" style="--k:1"></i><i data-icon="star" style="--k:2"></i><i data-icon="star" style="--k:3"></i><i data-icon="star" style="--k:4"></i>
+          </div>
+          <p class="lead" style="margin-top:1.1rem" data-en="An average rating of 5.0 out of 5 on Google, from 65 reviews.">متوسط تقييم 5.0 من 5 على Google، من 65 تقييم.</p>
+          <div style="margin-top:1.4rem">
+            <a class="btn btn-ghost arrow-flip" id="reviewLink" href="#" target="_blank" rel="noopener"><span data-en="Read the reviews on Google">اقرأ التقييمات على Google</span><i data-icon="arrow"></i></a>
+          </div>
+        </div>
+        <div class="md:col-span-6 rv" style="--d:.1s">
+          <div class="dots" id="dots" data-io aria-label="65 reviews" role="img"></div>
+          <p class="muted" style="font-size:.9rem;margin-top:1rem" data-en="Each dot is one Google review. 65 in total.">كل نقطة تقييم واحد على Google. المجموع 65.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="sec sec-alt" id="location">
+      <div class="wrap grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-5 rv">
+          <p class="eyebrow" data-en="Find us">المكان</p>
+          <h2 class="hd h2" data-en="Zahraa Maadi, Cairo">الزهراء المعادي، القاهرة</h2>
+          <p class="lead" style="margin-top:1rem" data-en="For the exact address and directions, message us on WhatsApp or open the map.">للعنوان بالتفصيل وطريقة الوصول، ابعتلنا على واتساب أو افتح الخريطة.</p>
+          <div class="flex flex-wrap gap-3" style="margin-top:1.6rem">
+            <a class="btn btn-wa" data-wa="location" href="#" target="_blank" rel="noopener"><i data-icon="chat"></i><span data-en="Ask for the address">اطلب العنوان</span></a>
+            <a class="btn btn-ghost" id="mapLink" href="#" target="_blank" rel="noopener"><i data-icon="map"></i><span data-en="Open in Google Maps">افتح في خرائط Google</span></a>
+          </div>
+        </div>
+        <div class="md:col-span-7 rv" style="--d:.1s">
+          <svg class="map" viewBox="0 0 420 270" role="img" aria-label="Illustrated map of Zahraa Maadi">
+            <rect class="m-block" x="20" y="24" width="110" height="70" rx="8"/>
+            <rect class="m-block" x="150" y="24" width="90" height="46" rx="8"/>
+            <rect class="m-block" x="270" y="20" width="130" height="80" rx="8"/>
+            <rect class="m-block" x="24" y="130" width="86" height="100" rx="8"/>
+            <rect class="m-block" x="300" y="140" width="96" height="90" rx="8"/>
+            <rect class="m-block" x="140" y="196" width="130" height="50" rx="8"/>
+            <path class="m-road" d="M-10 112 C90 100 160 128 230 116 S360 96 430 118"/>
+            <path class="m-road" d="M146 -10 C150 70 138 150 160 280"/>
+            <path class="m-road2" d="M270 -10 C262 60 280 120 276 280"/>
+            <path class="m-road2" d="M-10 182 C80 176 120 190 200 184 S340 176 430 190"/>
+            <circle class="m-pulse" cx="210" cy="132" r="14"/>
+            <path class="m-pin" d="M210 154 C210 154 192 134 192 122 A18 18 0 0 1 228 122 C228 134 210 154 210 154 Z"/>
+            <circle cx="210" cy="122" r="6" fill="#06122A"/>
+            <text class="m-txt" x="210" y="178" text-anchor="middle" style="direction:ltr">Zahraa Maadi</text>
+          </svg>
+          <p class="muted" style="font-size:.85rem;margin-top:.6rem" data-en="Illustration only, not a real map.">رسم توضيحي فقط، مش خريطة حقيقية.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sec" style="padding-block:clamp(40px,7vw,80px)">
+      <div class="wrap">
+        <div class="cta pad rv" style="padding:clamp(28px,6vw,64px);display:flex;flex-wrap:wrap;gap:1.6rem;align-items:center;justify-content:space-between">
+          <div style="max-width:30rem">
+            <h2 class="hd h2" data-en="Ready to move better?">جاهز تتحرك أحسن؟</h2>
+            <p class="muted" style="margin-top:.6rem" data-en="Send us a message and we'll find a time that works." >ابعتلنا رسالة ونظبطلك معاد يناسبك.</p>
+          </div>
+          <a class="btn btn-wa" data-wa="general" href="#" target="_blank" rel="noopener"><i data-icon="chat"></i><span data-en="Book a session on WhatsApp">احجز جلستك على واتساب</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap flex flex-wrap items-center justify-between gap-5">
+      <div class="logo">
+        <span class="logo-mark" style="width:30px;height:30px"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19l6-7 4 4 8-11"/></svg></span>
+        <span class="logo-word" style="font-size:1.1rem">Stride</span>
+      </div>
+      <p style="direction:ltr;font-family:var(--font-display);font-weight:600;color:var(--ink)">Demo by Hazem Hegazy</p>
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="unoff" data-en="Unofficial demo">نسخة تجريبية غير رسمية</span>
+      </div>
+      <p class="muted w-full" style="font-size:.85rem;margin:0" data-en="A design demo. Not affiliated with or endorsed by the clinic. No real prices, staff names or photos are used.">تصميم تجريبي، مش تابع للعيادة ومش معتمد منها. مفيش أسعار أو أسماء أو صور حقيقية مستخدمة.</p>
+    </div>
+  </footer>
+
+  <a class="btn btn-wa fab" data-wa="general" href="#" target="_blank" rel="noopener"><i data-icon="chat"></i><span data-en="Book on WhatsApp">احجز على واتساب</span></a>
+</div>
+
+<script>
+const WA_NUMBER = "201550551291";
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Stride Physiotherapy and Rehab Zahraa Maadi Cairo");
+
+const NS = "http://www.w3.org/2000/svg";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+let lang = "ar";
+const L = (ar, en) => (lang === "ar" ? ar : en);
+const state = { area: "knee", side: "right", dur: "sub", view: "front", pref: "any", example: true };
+
+/* ---------- icons ---------- */
+const ICONS = {
+  chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 11.5h7M8.5 14.5h4"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  users: '<circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 19c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M15.5 14c2.9 0 5.5 1.7 5.5 4.6"/>',
+  user: '<circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/>',
+  star: '<path d="M12 3.2l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.6 6.8 19.4l1-5.9L3.5 9.4l5.9-.8L12 3.2Z"/>',
+  pin: '<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  spine: '<rect x="8" y="3" width="8" height="4" rx="1.5"/><rect x="7" y="9" width="10" height="4" rx="1.5"/><rect x="6" y="15" width="12" height="4.5" rx="1.5"/><path d="M12 19.5V22"/>',
+  bolt: '<circle cx="12" cy="13.5" r="7"/><path d="M12 13.5V9.5M9.5 3h5M12 3v3M18.5 6.5l1.2-1.2"/>',
+  plus: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><path d="M12 8v8M8 12h8"/>',
+  joint: '<path d="M7.5 3.5 11 10.5"/><path d="M16.5 20.5 13 13.5"/><circle cx="12" cy="12" r="2.6"/>',
+  arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  alert: '<path d="M12 3.5l9.5 16.5h-19L12 3.5Z"/><path d="M12 10v4.5M12 17.5v.1"/>',
+  map: '<path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4Z"/><path d="M9 4v14M15 6v14"/>'
+};
+const icon = (n) => '<svg class="ic' + (n === "star" ? " ic-fill" : "") + '" viewBox="0 0 24 24" aria-hidden="true">' + ICONS[n] + "</svg>";
+
+/* ---------- content ---------- */
+const AREAS = {
+  neck: { ar: "الرقبة", en: "neck" },
+  shoulder: { ar: "الكتف", en: "shoulder" },
+  upperback: { ar: "أعلى الضهر", en: "upper back", backOnly: true },
+  lowerback: { ar: "أسفل الضهر", en: "lower back", backOnly: true },
+  hip: { ar: "الحوض", en: "hip" },
+  knee: { ar: "الركبة", en: "knee" },
+  ankle: { ar: "الكاحل", en: "ankle" },
+  other: { ar: "مكان تاني", en: "Somewhere else" }
+};
+const SIDES = { right: { ar: "اليمين", en: "right" }, left: { ar: "الشمال", en: "left" } };
+const DURS = {
+  acute: { ar: "أقل من أسبوعين", en: "less than 2 weeks" },
+  sub: { ar: "من أسبوعين لـ 3 شهور", en: "2 weeks to 3 months" },
+  chronic: { ar: "أكتر من 3 شهور", en: "more than 3 months" }
+};
+const PHASES = {
+  acute: {
+    title: { ar: "مرحلة التهدئة والحماية", en: "Calm and protect" },
+    text: { ar: "في الأول بنهدّي الوجع ونحمي المنطقة من غير ما نوقف الحركة خالص: حركة خفيفة وآمنة، وراحة نسبية، ومتابعة لاستجابتك.", en: "First we calm the pain and protect the area without stopping movement altogether: gentle, safe motion, some relative rest, and close tracking of how you respond." }
+  },
+  sub: {
+    title: { ar: "مرحلة استرجاع الحركة والقوة", en: "Restore movement and strength" },
+    text: { ar: "بنرجّع الحركة الطبيعية للمنطقة ونبدأ تقوية متدرجة، ونزوّد الحمل على قد استجابتك.", en: "We bring back natural movement and start building strength step by step, raising the load as you respond." }
+  },
+  chronic: {
+    title: { ar: "مرحلة البناء والتحمّل", en: "Build and sustain" },
+    text: { ar: "الوجع اللي بقاله فترة محتاج صبر وخطة: تقوية تدريجية، وتدريب على الحركة الصح، وعادات يومية تقلل رجوعه.", en: "Pain that has lasted a while needs patience and a plan: gradual strengthening, retraining how you move, and daily habits that make it less likely to return." }
+  }
+};
+const PROG = {
+  neck: {
+    name: { ar: "برنامج راحة الرقبة", en: "Neck relief program" },
+    focus: { ar: ["تهدية شد عضلات الرقبة والكتفين", "تمارين آمنة لحركة الرقبة", "تقوية عضلات الرقبة والكتف وتظبيط وضعية الجلوس والشغل"], en: ["Easing tight neck and shoulder muscles", "Safe neck movement exercises", "Strengthening neck and shoulder stabilizers, and improving sitting and work posture"] }
+  },
+  shoulder: {
+    name: { ar: "برنامج تأهيل الكتف", en: "Shoulder rehab program" },
+    focus: { ar: ["استرجاع حركة الكتف بالتدريج", "تقوية عضلات الكتف واللوح اللي بتثبّته", "تظبيط حركة الدراع فوق مستوى الراس وأثناء حمل الأوزان"], en: ["Gradually restoring shoulder movement", "Strengthening the shoulder and shoulder-blade muscles that stabilize it", "Improving how you move your arm overhead and under load"] }
+  },
+  upperback: {
+    name: { ar: "برنامج راحة أعلى الضهر", en: "Upper back relief program" },
+    focus: { ar: ["فك شد أعلى الضهر وما بين اللوحين", "تمارين فرد وتحريك الضهر والصدر", "تقوية عضلات الوضعية وتظبيط عادات الجلوس"], en: ["Releasing tightness in the upper back and between the shoulder blades", "Exercises to open and mobilize the back and chest", "Strengthening posture muscles and improving sitting habits"] }
+  },
+  lowerback: {
+    name: { ar: "برنامج دعم أسفل الضهر", en: "Lower back support program" },
+    focus: { ar: ["تهدية الوجع وتحريك الضهر بشكل آمن", "تقوية عضلات الجذع والحوض", "نصايح للحركة اليومية: الجلوس والرفع والمشي"], en: ["Settling the pain and moving the back safely", "Strengthening the core and hip muscles", "Daily-movement coaching: sitting, lifting and walking"] }
+  },
+  hip: {
+    name: { ar: "برنامج حركة وقوة الحوض", en: "Hip mobility and strength program" },
+    focus: { ar: ["تحسين حركة مفصل الحوض", "تقوية عضلات الحوض والفخذ", "تظبيط طريقة المشي والحركة"], en: ["Improving hip joint movement", "Strengthening hip and thigh muscles", "Improving how you walk and move"] }
+  },
+  knee: {
+    name: { ar: "برنامج تأهيل الركبة", en: "Knee rehab program" },
+    focus: { ar: ["تقليل الوجع والتورّم وتحسين حركة الركبة", "تقوية عضلات الفخذ والسمانة اللي بتحمي الركبة", "تدريب التوازن والسلم والرجوع لنشاطك بأمان"], en: ["Reducing pain and swelling and improving knee movement", "Strengthening the thigh and calf muscles that protect the knee", "Balance training, stairs, and a safe return to your activity"] }
+  },
+  ankle: {
+    name: { ar: "برنامج تأهيل الكاحل", en: "Ankle rehab program" },
+    focus: { ar: ["حماية الكاحل وتقليل التورّم", "استرجاع حركة الكاحل", "تدريب التوازن وتقوية العضلات للرجوع للمشي والجري بأمان"], en: ["Protecting the ankle and reducing swelling", "Restoring ankle movement", "Balance training and strengthening for a safe return to walking and running"] }
+  },
+  other: {
+    name: { ar: "برنامج تقييم شامل", en: "Full assessment program" },
+    focus: { ar: ["فحص الحركة والقوة في المنطقة اللي بتوجعك", "برنامج تمارين وعلاج مخصص ليك", "خطة للرجوع لنشاطك اليومي أو الرياضي"], en: ["Checking movement and strength around the area that hurts", "A treatment and exercise plan made for you", "A plan to get back to daily life or sport"] }
+  }
+};
+const COND = {
+  back: { ar: "آلام الضهر والرقبة", en: "back and neck pain" },
+  sports: { ar: "إصابات الملاعب", en: "sports injuries" },
+  surgery: { ar: "التأهيل بعد العمليات", en: "post-surgery rehab" },
+  joints: { ar: "وجع الركبة والكتف", en: "knee and shoulder pain" }
+};
+/* zones on the body map. dx = distance from the centre line, y in svg units */
+const ZONES = [
+  { area: "neck", side: null, dx: 0, y: 60, views: ["front", "back"] },
+  { area: "shoulder", side: "right", dx: 42, y: 90, views: ["front", "back"] },
+  { area: "shoulder", side: "left", dx: 42, y: 90, views: ["front", "back"] },
+  { area: "upperback", side: null, dx: 0, y: 114, views: ["back"] },
+  { area: "lowerback", side: null, dx: 0, y: 174, views: ["back"] },
+  { area: "hip", side: "right", dx: 20, y: 226, views: ["front", "back"] },
+  { area: "hip", side: "left", dx: 20, y: 226, views: ["front", "back"] },
+  { area: "knee", side: "right", dx: 19, y: 318, views: ["front", "back"] },
+  { area: "knee", side: "left", dx: 19, y: 318, views: ["front", "back"] },
+  { area: "ankle", side: "right", dx: 20, y: 398, views: ["front", "back"] },
+  { area: "ankle", side: "left", dx: 20, y: 398, views: ["front", "back"] }
+];
+
+/* ---------- labels and messages ---------- */
+function areaLabel(forMsg) {
+  const a = AREAS[state.area];
+  if (state.area === "other") return forMsg ? L("مكان تاني", "somewhere else") : L("المنطقة اللي بتوجعك", "the area that hurts");
+  if (state.side) return lang === "ar" ? a.ar + " (" + SIDES[state.side].ar + ")" : SIDES[state.side].en + " " + a.en;
+  return a[lang];
+}
+function zoneLabel(z) {
+  const a = AREAS[z.area];
+  if (z.side) return lang === "ar" ? a.ar + " (" + SIDES[z.side].ar + ")" : SIDES[z.side].en + " " + a.en;
+  return a[lang];
+}
+function prefLine() {
+  if (state.pref === "male") return L("يا ريت الجلسة تكون مع أخصائي.", "I'd prefer a male therapist.");
+  if (state.pref === "female") return L("يا ريت الجلسة تكون مع أخصائية.", "I'd prefer a female therapist.");
+  return "";
+}
+function msgFor(key) {
+  const extra = prefLine();
+  let m;
+  if (key === "hours") m = L("أهلاً Stride، ممكن أعرف المواعيد المتاحة ويوم الراحة الأسبوعي إيه؟", "Hi Stride, could you tell me the available times and which day you are closed each week?");
+  else if (key === "location") m = L("أهلاً Stride، ممكن العنوان بالتفصيل وطريقة الوصول؟", "Hi Stride, could you share the exact address and directions?");
+  else if (key.indexOf("cond:") === 0) {
+    const c = COND[key.slice(5)];
+    m = L("أهلاً Stride، ممكن أستفسر عن علاج " + c.ar + " وأحجز جلسة؟", "Hi Stride, I'd like to ask about treatment for " + c.en + " and book a session.");
+  } else m = L("أهلاً Stride، ممكن أحجز جلسة علاج طبيعي؟ يا ريت تعرّفوني بالمواعيد المتاحة.", "Hi Stride, I'd like to book a physiotherapy session. Could you tell me the available times?");
+  return extra ? m + "\n" + extra : m;
+}
+function programMsg() {
+  const p = PROG[state.area].name[lang];
+  const lines = lang === "ar"
+    ? ["أهلاً Stride، ممكن أحجز جلسة تقييم؟", "المكان: " + areaLabel(true), "بقاله: " + DURS[state.dur].ar, "البرنامج اللي ظهرلي في خريطة الألم: " + p]
+    : ["Hi Stride, I'd like to book an assessment session.", "Where it hurts: " + areaLabel(true), "For: " + DURS[state.dur].en, "Program suggested by the Pain Map: " + p];
+  const pl = prefLine();
+  if (pl) lines.push(pl);
+  lines.push(L("(اقتراح عام من الموقع، مش تشخيص)", "(a general suggestion from the website, not a diagnosis)"));
+  return lines.join("\n");
+}
+const waLink = (m) => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(m);
+function refreshWa() {
+  $$("a[data-wa]").forEach((a) => { a.href = waLink(msgFor(a.dataset.wa)); });
+  const r = $("#resultWa");
+  if (r) r.href = waLink(programMsg());
+}
+
+/* ---------- hero spine ---------- */
+function buildSpine() {
+  const N = 24, pts = [];
+  let y = 34;
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    const h = 10 + t * 7, w = 18 + t * 30;
+    const cy = i === 0 ? y : y + pts[i - 1].h / 2 + 4.5 + h / 2;
+    y = cy;
+    pts.push({ t, h, w, cy, cx: 125 + 22 * Math.sin(t * Math.PI * 2.2 + 0.3) });
+  }
+  let cord = "", shapes = "";
+  pts.forEach((p, i) => {
+    const a = pts[Math.max(i - 1, 0)], b = pts[Math.min(i + 1, N - 1)];
+    const ang = -Math.atan2(b.cx - a.cx, b.cy - a.cy) * 180 / Math.PI;
+    cord += (i ? "L" : "M") + p.cx.toFixed(1) + " " + p.cy.toFixed(1) + " ";
+    shapes += '<g style="--i:' + i + '" transform="translate(' + p.cx.toFixed(1) + " " + p.cy.toFixed(1) + ") rotate(" + ang.toFixed(1) + ')">' +
+      '<rect class="sp" x="' + (p.w / 2 - 2) + '" y="-2" width="' + (8 + p.t * 6).toFixed(1) + '" height="4" rx="2"/>' +
+      '<rect class="v" x="' + (-p.w / 2).toFixed(1) + '" y="' + (-p.h / 2).toFixed(1) + '" width="' + p.w.toFixed(1) + '" height="' + p.h.toFixed(1) + '" rx="4"/></g>';
+  });
+  const last = pts[N - 1], sy = last.cy + last.h / 2 + 8;
+  const sacrum = '<path class="v" style="animation:none" d="M' + (last.cx - 24) + " " + sy + " Q" + last.cx + " " + (sy + 8) + " " + (last.cx + 24) + " " + sy + " L" + (last.cx + 8) + " " + (sy + 42) + " Q" + last.cx + " " + (sy + 48) + " " + (last.cx - 8) + " " + (sy + 42) + ' Z"/>';
+  const reg = (i0, i1, txt) => {
+    const y0 = pts[i0].cy - 6, y1 = pts[i1].cy + 6, ym = (y0 + y1) / 2 + 4;
+    return '<path d="M52 ' + y0.toFixed(1) + " V" + y1.toFixed(1) + '" stroke="var(--faint)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".6"/>' +
+      '<text class="spine-lab" x="40" y="' + ym.toFixed(1) + '" text-anchor="end">' + txt + "</text>";
+  };
+  $("#spine").innerHTML =
+    '<defs><radialGradient id="sg" cx="50%" cy="50%" r="50%"><stop offset="0" style="stop-color:var(--green);stop-opacity:.2"/><stop offset="1" style="stop-color:var(--green);stop-opacity:0"/></radialGradient></defs>' +
+    '<circle cx="125" cy="260" r="190" fill="url(#sg)"/>' +
+    '<path d="' + cord + '" fill="none" stroke="var(--green)" stroke-width="3" stroke-linejoin="round" opacity=".28"/>' +
+    shapes + sacrum + reg(0, 6, "C1–7") + reg(7, 18, "T1–12") + reg(19, 23, "L1–5");
+}
+
+/* ---------- pain map ---------- */
+const zx = (z) => {
+  if (!z.side) return 100;
+  const sign = state.view === "front" ? (z.side === "right" ? -1 : 1) : (z.side === "right" ? 1 : -1);
+  return 100 + sign * z.dx;
+};
+const isSel = (z) => state.area === z.area && (state.side === null || state.side === z.side);
+
+function drawZones() {
+  const g = $("#zones");
+  g.innerHTML = "";
+  ZONES.filter((z) => z.views.indexOf(state.view) > -1).forEach((z) => {
+    const x = zx(z);
+    const el = document.createElementNS(NS, "g");
+    const sel = isSel(z);
+    el.setAttribute("class", "zone" + (sel ? " sel" : ""));
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("role", "button");
+    el.setAttribute("aria-pressed", sel ? "true" : "false");
+    el.setAttribute("aria-label", zoneLabel(z));
+    el.innerHTML =
+      '<circle class="zhalo" cx="' + x + '" cy="' + z.y + '" r="19"/>' +
+      '<circle class="zring" cx="' + x + '" cy="' + z.y + '" r="9"/>' +
+      '<circle class="zdot" cx="' + x + '" cy="' + z.y + '" r="5"/>' +
+      '<circle class="zhit" cx="' + x + '" cy="' + z.y + '" r="20"/>';
+    el.addEventListener("click", () => pickZone(z));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pickZone(z); }
+    });
+    g.appendChild(el);
+  });
+  $("#detailFront").hidden = state.view !== "front";
+  $("#detailBack").hidden = state.view !== "back";
+  $("#vFront").setAttribute("aria-pressed", String(state.view === "front"));
+  $("#vBack").setAttribute("aria-pressed", String(state.view === "back"));
+  $("#bodySvg").setAttribute("aria-label", L("خريطة الجسم", "Body map") + " (" + L(state.view === "front" ? "من قدام" : "من ورا", state.view) + ")");
+}
+function drawChips() {
+  const box = $("#areaChips");
+  box.innerHTML = "";
+  Object.keys(AREAS).forEach((k) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip";
+    b.dataset.area = k;
+    b.textContent = AREAS[k][lang].charAt(0).toUpperCase() + AREAS[k][lang].slice(1);
+    b.setAttribute("aria-pressed", String(state.area === k));
+    b.addEventListener("click", () => pickArea(k));
+    box.appendChild(b);
+  });
+}
+function drawCaption() {
+  $("#caption").innerHTML = state.area
+    ? L("المكان: ", "Selected: ") + "<b>" + areaLabel(false) + "</b>"
+    : L("اضغط على نقطة في الجسم أو اختار من القايمة", "Tap a dot on the body or pick from the list");
+}
+function drawDurs() {
+  $$("#durs .dur").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.dur === state.dur)));
+}
+function renderResult() {
+  const prog = PROG[state.area], ph = PHASES[state.dur], lab = areaLabel(false), other = state.area === "other";
+  const focus = prog.focus[lang].map((t) => "<li>" + icon("check") + "<span>" + t + "</span></li>").join("");
+  const steps = (lang === "ar"
+    ? ["كلام عن حالتك: الوجع بدأ إزاي، إيه اللي بيزوّده وإيه اللي بيريّحه. وهات معاك أي أشعة أو تقارير عندك.",
+       "فحص عملي لحركة " + lab + " وقوتها، وكمان توازنك وطريقة وقفتك.",
+       "شرح بسيط للي لقيناه والخطة المناسبة ليك.",
+       "بداية علاج لطيف في نفس الجلسة، مع تمارين بسيطة تعملها في البيت."]
+    : ["A conversation about your case: how it started, what makes it worse or better. Bring any scans or reports you have.",
+       "A hands-on check of movement and strength around " + (other ? lab : "your " + lab) + ", plus your balance and posture.",
+       "A plain explanation of what we found and a plan that fits you.",
+       "Gentle treatment starts in the same session, with simple exercises for home."]
+  ).map((t) => "<li><span>" + t + "</span></li>").join("");
+  const html =
+    '<article class="card result pop" id="resultCard">' +
+    (state.example ? '<p class="ex">' + L("ده مثال جاهز. اضغط على مكان وجعك فوق عشان تغيّره.", "This is a sample. Tap where it hurts to change it.") + "</p>" : "") +
+    '<div class="flex flex-wrap gap-2"><span class="tag">' + lab.charAt(0).toUpperCase() + lab.slice(1) + '</span><span class="tag">' + DURS[state.dur][lang] + "</span></div>" +
+    '<h3 class="hd h3" style="font-size:1.55rem;margin-top:.9rem">' + prog.name[lang] + "</h3>" +
+    '<div class="phase"><strong>' + ph.title[lang] + "</strong><p>" + ph.text[lang] + "</p></div>" +
+    '<h4 class="sub">' + L("هنشتغل على", "What we'll work on") + '</h4><ul class="ticks">' + focus + "</ul>" +
+    '<h4 class="sub">' + L("أول جلسة، توقّع إيه؟", "What to expect in your first session") + '</h4><ol class="steps">' + steps + "</ol>" +
+    '<p class="note">' + L("عدد الجلسات ومدة البرنامج بيحددهم الأخصائي بعد الفحص. البس لبس مريح.", "The therapist decides the number of sessions and the length of the program after the exam. Wear comfortable clothes.") + "</p>" +
+    '<div class="warn">' + icon("alert") + "<p>" + L("روح الطوارئ أو كلّم دكتور فورًا لو الوجع جاي بعد حادثة قوية، أو معاه تنميل أو ضعف مفاجئ، أو سخونية، أو وجع في الصدر أو ضيق نفس، أو مش قادر تتحكم في البول أو البراز.", "Go to the ER or call a doctor right away if the pain follows a serious accident, or comes with numbness or sudden weakness, fever, chest pain or shortness of breath, or loss of bladder or bowel control.") + "</p></div>" +
+    '<p class="disc">' + L("ده اقتراح عام جاهز، مش تشخيص طبي. الأخصائي هو اللي يفحصك ويحدد العلاج المناسب.", "This is a general suggestion, not a medical diagnosis. Your physiotherapist will examine you and decide the right treatment.") + "</p>" +
+    '<a class="btn btn-wa arrow-flip" id="resultWa" href="#" target="_blank" rel="noopener">' + icon("chat") + "<span>" + L("احجز البرنامج ده على واتساب", "Book this program on WhatsApp") + "</span></a>" +
+    "</article>";
+  $("#result").innerHTML = html;
+}
+function updateAll(nudge) {
+  drawZones(); drawChips(); drawCaption(); drawDurs(); renderResult(); refreshWa();
+  if (nudge) {
+    const d = $("#durBlock");
+    d.classList.remove("nudge"); void d.offsetWidth; d.classList.add("nudge");
+  }
+}
+function pickZone(z) {
+  state.area = z.area; state.side = z.side; state.example = false;
+  updateAll(true);
+}
+function pickArea(k) {
+  state.area = k; state.side = null; state.example = false;
+  if (AREAS[k].backOnly) state.view = "back";
+  updateAll(true);
+}
+
+/* ---------- language ---------- */
+function setLang(l) {
+  lang = l;
+  const dir = l === "ar" ? "rtl" : "ltr";
+  document.documentElement.lang = l;
+  document.documentElement.dir = dir;
+  const app = $("#app");
+  app.lang = l; app.dir = dir;
+  $$("[data-en]").forEach((el) => { el.innerHTML = l === "en" ? el.dataset.en : el.dataset.ar; });
+  $("#langBtn").textContent = l === "ar" ? "English" : "عربي";
+  updateAll(false);
+}
+
+/* ---------- init ---------- */
+$$("[data-icon]").forEach((el) => {
+  const style = el.getAttribute("style");
+  const wrap = document.createElement("span");
+  wrap.innerHTML = icon(el.dataset.icon);
+  const svg = wrap.firstChild;
+  if (style) svg.setAttribute("style", style);
+  el.replaceWith(svg);
+});
+$$("[data-en]").forEach((el) => { el.dataset.ar = el.innerHTML; });
+
+buildSpine();
+
+(function buildDots() {
+  const box = $("#dots");
+  for (let i = 0; i < 65; i++) {
+    const d = document.createElement("i");
+    d.className = "dot";
+    d.style.transitionDelay = (i * 14) + "ms";
+    box.appendChild(d);
+  }
+})();
+
+$("#reviewLink").href = MAPS_URL;
+$("#mapLink").href = MAPS_URL;
+
+$("#langBtn").addEventListener("click", () => setLang(lang === "ar" ? "en" : "ar"));
+$$("[data-go]").forEach((a) => a.addEventListener("click", (e) => {
+  e.preventDefault();
+  const t = document.getElementById(a.dataset.go);
+  if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+}));
+$$("#prefs [data-pref]").forEach((b) => b.addEventListener("click", () => {
+  state.pref = b.dataset.pref;
+  $$("#prefs [data-pref]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  refreshWa();
+}));
+$$("[data-view]").forEach((b) => b.addEventListener("click", () => { state.view = b.dataset.view; drawZones(); }));
+$$("#durs .dur").forEach((b) => b.addEventListener("click", () => {
+  state.dur = b.dataset.dur; state.example = false;
+  drawDurs(); renderResult(); refreshWa();
+}));
+
+setLang("ar");
+
+/* scroll reveal */
+(function () {
+  const items = $$(".rv, [data-io]");
+  if (!("IntersectionObserver" in window)) { items.forEach((i) => i.classList.add("in")); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  items.forEach((i) => io.observe(i));
+})();
+</script>
+
+</body></html>
