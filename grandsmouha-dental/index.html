@@ -1,0 +1,859 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Grand Smouha Dental Care</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+  /* Layout concept: airy white clinic page, asymmetric hero with a floating tooth,
+     one bold deep-teal "Smile Check" panel, everything else quiet. */
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f1f8f8;
+    --bg-tint: #e1f2f1;
+    --card: #ffffff;
+    --ink: #0d2b33;
+    --muted: #4f6e78;
+    --line: #d6e8e8;
+    --teal: #17a6a2;
+    --teal-ink: #0a7a78;
+    --on-teal: #ffffff;
+    --blue: #2f80c2;
+    --star: #f2b01e;
+    --wa: #128c7e;
+    --deep-a: #0a3b47;
+    --deep-b: #0f5a66;
+    --on-deep: #eaf8f7;
+    --on-deep-muted: #a9d3d4;
+    --tooth-a: #ffffff;
+    --tooth-b: #d2eeed;
+    --shadow: 0 18px 40px -18px rgba(13, 60, 70, .35);
+    --font-display: "Readex Pro", "IBM Plex Sans Arabic", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans Arabic", "Readex Pro", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #07181d; --bg-soft: #0a2026; --bg-tint: #0f2f37; --card: #0c252c;
+      --ink: #e6f4f4; --muted: #94b4b9; --line: #1b3d45;
+      --teal: #35c9c4; --teal-ink: #5fdad5; --on-teal: #062a2c; --blue: #6fb2ea;
+      --tooth-a: #eafcfb; --tooth-b: #8fd3d0;
+      --shadow: 0 18px 40px -18px rgba(0, 0, 0, .7);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #07181d; --bg-soft: #0a2026; --bg-tint: #0f2f37; --card: #0c252c;
+    --ink: #e6f4f4; --muted: #94b4b9; --line: #1b3d45;
+    --teal: #35c9c4; --teal-ink: #5fdad5; --on-teal: #062a2c; --blue: #6fb2ea;
+    --tooth-a: #eafcfb; --tooth-b: #8fd3d0;
+    --shadow: 0 18px 40px -18px rgba(0, 0, 0, .7);
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 50; background: var(--bg);
+  }
+  h1, h2, h3, h4, p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
+
+  /* language switching */
+  html[lang="ar"] [data-l="en"], html[lang="en"] [data-l="ar"] { display: none !important; }
+  html[dir="rtl"] .flip { transform: scaleX(-1); }
+
+  .wrap {
+    width: 100%; max-width: 1160px; margin-inline: auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .font-display { font-family: var(--font-display); }
+  .muted { color: var(--muted); }
+
+  .h1 {
+    font-family: var(--font-display); font-weight: 600; text-wrap: balance;
+    font-size: clamp(2.15rem, 8.2vw, 4rem); line-height: 1.22;
+  }
+  .h2 {
+    font-family: var(--font-display); font-weight: 600; text-wrap: balance;
+    font-size: clamp(1.65rem, 5vw, 2.6rem); line-height: 1.3;
+  }
+  .lead { color: var(--muted); font-size: 1.06rem; max-width: 60ch; }
+  .grad {
+    background: linear-gradient(90deg, var(--teal), var(--blue));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .82rem; font-weight: 600; color: var(--teal-ink);
+  }
+  html[lang="en"] .eyebrow { letter-spacing: .14em; text-transform: uppercase; }
+  .pill {
+    display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .95rem;
+    border-radius: 999px; background: var(--bg-tint); color: var(--teal-ink);
+    font-weight: 600; font-size: .86rem;
+  }
+
+  /* icons */
+  .ic { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .star { color: var(--star); }
+
+  /* buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+    min-height: 50px; padding: .8rem 1.4rem; border-radius: 999px; border: 0;
+    font-family: var(--font-display); font-weight: 600; font-size: .98rem;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-sm { min-height: 42px; padding: .45rem 1.05rem; font-size: .9rem; }
+  .btn-wa { background: var(--wa); color: #fff; box-shadow: 0 14px 28px -14px var(--wa); }
+  .btn-wa:hover { box-shadow: 0 18px 30px -12px var(--wa); }
+  .btn-ghost { background: var(--card); color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--teal); }
+
+  /* header */
+  .site-head {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+    background: color-mix(in srgb, var(--bg) 84%, transparent);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  }
+  .logo {
+    width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; flex: none;
+    background: linear-gradient(135deg, var(--teal), var(--blue)); color: #fff;
+  }
+  .nav a { color: var(--muted); font-weight: 500; transition: color .2s; }
+  .nav a:hover { color: var(--teal-ink); }
+  .lang {
+    min-height: 42px; min-width: 52px; padding: 0 .9rem; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    font-weight: 600; font-size: .86rem;
+  }
+  .lang:hover { border-color: var(--teal); }
+
+  /* hero */
+  .hero { position: relative; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(46rem 26rem at 88% -8%, var(--bg-tint), transparent 62%),
+      radial-gradient(34rem 22rem at 2% 30%, color-mix(in srgb, var(--blue) 11%, transparent), transparent 60%);
+  }
+  .orb {
+    background: radial-gradient(circle at 35% 30%, var(--bg-tint), color-mix(in srgb, var(--teal) 16%, var(--bg)) 70%);
+  }
+  .tooth { width: 54%; filter: drop-shadow(0 26px 30px rgba(20, 120, 130, .28)); }
+  .floaty { animation: floaty 6s ease-in-out infinite; }
+  .fchip {
+    position: absolute; display: flex; align-items: center; gap: .5rem;
+    padding: .5rem .85rem; border-radius: 16px; background: var(--card);
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+    font-size: .82rem; font-weight: 600; font-family: var(--font-display);
+    animation: floaty 7s ease-in-out infinite;
+  }
+  .ring { border: 1.5px dashed var(--line); animation: spin 60s linear infinite; }
+  .strip { border-block: 1px solid var(--line); background: var(--bg-soft); }
+
+  /* sections */
+  .section { padding-block: clamp(3.5rem, 8vw, 6.5rem); scroll-margin-top: 70px; }
+  .soft { background: var(--bg-soft); }
+
+  /* services */
+  .svc {
+    position: relative; display: flex; flex-direction: column; gap: 1rem; height: 100%;
+    padding: 1.6rem; border-radius: 26px; background: var(--card);
+    border: 1px solid var(--line); overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .svc:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--teal) 45%, var(--line)); }
+  .svc-feature { background: linear-gradient(160deg, var(--bg-tint), var(--card) 72%); }
+  .svc-ico {
+    width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center;
+    background: var(--bg-tint); color: var(--teal-ink);
+  }
+  .svc-feature .svc-ico { background: var(--card); }
+  .tag {
+    display: inline-block; padding: .15rem .7rem; border-radius: 999px; font-size: .75rem; font-weight: 600;
+    background: var(--card); color: var(--teal-ink); border: 1px solid color-mix(in srgb, var(--teal) 40%, var(--line));
+  }
+  .svc-link { display: inline-flex; align-items: center; gap: .4rem; color: var(--teal-ink); font-weight: 600; font-size: .92rem; margin-top: auto; }
+  .svc-link:hover { gap: .65rem; }
+  .svc-link { transition: gap .2s ease; }
+  .bubble { position: absolute; border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--blue) 35%, transparent); pointer-events: none; }
+
+  /* smile check */
+  .panel {
+    position: relative; overflow: hidden; border-radius: 30px; color: var(--on-deep);
+    background:
+      radial-gradient(34rem 18rem at 92% -6%, rgba(53, 201, 196, .3), transparent 62%),
+      linear-gradient(160deg, var(--deep-a), var(--deep-b));
+    padding: clamp(1.25rem, 4vw, 2.75rem);
+  }
+  .ai-chip {
+    display: inline-flex; align-items: center; gap: .4rem; padding: .2rem .7rem; border-radius: 999px;
+    background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .22);
+    font-size: .76rem; font-weight: 600; color: var(--on-deep);
+  }
+  .opt {
+    display: flex; align-items: center; gap: .8rem; width: 100%; text-align: start;
+    padding: .9rem 1.1rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .06); color: var(--on-deep); font-weight: 500;
+    transition: background .2s ease, transform .2s ease, border-color .2s ease;
+  }
+  .opt:hover { background: rgba(255, 255, 255, .13); }
+  .opt .dot { width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--on-deep-muted); flex: none; }
+  .opt[aria-pressed="true"] { background: var(--on-deep); color: #0a3b47; border-color: var(--on-deep); }
+  .opt[aria-pressed="true"] .dot { border-color: #17a6a2; background: #17a6a2; box-shadow: inset 0 0 0 3px var(--on-deep); }
+  .result {
+    min-height: 420px; padding: clamp(1.1rem, 3vw, 2rem); border-radius: 22px;
+    background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16);
+  }
+  .res-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 3.4vw, 1.75rem); line-height: 1.35; margin-top: .35rem; }
+  .res-intro { color: var(--on-deep); opacity: .9; margin-top: .6rem; }
+  .res-h { font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--on-deep-muted); margin-bottom: .7rem; }
+  .steps, .expect { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .75rem; }
+  .steps li, .expect li { display: flex; gap: .75rem; align-items: flex-start; }
+  .steps .n {
+    width: 28px; height: 28px; border-radius: 50%; flex: none; display: grid; place-items: center;
+    background: var(--teal-ink); color: var(--on-teal); font-size: .82rem; font-weight: 600;
+    font-variant-numeric: tabular-nums; margin-top: .1rem;
+  }
+  .panel .steps .n { background: #5fdad5; color: #062a2c; }
+  .expect .ic { color: #5fdad5; margin-top: .3rem; }
+  .note { font-size: .82rem; color: var(--on-deep-muted); }
+  .scan { display: grid; place-items: center; gap: 1rem; min-height: 360px; text-align: center; }
+  .scan-box { position: relative; width: 96px; height: 112px; }
+  .scan-line {
+    position: absolute; inset-inline: -10px; height: 3px; border-radius: 3px; top: 0;
+    background: linear-gradient(90deg, transparent, #5fdad5, transparent);
+    box-shadow: 0 0 18px #5fdad5; animation: sweep 1s ease-in-out infinite alternate;
+  }
+  .play .res-in { animation: rise .55s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i) * 110ms); }
+
+  /* gulf */
+  .route { border-radius: 28px; color: var(--on-deep); padding: 1.25rem 1.25rem 1rem;
+    background: radial-gradient(24rem 14rem at 80% 0%, rgba(53, 201, 196, .28), transparent 65%), linear-gradient(160deg, var(--deep-a), var(--deep-b)); }
+  .gsteps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.1rem; }
+  .gsteps li { display: flex; gap: .9rem; align-items: flex-start; }
+  .gsteps .n {
+    width: 32px; height: 32px; border-radius: 50%; flex: none; display: grid; place-items: center;
+    background: var(--teal-ink); color: var(--on-teal); font-weight: 600; font-size: .9rem; font-variant-numeric: tabular-nums;
+  }
+
+  /* reviews */
+  .rating-card { border-radius: 30px; background: var(--card); border: 1px solid var(--line); padding: clamp(1.5rem, 4vw, 2.5rem); box-shadow: var(--shadow); }
+  .big-rate { font-family: var(--font-display); font-weight: 700; font-size: clamp(5rem, 22vw, 8.5rem); line-height: 1; font-variant-numeric: tabular-nums; direction: ltr; }
+  .stars .star-i { transform-origin: center; }
+  .stars.in .star-i { animation: pop .6s cubic-bezier(.2, .8, .3, 1.3) both; animation-delay: calc(var(--i) * 100ms); }
+  .known { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: var(--card); font-size: .9rem; font-weight: 500; }
+
+  /* location */
+  .mapcard { position: relative; border-radius: 28px; overflow: hidden; border: 1px solid var(--line); background: var(--bg-soft); }
+  .mapcard svg { display: block; width: 100%; height: auto; }
+
+  /* footer + fab */
+  .foot { border-top: 1px solid var(--line); background: var(--bg-soft); }
+  .fab {
+    position: fixed; z-index: 45; width: 58px; height: 58px; border-radius: 50%;
+    inset-inline-end: calc(16px + env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    display: grid; place-items: center; background: var(--wa); color: #fff;
+    box-shadow: 0 14px 30px -10px var(--wa);
+  }
+  .fab::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wa); animation: ping 2.6s ease-out infinite; }
+  .fab .ic { width: 28px; height: 28px; }
+
+  /* scroll reveal: always visible, only a small lift */
+  .reveal { transform: translateY(22px); transition: transform .85s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--d, 0ms); }
+  .reveal.in { transform: none; }
+
+  @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes sweep { from { top: 0; } to { top: calc(100% - 3px); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @keyframes pop { 0% { transform: scale(.55); } 100% { transform: scale(1); } }
+  @keyframes ping { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(1.55); opacity: 0; } }
+  @keyframes dash { to { stroke-dashoffset: -28; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { transform: none; }
+  }
+</style>
+<script>
+  /* Set language and direction before first paint (Arabic by default). */
+  (function () {
+    var l = "ar";
+    try { if (localStorage.getItem("gsdc-lang") === "en") l = "en"; } catch (e) {}
+    var r = document.documentElement;
+    r.setAttribute("lang", l);
+    r.setAttribute("dir", l === "ar" ? "rtl" : "ltr");
+  })();
+</script>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24">
+      <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M9 8.3c.3 2.7 2.9 5.3 5.6 5.6l1.5-1.5-2-1.3-1 .8c-.9-.4-1.8-1.3-2.2-2.2l.8-1-1.3-2L9 8.3z" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <polygon points="12,2 15.1,8.6 22,9.3 16.8,14 18.4,21 12,17.3 5.6,21 7.2,14 2,9.3 8.9,8.6" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-tooth" viewBox="0 0 24 24"><path d="M12 5.2C10.2 4 7.8 3.6 6.2 5 4.4 6.6 4.8 9.3 5.6 11.3c.7 1.8 1.1 3.3 1.3 5.1.2 1.7.6 3.6 1.7 3.6 1.2 0 1.2-3.4 1.9-4.5.3-.5.6-.7.5-.7s.2.2.5.7c.7 1.1.7 4.5 1.9 4.5 1.1 0 1.5-1.9 1.7-3.6.2-1.8.6-3.3 1.3-5.1.8-2 1.2-4.7-.6-6.3-1.6-1.4-4-1-5.8.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<div id="top"></div>
+
+<header class="site-head">
+  <div class="wrap flex items-center justify-between gap-3 py-2.5">
+    <a href="#top" class="flex min-w-0 items-center gap-3" aria-label="Grand Smouha Dental Care">
+      <span class="logo"><svg class="ic" style="width:24px;height:24px"><use href="#i-tooth"/></svg></span>
+      <span class="min-w-0 leading-tight">
+        <span class="block truncate font-display text-[15px] font-semibold"><span data-l="ar">جراند سموحة</span><span data-l="en">Grand Smouha</span></span>
+        <span class="muted block text-[11.5px]"><span data-l="ar">دنتال كير</span><span data-l="en">Dental Care</span></span>
+      </span>
+    </a>
+    <nav class="nav hidden items-center gap-7 text-[15px] lg:flex" aria-label="Sections">
+      <a href="#services"><span data-l="ar">الخدمات</span><span data-l="en">Services</span></a>
+      <a href="#smile"><span data-l="ar">فحص الابتسامة</span><span data-l="en">Smile Check</span></a>
+      <a href="#gulf"><span data-l="ar">من الخليج</span><span data-l="en">From the Gulf</span></a>
+      <a href="#reviews"><span data-l="ar">التقييمات</span><span data-l="en">Reviews</span></a>
+      <a href="#location"><span data-l="ar">الموقع</span><span data-l="en">Location</span></a>
+    </nav>
+    <div class="flex shrink-0 items-center gap-2">
+      <button id="langBtn" class="lang" type="button" aria-label="Switch language / تغيير اللغة"><span data-l="ar">EN</span><span data-l="en">عربي</span></button>
+      <a data-wa="general" class="btn btn-wa btn-sm" target="_blank" rel="noopener" href="#">
+        <svg class="ic"><use href="#i-wa"/></svg>
+        <span data-l="ar">احجز</span><span data-l="en">Book</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="wrap relative pb-14 pt-10 md:pb-20 md:pt-16">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.08fr_.92fr]">
+        <div class="reveal min-w-0">
+          <p class="pill">
+            <svg class="ic star"><use href="#i-star"/></svg>
+            <span data-l="ar">5.0 من 116 تقييم على جوجل</span><span data-l="en">5.0 from 116 Google reviews</span>
+          </p>
+          <h1 class="h1 mt-5">
+            <span data-l="ar">ابتسامتك في <span class="grad">إيد أمينة</span></span>
+            <span data-l="en">Your smile, in <span class="grad">steady hands</span></span>
+          </h1>
+          <p class="lead mt-5">
+            <span data-l="ar">زراعة أسنان وطب أسنان أطفال في سموحة، الإسكندرية. عيادة بيثق فيها مرضى من مصر ومن دول الخليج كمان.</span>
+            <span data-l="en">Dental implants and children's dentistry in Smouha, Alexandria. A clinic trusted by patients from Egypt and from across the Gulf.</span>
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a data-wa="general" class="btn btn-wa" target="_blank" rel="noopener" href="#">
+              <svg class="ic"><use href="#i-wa"/></svg>
+              <span data-l="ar">احجز على واتساب</span><span data-l="en">Book on WhatsApp</span>
+            </a>
+            <a href="#smile" class="btn btn-ghost">
+              <svg class="ic" style="color:var(--teal-ink)"><use href="#i-spark"/></svg>
+              <span data-l="ar">جرّب فحص الابتسامة</span><span data-l="en">Try the Smile Check</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal min-w-0" style="--d:120ms">
+          <div class="relative mx-auto aspect-square w-full max-w-[420px]">
+            <div class="orb absolute inset-0 rounded-full"></div>
+            <div class="ring absolute inset-5 rounded-full"></div>
+            <div class="absolute inset-0 grid place-items-center">
+              <svg class="tooth floaty" viewBox="0 0 200 240" aria-hidden="true">
+                <defs>
+                  <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--tooth-a)"/><stop offset="1" style="stop-color:var(--tooth-b)"/></linearGradient>
+                  <linearGradient id="tr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--teal)"/><stop offset="1" style="stop-color:var(--blue)"/></linearGradient>
+                </defs>
+                <path d="M100 22C70 8 30 18 28 62c-2 33 16 48 20 88 4 40 10 74 30 74 16 0 14-54 22-54s6 54 22 54c20 0 26-34 30-74 4-40 22-55 20-88-2-44-42-54-72-40z" fill="url(#tg)" stroke="url(#tr)" stroke-width="4" stroke-linejoin="round"/>
+                <path d="M58 56c8-15 26-20 40-14" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+                <path d="M158 34l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" fill="var(--teal)" opacity=".85"/>
+                <path d="M30 128l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="var(--blue)" opacity=".75"/>
+              </svg>
+            </div>
+            <div class="fchip" style="top:7%;inset-inline-end:0">
+              <svg class="ic star"><use href="#i-star"/></svg>
+              <span>5.0 Google</span>
+            </div>
+            <div class="fchip" style="top:46%;inset-inline-start:-2%;animation-delay:-2s">
+              <svg class="ic" style="color:var(--teal-ink)"><use href="#i-tooth"/></svg>
+              <span data-l="ar">زراعة أسنان</span><span data-l="en">Implants</span>
+            </div>
+            <div class="fchip" style="bottom:7%;inset-inline-end:4%;animation-delay:-4s">
+              <svg class="ic" style="color:var(--teal-ink)"><use href="#i-spark"/></svg>
+              <span data-l="ar">طب أسنان أطفال</span><span data-l="en">Kids' dentistry</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap flex flex-wrap items-center justify-center gap-x-8 gap-y-3 py-5 text-sm font-medium">
+      <span class="flex items-center gap-2"><svg class="ic star"><use href="#i-star"/></svg><span data-l="ar">5.0 على جوجل</span><span data-l="en">5.0 on Google</span></span>
+      <span class="flex items-center gap-2"><svg class="ic" style="color:var(--teal-ink)"><use href="#i-tooth"/></svg><span data-l="ar">زراعة الأسنان</span><span data-l="en">Dental implants</span></span>
+      <span class="flex items-center gap-2"><svg class="ic" style="color:var(--teal-ink)"><use href="#i-spark"/></svg><span data-l="ar">طب أسنان الأطفال</span><span data-l="en">Children's dentistry</span></span>
+      <span class="flex items-center gap-2"><svg class="ic" style="color:var(--teal-ink)"><use href="#i-check"/></svg><span data-l="ar">مرضى من الخليج</span><span data-l="en">Patients from the Gulf</span></span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="wrap">
+      <div class="reveal max-w-2xl">
+        <p class="eyebrow"><span data-l="ar">الخدمات</span><span data-l="en">Services</span></p>
+        <h2 class="h2 mt-3"><span data-l="ar">كل اللي تحتاجه لابتسامة صحية</span><span data-l="en">Everything for a healthy smile</span></h2>
+        <p class="lead mt-4"><span data-l="ar">من الزراعة لطب الأطفال، كل حاجة في مكان واحد في سموحة.</span><span data-l="en">From implants to children's care, all in one place in Smouha.</span></p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-12">
+        <div class="reveal lg:col-span-7">
+          <article class="svc svc-feature">
+            <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
+              <div class="flex min-w-0 flex-1 flex-col gap-4">
+                <div class="flex items-center gap-3">
+                  <span class="svc-ico"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M7 4.5c1.2-.9 2.8-.9 5 .1 2.2-1 3.8-1 5-.1 1.4 1 1.6 3.2.9 5.2-.5 1.4-1 2-1.4 3H7.5c-.4-1-.9-1.6-1.4-3-.7-2-.5-4.2.9-5.2z"/><path d="M9.5 13.5l.5 6.5h4l.5-6.5M9.8 15.5h4.4M9.9 17.5h4.2"/></svg></span>
+                  <span class="tag"><span data-l="ar">تخصص العيادة</span><span data-l="en">Our specialty</span></span>
+                </div>
+                <h3 class="font-display text-2xl font-semibold"><span data-l="ar">زراعة الأسنان</span><span data-l="en">Dental implants</span></h3>
+                <p class="muted"><span data-l="ar">لو فقدت سن أو أكتر، الزراعة بتديك بديل ثابت وشكله طبيعي. بنبدأ بكشف وأشعة، ونشرحلك الخطة خطوة بخطوة قبل ما نبدأ.</span><span data-l="en">If you've lost a tooth or more, an implant is a fixed replacement that looks natural. We start with an exam and X-rays, and walk you through the plan before anything begins.</span></p>
+                <a data-wa="implants" class="svc-link" target="_blank" rel="noopener" href="#"><span data-l="ar">اسأل على واتساب</span><span data-l="en">Ask on WhatsApp</span><svg class="ic flip"><use href="#i-arrow"/></svg></a>
+              </div>
+              <svg class="mx-auto w-36 shrink-0 sm:w-40" viewBox="0 0 160 190" aria-hidden="true" style="direction:ltr">
+                <rect x="14" y="108" width="132" height="70" rx="22" fill="var(--bg-tint)" stroke="var(--line)" stroke-width="2"/>
+                <path d="M52 20c10-8 22-8 28 0 6-8 18-8 28 0 12 9 12 26 4 42-3 6-6 9-8 14H56c-2-5-5-8-8-14-8-16-8-33 4-42z" fill="var(--card)" stroke="var(--teal)" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M62 76h36l-4 18H66z" fill="var(--bg-tint)" stroke="var(--teal)" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M66 94h28l-5 70H71z" fill="color-mix(in srgb, var(--teal) 28%, var(--card))" stroke="var(--teal-ink)" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M67 108h26M68 122h24M69.5 136h21M70.5 150h19" stroke="var(--teal-ink)" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </article>
+        </div>
+
+        <div class="reveal lg:col-span-5" style="--d:80ms">
+          <article class="svc svc-feature">
+            <span class="bubble" style="width:120px;height:120px;inset-inline-end:-30px;top:-34px"></span>
+            <span class="bubble" style="width:54px;height:54px;inset-inline-end:70px;bottom:26px"></span>
+            <div class="flex items-center gap-3">
+              <span class="svc-ico"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="9" cy="10.5" r=".6" fill="currentColor"/><circle cx="15" cy="10.5" r=".6" fill="currentColor"/><path d="M8.5 14c1 1.6 2.2 2.3 3.5 2.3s2.5-.7 3.5-2.3"/></svg></span>
+              <span class="tag"><span data-l="ar">تخصص العيادة</span><span data-l="en">Our specialty</span></span>
+            </div>
+            <h3 class="font-display text-2xl font-semibold"><span data-l="ar">طب أسنان الأطفال</span><span data-l="en">Children's dentistry</span></h3>
+            <p class="muted"><span data-l="ar">زيارة هادية وبدون خوف. بنتعامل مع الطفل بصبر وبكلام بسيط عشان يتعود على الدكتور ويحب الزيارة.</span><span data-l="en">A calm, friendly visit. We take our time and keep things simple so children feel comfortable with the dentist.</span></p>
+            <a data-wa="kids" class="svc-link" target="_blank" rel="noopener" href="#"><span data-l="ar">اسأل على واتساب</span><span data-l="en">Ask on WhatsApp</span><svg class="ic flip"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+
+        <div class="reveal lg:col-span-5" style="--d:60ms">
+          <article class="svc">
+            <span class="svc-ico"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M18.5 16.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></span>
+            <h3 class="font-display text-xl font-semibold"><span data-l="ar">تجميل الأسنان</span><span data-l="en">Cosmetic dentistry</span></h3>
+            <p class="muted"><span data-l="ar">ابتسامة متناسقة بلون طبيعي. بنرشحلك الأنسب لحالتك، من التبييض لحلول التجميل التانية.</span><span data-l="en">A balanced smile with a natural shade. We recommend what suits your case, from whitening to other cosmetic options.</span></p>
+            <a data-wa="cosmetic" class="svc-link" target="_blank" rel="noopener" href="#"><span data-l="ar">اسأل على واتساب</span><span data-l="en">Ask on WhatsApp</span><svg class="ic flip"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+
+        <div class="reveal lg:col-span-7" style="--d:140ms">
+          <article class="svc">
+            <span class="svc-ico"><svg class="ic" style="width:26px;height:26px" viewBox="0 0 24 24"><path d="M12 3.5c3.2 3.8 5.5 6.6 5.5 9.6a5.5 5.5 0 0 1-11 0c0-3 2.3-5.8 5.5-9.6z"/><path d="M9.5 14c.3 1.4 1.3 2.3 2.7 2.5"/></svg></span>
+            <h3 class="font-display text-xl font-semibold"><span data-l="ar">تنظيف وتلميع</span><span data-l="en">Cleaning &amp; polishing</span></h3>
+            <p class="muted"><span data-l="ar">تنظيف دوري بيحمي اللثة والأسنان ويرجّعلك إحساس النضافة.</span><span data-l="en">Regular cleaning protects your gums and teeth and leaves your mouth feeling fresh.</span></p>
+            <a data-wa="cleaning" class="svc-link" target="_blank" rel="noopener" href="#"><span data-l="ar">اسأل على واتساب</span><span data-l="en">Ask on WhatsApp</span><svg class="ic flip"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SMILE CHECK -->
+  <section id="smile" class="section pt-0" style="padding-top:0">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div class="relative grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-10">
+          <div class="min-w-0">
+            <span class="ai-chip"><svg class="ic" style="width:14px;height:14px"><use href="#i-spark"/></svg>AI Smile Check</span>
+            <h2 class="h2 mt-4" style="color:var(--on-deep)"><span data-l="ar">فحص الابتسامة بالذكاء الاصطناعي</span><span data-l="en">AI Smile Check</span></h2>
+            <p class="mt-3" style="color:var(--on-deep-muted)"><span data-l="ar">اختار اللي شاغلك، وهتعرف في ثانية العلاج المحتمل والخطوات واللي تتوقعه.</span><span data-l="en">Pick what's bothering you and see the likely treatment, the steps and what to expect, in a second.</span></p>
+            <div id="opts" class="mt-6 flex flex-col gap-2.5" role="group" aria-label="Concern"></div>
+          </div>
+          <div id="result" class="result min-w-0" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GULF -->
+  <section id="gulf" class="section soft">
+    <div class="wrap">
+      <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+        <div class="reveal min-w-0">
+          <p class="eyebrow"><span data-l="ar">زوار الخليج</span><span data-l="en">For Gulf visitors</span></p>
+          <h2 class="h2 mt-3"><span data-l="ar">جاي من الخليج؟</span><span data-l="en">Visiting from the Gulf?</span></h2>
+          <p class="lead mt-4"><span data-l="ar">فيه مرضى بيسافروا لإسكندرية مخصوص لعلاج الأسنان عندنا. ابعتلنا حالتك قبل السفر، ونرتب معاك الباقي.</span><span data-l="en">Some patients fly to Alexandria just for treatment with us. Send your case before you travel and we'll plan the rest with you.</span></p>
+
+          <div class="route mt-7 lg:hidden">
+            <svg viewBox="0 0 360 190" style="direction:ltr;display:block;width:100%;height:auto" role="img" aria-label="Gulf to Alexandria">
+              <path d="M300 130 C 262 14, 118 14, 60 130" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2.5" stroke-dasharray="7 7" stroke-linecap="round" style="animation:dash 1.6s linear infinite"/>
+              <circle cx="300" cy="130" r="14" fill="rgba(95,218,213,.22)"/><circle cx="300" cy="130" r="7" fill="#5fdad5"/>
+              <circle cx="60" cy="130" r="14" fill="rgba(95,218,213,.22)"/><circle cx="60" cy="130" r="7" fill="#fff"/>
+              <circle r="5" fill="#fff"><animateMotion dur="5s" repeatCount="indefinite" path="M300 130 C 262 14, 118 14, 60 130"/></circle>
+              <g font-family="Readex Pro, system-ui, sans-serif" font-size="15" font-weight="600" fill="#eaf8f7" text-anchor="middle">
+                <text x="300" y="168" data-l="ar">الخليج</text><text x="300" y="168" data-l="en">Gulf</text>
+                <text x="60" y="168" data-l="ar">إسكندرية · سموحة</text><text x="60" y="168" data-l="en">Alexandria · Smouha</text>
+              </g>
+            </svg>
+          </div>
+
+          <ol class="gsteps mt-8">
+            <li><span class="n">1</span><span><span data-l="ar">ابعتلنا حالتك على واتساب، ومعاها صور أو أشعة لو عندك.</span><span data-l="en">Message us your case on WhatsApp, with photos or X-rays if you have them.</span></span></li>
+            <li><span class="n">2</span><span><span data-l="ar">تاخد فكرة مبدئية عن الخطة قبل ما تحجز سفرك.</span><span data-l="en">Get a first idea of the plan before you book your trip.</span></span></li>
+            <li><span class="n">3</span><span><span data-l="ar">قولنا مواعيد سفرك ونرتب الزيارات مع بعض.</span><span data-l="en">Tell us your travel dates and we'll line up your visits together.</span></span></li>
+            <li><span class="n">4</span><span><span data-l="ar">تيجي إسكندرية وتبدأ العلاج.</span><span data-l="en">Come to Alexandria and start treatment.</span></span></li>
+          </ol>
+          <p class="muted mt-5 text-sm"><span data-l="ar">الفكرة المبدئية مش بديل للكشف. الخطة النهائية بتتحدد بعد الفحص.</span><span data-l="en">A first idea is not a replacement for an exam. The final plan is set after your check-up.</span></p>
+          <a data-wa="gulf" class="btn btn-wa mt-7" target="_blank" rel="noopener" href="#">
+            <svg class="ic"><use href="#i-wa"/></svg>
+            <span data-l="ar">ابعت حالتك قبل ما تسافر</span><span data-l="en">Send your case before you travel</span>
+          </a>
+        </div>
+
+        <div class="reveal hidden min-w-0 lg:block" style="--d:120ms">
+          <div class="route" style="padding:1.75rem 1.75rem 1.25rem">
+            <svg viewBox="0 0 360 190" style="direction:ltr;display:block;width:100%;height:auto" role="img" aria-label="Gulf to Alexandria">
+              <path d="M300 130 C 262 14, 118 14, 60 130" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2.5" stroke-dasharray="7 7" stroke-linecap="round" style="animation:dash 1.6s linear infinite"/>
+              <circle cx="300" cy="130" r="14" fill="rgba(95,218,213,.22)"/><circle cx="300" cy="130" r="7" fill="#5fdad5"/>
+              <circle cx="60" cy="130" r="14" fill="rgba(95,218,213,.22)"/><circle cx="60" cy="130" r="7" fill="#fff"/>
+              <circle r="5" fill="#fff"><animateMotion dur="5s" repeatCount="indefinite" path="M300 130 C 262 14, 118 14, 60 130"/></circle>
+              <g font-family="Readex Pro, system-ui, sans-serif" font-size="15" font-weight="600" fill="#eaf8f7" text-anchor="middle">
+                <text x="300" y="168" data-l="ar">الخليج</text><text x="300" y="168" data-l="en">Gulf</text>
+                <text x="60" y="168" data-l="ar">إسكندرية · سموحة</text><text x="60" y="168" data-l="en">Alexandria · Smouha</text>
+              </g>
+            </svg>
+            <p class="mt-2 text-center text-sm" style="color:var(--on-deep-muted)"><span data-l="ar">رسالة واحدة تكفي تبدأ بيها الرحلة.</span><span data-l="en">One message is enough to start the journey.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section">
+    <div class="wrap">
+      <div class="grid items-center gap-10 lg:grid-cols-[.9fr_1.1fr] lg:gap-14">
+        <div class="reveal rating-card min-w-0">
+          <div class="flex flex-wrap items-end gap-x-6 gap-y-3">
+            <div class="big-rate grad">5.0</div>
+            <div class="pb-2">
+              <div class="stars flex gap-1" id="stars" style="direction:ltr">
+                <svg class="ic star star-i" style="--i:0;width:28px;height:28px"><use href="#i-star"/></svg>
+                <svg class="ic star star-i" style="--i:1;width:28px;height:28px"><use href="#i-star"/></svg>
+                <svg class="ic star star-i" style="--i:2;width:28px;height:28px"><use href="#i-star"/></svg>
+                <svg class="ic star star-i" style="--i:3;width:28px;height:28px"><use href="#i-star"/></svg>
+                <svg class="ic star star-i" style="--i:4;width:28px;height:28px"><use href="#i-star"/></svg>
+              </div>
+              <p class="mt-2 font-display font-semibold"><span data-l="ar">116 تقييم على جوجل</span><span data-l="en">116 Google reviews</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal min-w-0" style="--d:100ms">
+          <p class="eyebrow"><span data-l="ar">تقييمات المرضى</span><span data-l="en">Patient reviews</span></p>
+          <h2 class="h2 mt-3"><span data-l="ar">تقييم بيتكلم عن نفسه</span><span data-l="en">A rating that speaks for itself</span></h2>
+          <p class="lead mt-4"><span data-l="ar">متوسط تقييم 5.0 من 116 تقييم على جوجل. لو حابب تقرا التجارب بنفسك، هتلاقيها كلها على صفحة العيادة.</span><span data-l="en">A 5.0 average from 116 Google reviews. To read the experiences yourself, you'll find them all on the clinic's Google page.</span></p>
+          <div class="mt-6 flex flex-wrap gap-2.5">
+            <span class="known"><svg class="ic" style="color:var(--teal-ink)"><use href="#i-tooth"/></svg><span data-l="ar">زراعة الأسنان</span><span data-l="en">Dental implants</span></span>
+            <span class="known"><svg class="ic" style="color:var(--teal-ink)"><use href="#i-spark"/></svg><span data-l="ar">طب أسنان الأطفال</span><span data-l="en">Children's dentistry</span></span>
+            <span class="known"><svg class="ic" style="color:var(--teal-ink)"><use href="#i-check"/></svg><span data-l="ar">مرضى من الخليج</span><span data-l="en">Gulf patients</span></span>
+          </div>
+          <a class="btn btn-ghost mt-7" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Grand%20Smouha%20Dental%20Care%20Smouha%20Alexandria">
+            <svg class="ic star"><use href="#i-star"/></svg>
+            <span data-l="ar">اقرا التقييمات على جوجل</span><span data-l="en">Read the reviews on Google</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="section soft">
+    <div class="wrap">
+      <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div class="reveal min-w-0">
+          <p class="eyebrow"><span data-l="ar">الموقع</span><span data-l="en">Location</span></p>
+          <h2 class="h2 mt-3"><span data-l="ar">في سموحة، الإسكندرية</span><span data-l="en">In Smouha, Alexandria</span></h2>
+          <p class="lead mt-4"><span data-l="ar">افتح الخريطة أو ابعتلنا على واتساب ونوصفلك الطريق. المواعيد بتتحجز بالرسايل على واتساب.</span><span data-l="en">Open the map or message us on WhatsApp and we'll guide you there. Appointments are booked by message on WhatsApp.</span></p>
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Grand%20Smouha%20Dental%20Care%20Smouha%20Alexandria">
+              <svg class="ic" style="color:var(--teal-ink)" viewBox="0 0 24 24"><path d="M12 21s6.5-5.8 6.5-11A6.5 6.5 0 0 0 5.5 10c0 5.2 6.5 11 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
+              <span data-l="ar">افتح في خرائط جوجل</span><span data-l="en">Open in Google Maps</span>
+            </a>
+            <a data-wa="general" class="btn btn-wa" target="_blank" rel="noopener" href="#">
+              <svg class="ic"><use href="#i-wa"/></svg>
+              <span data-l="ar">احجز ميعاد</span><span data-l="en">Book a visit</span>
+            </a>
+          </div>
+        </div>
+        <div class="reveal min-w-0" style="--d:100ms">
+          <div class="mapcard">
+            <svg viewBox="0 0 400 280" style="direction:ltr" role="img" aria-label="Illustrative map of Smouha, Alexandria">
+              <path d="M0 0H400V30C320 52 220 20 0 44Z" fill="color-mix(in srgb, var(--blue) 20%, var(--bg-soft))"/>
+              <g fill="none" stroke="var(--line)" stroke-linecap="round">
+                <path d="M-10 96 L410 66" stroke-width="14"/>
+                <path d="M-10 206 L410 236" stroke-width="14"/>
+                <path d="M118 -10 L152 290" stroke-width="12"/>
+                <path d="M292 -10 L262 290" stroke-width="12"/>
+                <path d="M-10 150 L410 150" stroke-width="6"/>
+                <path d="M210 60 L206 260" stroke-width="6"/>
+                <path d="M40 -10 L60 290" stroke-width="5"/>
+                <path d="M350 -10 L340 290" stroke-width="5"/>
+              </g>
+              <rect x="226" y="164" width="52" height="34" rx="9" fill="color-mix(in srgb, var(--teal) 16%, var(--bg-soft))"/>
+              <rect x="66" y="166" width="40" height="26" rx="8" fill="color-mix(in srgb, var(--teal) 12%, var(--bg-soft))"/>
+              <circle cx="205" cy="148" r="12" fill="none" stroke="var(--teal)" stroke-width="2">
+                <animate attributeName="r" values="12;40" dur="2.4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values=".6;0" dur="2.4s" repeatCount="indefinite"/>
+              </circle>
+              <path d="M205 118c-15 0-26 11-26 26 0 20 26 46 26 46s26-26 26-46c0-15-11-26-26-26z" fill="var(--teal-ink)"/>
+              <circle cx="205" cy="144" r="9" fill="#fff"/>
+              <g font-family="Readex Pro, system-ui, sans-serif" font-weight="600" font-size="15" fill="var(--ink)" text-anchor="middle">
+                <text x="205" y="222" data-l="ar">سموحة</text><text x="205" y="222" data-l="en">Smouha</text>
+              </g>
+            </svg>
+            <p class="muted absolute bottom-3 text-[11px]" style="inset-inline-start:14px"><span data-l="ar">رسم توضيحي، مش خريطة حقيقية</span><span data-l="en">Illustration, not a real map</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap flex flex-col gap-6 pb-24 pt-10 md:flex-row md:items-center md:justify-between">
+    <div class="flex items-center gap-3">
+      <span class="logo"><svg class="ic" style="width:24px;height:24px"><use href="#i-tooth"/></svg></span>
+      <div class="leading-tight">
+        <p class="font-display font-semibold">Grand Smouha Dental Care</p>
+        <p class="muted text-sm"><span data-l="ar">سموحة، الإسكندرية، مصر</span><span data-l="en">Smouha, Alexandria, Egypt</span></p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-2 md:items-end">
+      <p class="font-display text-sm font-semibold" style="direction:ltr">Demo by Hazem Hegazy</p>
+      <p class="pill" style="font-size:.76rem;padding:.2rem .75rem"><span data-l="ar">نسخة تجريبية غير رسمية</span><span data-l="en">Unofficial demo</span></p>
+      <p class="muted max-w-md text-xs md:text-end"><span data-l="ar">مش الموقع الرسمي للعيادة. التقييم من جوجل وقت تجهيز النسخة، والتفاصيل تتأكد مع العيادة.</span><span data-l="en">Not the clinic's official website. Rating as shown on Google when this demo was made; confirm details with the clinic.</span></p>
+    </div>
+  </div>
+</footer>
+
+<a data-wa="general" class="fab" target="_blank" rel="noopener" href="#" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
+
+<script>
+  /* ============ CONFIG ============
+     Replace with the clinic's WhatsApp number: country code + number, digits only.
+     Example for Egypt: "201001234567" */
+  const WA_NUMBER = "201111440043";
+  /* ================================ */
+
+  (function () {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let lang = document.documentElement.getAttribute("lang") === "en" ? "en" : "ar";
+    let current = "missing";
+    let timer = null;
+
+    const MSG = {
+      general:  { ar: "أهلاً، حابب أحجز كشف في جراند سموحة دنتال كير.", en: "Hi, I'd like to book an appointment at Grand Smouha Dental Care." },
+      gulf:     { ar: "أهلاً، أنا جاي من الخليج وحابب أعرف خطة العلاج قبل ما أسافر.", en: "Hi, I'm visiting from the Gulf and would like to discuss a treatment plan before I travel." },
+      implants: { ar: "أهلاً، حابب أسأل عن زراعة الأسنان.", en: "Hi, I'd like to ask about dental implants." },
+      kids:     { ar: "أهلاً، حابب أسأل عن طب أسنان الأطفال.", en: "Hi, I'd like to ask about children's dentistry." },
+      cosmetic: { ar: "أهلاً، حابب أسأل عن تجميل الأسنان.", en: "Hi, I'd like to ask about cosmetic dentistry." },
+      cleaning: { ar: "أهلاً، حابب أسأل عن تنظيف وتلميع الأسنان.", en: "Hi, I'd like to ask about teeth cleaning and polishing." }
+    };
+
+    const UI = {
+      ar: { likely: "العلاج المحتمل", steps: "الخطوات", expect: "اللي تتوقعه", send: "ابعت حالتك على واتساب", scanning: "بنحلل اختيارك...",
+            note: "ده إرشاد عام جاهز، مش تشخيص طبي. الدكتور بيفحصك ويحدد الخطة المناسبة ليك.",
+            chose: (c) => "أهلاً، جربت فحص الابتسامة على الموقع واخترت \"" + c + "\". حابب أحجز كشف." },
+      en: { likely: "Likely approach", steps: "The steps", expect: "What to expect", send: "Send your case on WhatsApp", scanning: "Reading your choice...",
+            note: "This is general, pre-written guidance, not a medical diagnosis. The dentist will examine you and set the right plan.",
+            chose: (c) => "Hi, I tried the Smile Check on your site and chose \"" + c + "\". I'd like to book an appointment." }
+    };
+
+    const ORDER = ["missing", "pain", "crooked", "stains", "kids"];
+    const CHECK = {
+      missing: {
+        ar: { label: "سن ناقص", head: "غالبًا: زراعة سنان",
+          intro: "السن الناقص مش لازم يفضل ناقص. الزراعة بتثبّت جذر صغير في العظم وعليه تاج شكله زي سنانك الطبيعي. وفيه بدائل زي الجسر، والدكتور هو اللي يقرر الأنسب بعد الكشف.",
+          steps: ["كشف وأشعة عشان نشوف حالة العظم واللثة.", "الدكتور يشرحلك الخطة والخيارات المتاحة قبل أي خطوة.", "تركيب الجذر بتخدير موضعي.", "فترة التئام، وبعدها تركيب التاج النهائي."],
+          expect: ["ممكن تحس بانزعاج بسيط بعد التركيب، والدكتور يوصفلك اللي يناسبك.", "الالتئام بياخد شهور مش أيام، والمدة بتختلف من حالة لحالة.", "هتحتاج أكتر من زيارة، ولو جاي من بره بنرتبها معاك."] },
+        en: { label: "A missing tooth", head: "Most likely: a dental implant",
+          intro: "A missing tooth doesn't have to stay missing. An implant places a small root in the bone with a crown on top that looks like your natural tooth. Other options such as a bridge exist, and the dentist decides what suits you after the exam.",
+          steps: ["Exam and X-rays to check your bone and gums.", "The dentist explains the plan and your options before any step.", "The implant root is placed under local anesthesia.", "A healing period, then the final crown is fitted."],
+          expect: ["Mild discomfort afterwards is possible, and the dentist will advise what suits you.", "Healing takes months, not days, and the time varies from case to case.", "You'll need more than one visit, and we can plan them around your travel."] }
+      },
+      pain: {
+        ar: { label: "وجع في سنة", head: "الأول: كشف لتحديد السبب",
+          intro: "الوجع ليه أسباب كتير زي تسوس، أو التهاب في العصب، أو مشكلة في اللثة. من غير كشف وأشعة مينفعش نحدد، بس غالبًا العلاج بيكون حشو أو علاج عصب.",
+          steps: ["كشف وأشعة عشان نعرف السبب.", "تهدئة الوجع في أقرب وقت.", "علاج السبب نفسه، حشو أو علاج عصب أو غيره.", "متابعة عشان نتأكد إن الحالة استقرت."],
+          expect: ["العلاج بيتم بتخدير موضعي عشان تكون مرتاح.", "ماتستناش لو الوجع شديد، التأجيل ممكن يصعّب الحالة.", "لو في ورم في الوش أو سخونة أو صعوبة في البلع أو التنفس، روح أقرب طوارئ فورًا."] },
+        en: { label: "Tooth pain", head: "First: an exam to find the cause",
+          intro: "Pain has many causes, such as decay, an inflamed nerve or a gum problem. It can't be pinned down without an exam and X-rays, but the treatment is often a filling or a root canal.",
+          steps: ["Exam and X-rays to find the cause.", "Relieve the pain as soon as possible.", "Treat the cause itself, such as a filling or root canal.", "Follow-up to make sure things have settled."],
+          expect: ["Treatment is done under local anesthesia so you stay comfortable.", "Don't wait if the pain is strong, because delay can make it harder to treat.", "If you have facial swelling, fever, or trouble swallowing or breathing, go to the nearest emergency room right away."] }
+      },
+      crooked: {
+        ar: { label: "سنان معوجة", head: "غالبًا: تقويم أو حل تجميلي",
+          intro: "ترتيب الأسنان ممكن يتظبط بالتقويم أو بحلول تجميلية زي القشور، حسب حالتك وإيه اللي إنت عايزه. الدكتور هيرشحلك الأنسب بعد الكشف، واسأل عن الخيارات المتاحة في العيادة.",
+          steps: ["كشف وصور أو أشعة لدراسة حالة الأسنان والفك.", "نتناقش في الخيارات والشكل المتوقع للنتيجة.", "تنفيذ الخطة اللي اخترتوها مع متابعة منتظمة.", "الحفاظ على النتيجة بعد ما العلاج يخلص."],
+          expect: ["لو اخترت تقويم، العلاج بياخد شهور أو أكتر حسب الحالة.", "هتحتاج زيارات متابعة منتظمة.", "نضافة الأسنان بتبقى أهم من أي وقت."] },
+        en: { label: "Crooked teeth", head: "Likely: braces or a cosmetic option",
+          intro: "Tooth alignment can be improved with braces or with cosmetic options like veneers, depending on your case and what you want. The dentist will recommend what fits after the exam, so do ask which options the clinic offers.",
+          steps: ["Exam with photos or X-rays to study your teeth and jaw.", "We talk through the options and the expected result.", "The chosen plan is carried out with regular follow-ups.", "Keeping the result once treatment ends."],
+          expect: ["With braces, treatment takes months or longer depending on the case.", "You'll need regular check-up visits.", "Keeping your teeth clean matters more than ever."] }
+      },
+      stains: {
+        ar: { label: "اصفرار أو بقع", head: "غالبًا: تنظيف ثم تبييض",
+          intro: "البقع بتيجي غالبًا من الشاي والقهوة والتدخين أو من الجير. أول خطوة بتكون تنظيف عميق، وبعدها الدكتور يقولك لو التبييض مناسب لحالتك.",
+          steps: ["كشف للتأكد إن البقع سطحية.", "تنظيف وإزالة الجير.", "تلميع الأسنان.", "تبييض أو حل تجميلي لو حابب ولو مناسب."],
+          expect: ["التنظيف غالبًا بيكون مريح.", "ممكن تحس بحساسية مؤقتة بعد التبييض.", "تقليل الشاي والقهوة والتدخين بيخلي النتيجة تفضل أطول."] },
+        en: { label: "Stains or yellowing", head: "Likely: cleaning, then whitening",
+          intro: "Stains usually come from tea, coffee, smoking or tartar. The first step is a deep cleaning, and then the dentist tells you whether whitening suits your case.",
+          steps: ["An exam to confirm the stains are on the surface.", "Cleaning and tartar removal.", "Polishing.", "Whitening or a cosmetic option, if you want it and it suits you."],
+          expect: ["Cleaning is usually comfortable.", "Temporary sensitivity after whitening is possible.", "Cutting back on tea, coffee and smoking helps the result last longer."] }
+      },
+      kids: {
+        ar: { label: "أول زيارة لطفلي", head: "زيارة تعارف وكشف لطيف",
+          intro: "أول زيارة بتبقى للتعارف أكتر من العلاج. الطفل يشوف المكان والدكتور ويتعود، والكشف بيتم بهدوء وبكلام بسيط يفهمه.",
+          steps: ["تعارف وجو هادي عشان الطفل يطمن.", "كشف خفيف على الأسنان واللثة.", "نصايح تنظيف مناسبة لسنه ليه ولك.", "خطة متابعة لو الحالة محتاجة."],
+          expect: ["الأفضل تكلمه عن الزيارة بشكل إيجابي قبلها.", "ماتخوفوش من الدكتور، وسيبه يتعرف عليه براحته.", "الأهم إنه يحس بالأمان، مفيش استعجال."] },
+        en: { label: "My child's first visit", head: "A getting-to-know-you visit and a gentle check",
+          intro: "A first visit is about getting comfortable more than treatment. Your child sees the place and meets the dentist, and the check is done calmly in simple words they understand.",
+          steps: ["A friendly hello in a calm setting so your child relaxes.", "A light check of teeth and gums.", "Cleaning tips suited to their age, for them and for you.", "A follow-up plan if one is needed."],
+          expect: ["It helps to talk about the visit positively beforehand.", "Avoid using the dentist as a threat, and let them warm up at their own pace.", "What matters most is that they feel safe, with no rushing."] }
+      }
+    };
+
+    const $ = (s, r) => (r || document).querySelector(s);
+    const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+    const waUrl = (text) => "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+
+    function refreshWa() {
+      $$("[data-wa]").forEach((a) => { a.href = waUrl(MSG[a.dataset.wa][lang]); });
+    }
+
+    function renderOpts() {
+      $("#opts").innerHTML = ORDER.map((k) =>
+        '<button type="button" class="opt" data-k="' + k + '" aria-pressed="' + (k === current) + '"><span class="dot"></span><span>' + CHECK[k][lang].label + "</span></button>"
+      ).join("");
+    }
+
+    function resultHTML(k) {
+      const d = CHECK[k][lang], t = UI[lang];
+      const wa = waUrl(t.chose(d.label));
+      return (
+        '<div class="res-in" style="--i:0"><p class="eyebrow" style="color:#5fdad5">' + t.likely + '</p>' +
+        '<h3 class="res-title">' + d.head + '</h3><p class="res-intro">' + d.intro + "</p></div>" +
+        '<div class="mt-6 grid gap-6 md:grid-cols-2">' +
+          '<div class="res-in" style="--i:1"><h4 class="res-h">' + t.steps + '</h4><ol class="steps">' +
+            d.steps.map((s, i) => '<li><span class="n">' + (i + 1) + "</span><span>" + s + "</span></li>").join("") + "</ol></div>" +
+          '<div class="res-in" style="--i:2"><h4 class="res-h">' + t.expect + '</h4><ul class="expect">' +
+            d.expect.map((s) => '<li><svg class="ic"><use href="#i-check"/></svg><span>' + s + "</span></li>").join("") + "</ul></div>" +
+        "</div>" +
+        '<div class="res-in mt-7 flex flex-col gap-3" style="--i:3">' +
+          '<a class="btn btn-wa self-start" target="_blank" rel="noopener" href="' + wa + '"><svg class="ic"><use href="#i-wa"/></svg>' + t.send + "</a>" +
+          '<p class="note">' + t.note + "</p></div>"
+      );
+    }
+
+    function renderResult(animate) {
+      const el = $("#result");
+      el.classList.toggle("play", !!animate);
+      el.setAttribute("aria-busy", "false");
+      el.innerHTML = resultHTML(current);
+    }
+
+    function scanHTML() {
+      return '<div class="scan"><div class="scan-box">' +
+        '<svg viewBox="0 0 24 24" style="width:100%;height:100%;color:#5fdad5;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linejoin:round"><use href="#i-tooth"/></svg>' +
+        '<span class="scan-line"></span></div><p style="color:var(--on-deep-muted)">' + UI[lang].scanning + "</p></div>";
+    }
+
+    function choose(k) {
+      current = k;
+      $$(".opt").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.k === k)));
+      clearTimeout(timer);
+      const el = $("#result");
+      el.classList.remove("play");
+      el.setAttribute("aria-busy", "true");
+      el.innerHTML = scanHTML();
+      timer = setTimeout(() => renderResult(true), reduce ? 200 : 950);
+    }
+
+    function setLang(l, persist) {
+      lang = l;
+      const r = document.documentElement;
+      r.setAttribute("lang", l);
+      r.setAttribute("dir", l === "ar" ? "rtl" : "ltr");
+      if (persist) { try { localStorage.setItem("gsdc-lang", l); } catch (e) {} }
+      clearTimeout(timer);
+      renderOpts();
+      renderResult(false);
+      refreshWa();
+    }
+
+    $("#opts").addEventListener("click", (e) => {
+      const b = e.target.closest(".opt");
+      if (b && b.dataset.k !== current) choose(b.dataset.k);
+    });
+    $("#langBtn").addEventListener("click", () => setLang(lang === "ar" ? "en" : "ar", true));
+
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a || a.getAttribute("href") === "#") return;
+      const id = a.getAttribute("href").slice(1);
+      e.preventDefault();
+      if (id === "top") { window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" }); return; }
+      const t = document.getElementById(id);
+      if (t) t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+      $$(".reveal, .stars").forEach((el) => io.observe(el));
+    } else {
+      $$(".reveal, .stars").forEach((el) => el.classList.add("in"));
+    }
+
+    renderOpts();
+    renderResult(false);
+    refreshWa();
+  })();
+</script>
+
+</body></html>

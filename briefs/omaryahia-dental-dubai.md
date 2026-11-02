@@ -1,0 +1,13 @@
+# Omar Yahia Dental Clinic — Business Bay, Dubai (Dental)
+- Rating: Google 4.9–5.0, ~232–252 reviews (directory snapshots Oct 2026; localuae says 5.0/252)
+- WhatsApp: +971 50 219 5151 → wa.me/971502195151 · Landline 04 584 5307
+- Address: Fifty One Tower (51 Tower), Office 303, Business Bay, Dubai
+- Hours: 09:00–20:00 most days (verify Friday)
+- Web: Google "website" = instagram.com/dr.omaryahya only. Weakness: no website, no online booking, no service/price pages, no bilingual content.
+- Doctors named in reviews: Dr. Omar Yahia, Dr. Ruba, Dr. Modar Alshanaa (calm, good for anxious patients), Dr. Shiv (braces/orthodontics)
+- Services mentioned in reviews: veneers, Invisalign, braces, implants, fillings, cleaning, consultations. Prices: not public (unknown).
+- Selling points (from reviews): reasonable prices vs Dubai (one US patient: ~50% less than US); follow-up calls after treatment; calm, clean, "beautiful" clinic, coffee/water at welcome; careful, natural-looking veneers; good for anxious patients.
+- Caveat: one 2021 negative review (implants/quote increase).
+- Brand colors/vibe: unknown, check Instagram; suggest clean white + teal/gold premium Dubai.
+- AI feature: "AI Smile Preview": upload a selfie, then a guided quiz (veneers/Invisalign/whitening) → suggested treatment and a WhatsApp booking prefilled.
+- Language: EN + AR toggle.

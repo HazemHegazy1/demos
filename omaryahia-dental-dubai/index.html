@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8"><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2714%27%20fill%3D%27%23101419%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2742%27%20font-family%3D%27Georgia%2Cserif%27%20font-size%3D%2724%27%20text-anchor%3D%27middle%27%20fill%3D%27%23c9a96e%27%3EOY%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Omar Yahia Dental Clinic — Business Bay, Dubai</title>
+<meta name="description" content="Veneers, Invisalign, braces and implants in Business Bay, Dubai. 4.9 stars from 250+ Google reviews. Gentle with anxious patients.">
+<meta name="theme-color" content="#101419">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101419; --ink2:#181e26; --ivory:#f7f2ea; --sand:#ebe3d4; --gold:#b8995f; --gold2:#d9c291;
+  --muted:#6c6a64; --line:rgba(16,20,25,.12); --lineD:rgba(247,242,234,.14);
+  --serif:'Cormorant Garamond','Amiri',serif; --sans:'Manrope','Tajawal',sans-serif;
+  --pad:clamp(20px,5vw,72px); --ease:cubic-bezier(.22,.8,.2,1);
+}
+html[lang="ar"]{--serif:'Amiri','Cormorant Garamond',serif;--sans:'Tajawal','Manrope',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.loading{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--gold);color:#fff}
+.wrap{padding-inline:var(--pad);max-width:1440px;margin-inline:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500;display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+html[lang="ar"] .eyebrow{letter-spacing:.04em;font-size:.85rem}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:-.01em}
+h2{font-size:clamp(2.3rem,5.2vw,4.6rem)}
+h2 em,h1 em{font-style:italic;color:var(--gold)}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{line-height:1.3;letter-spacing:0}
+p.lead{font-size:clamp(1rem,1.2vw,1.12rem);color:var(--muted);max-width:52ch;font-weight:300}
+section{position:relative}
+.sec{padding-block:clamp(90px,14vw,190px)}
+
+/* Loader */
+#loader{position:fixed;inset:0;z-index:999;background:var(--ink);color:var(--ivory);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:26px}
+#loader svg{width:128px;height:128px;overflow:visible}
+#loader .ring{fill:none;stroke:var(--gold);stroke-width:1;stroke-dasharray:340;stroke-dashoffset:340}
+#loader text{font-family:'Cormorant Garamond',serif;font-size:34px;fill:var(--ivory);text-anchor:middle}
+#loader .name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.42em;text-transform:uppercase;opacity:.7;text-align:center;padding-inline:20px}
+#loader .pct{position:absolute;bottom:34px;inset-inline-end:var(--pad);font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold2)}
+#loader .bar{position:absolute;bottom:0;left:0;height:2px;background:var(--gold);width:0}
+
+/* Cursor */
+.cur{display:none}
+@media (pointer:fine) and (min-width:900px){
+  body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
+  .cur{display:block;position:fixed;top:0;left:0;z-index:998;pointer-events:none;mix-blend-mode:normal;opacity:0;transition:opacity .3s}
+  body.cursor-on .cur{opacity:1}
+  .cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--gold)}
+  .cur-ring{width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:1px solid var(--gold);transition:width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s}
+  .cur-ring.hov{width:70px;height:70px;margin:-35px 0 0 -35px;background:rgba(184,153,95,.14)}
+}
+
+/* Nav */
+nav.top{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px var(--pad) 18px;display:flex;align-items:center;justify-content:space-between;transition:background .5s,backdrop-filter .5s,padding .4s,transform .5s var(--ease);color:var(--ink)}
+nav.top.scrolled{background:rgba(247,242,234,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding-block:14px 12px;box-shadow:0 1px 0 var(--line)}
+nav.top.hide{transform:translateY(-100%)}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.28rem;font-weight:500;letter-spacing:.01em;line-height:1.1}
+.brand i{width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:.95rem;color:var(--gold);flex:none}
+.brand small{display:block;font-family:var(--sans);font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+html[lang="ar"] .brand small{letter-spacing:.02em;font-size:.7rem}
+.links{display:flex;gap:34px;font-size:.84rem;letter-spacing:.04em}
+.links a{position:relative;padding-block:4px}
+.links a::after{content:"";position:absolute;inset-inline:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+html[dir="rtl"] .links a::after{transform-origin:right}
+.links a:hover::after{transform:scaleX(1)}
+.nav-r{display:flex;align-items:center;gap:14px}
+.lang{border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:.78rem;letter-spacing:.08em;transition:all .3s;font-family:'Manrope','Tajawal',sans-serif}
+.lang:hover{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;padding:15px 30px;border-radius:99px;font-size:.86rem;letter-spacing:.05em;font-weight:500;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s,transform .3s}
+.btn.solid{background:var(--ink);color:var(--ivory)}
+.btn.gold{background:var(--gold);color:#fff}
+.btn.ghost{border:1px solid var(--ink)}
+.btn.ghostL{border:1px solid rgba(247,242,234,.4);color:var(--ivory)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--gold2);transform:translateY(101%);transition:transform .55s var(--ease);border-radius:inherit}
+.btn.gold::before{background:var(--ink)}
+.btn:hover::before{transform:translateY(0)}
+.btn.solid:hover,.btn.ghost:hover,.btn.ghostL:hover{color:var(--ink)}
+.btn.ghost:hover,.btn.ghostL:hover{border-color:var(--gold2)}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+html[dir="rtl"] .btn:hover svg{transform:translateX(-4px)}
+.nav-cta{display:inline-flex}
+@media(max-width:900px){.links{display:none}.nav-cta{display:none}.brand small{display:none}}
+
+/* Hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding-top:110px;padding-bottom:70px;overflow:hidden;background:radial-gradient(120% 90% at 85% 10%,#fbf7f0 0,var(--ivory) 55%,var(--sand) 130%)}
+.hero .wrap{width:100%;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(24px,5vw,80px);align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(3rem,8.4vw,7.6rem);margin-block:26px 30px;font-weight:300}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln>span{display:block;will-change:transform}
+html[lang="ar"] .hero h1{font-size:clamp(2.6rem,7vw,6rem);line-height:1.35}
+.hero .lead{margin-bottom:40px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{display:flex;gap:clamp(18px,3vw,44px);margin-top:54px;flex-wrap:wrap}
+.hero-meta div{font-size:.78rem;color:var(--muted);letter-spacing:.06em}
+.hero-meta b{display:block;font-family:var(--serif);font-size:1.9rem;font-weight:400;color:var(--ink);letter-spacing:0;line-height:1.1}
+.hero-vis{position:relative;aspect-ratio:4/5;max-height:76vh;justify-self:center;width:100%;max-width:520px}
+.arch{position:absolute;inset:0;border-radius:999px 999px 28px 28px;background:linear-gradient(165deg,#1b222c 0,#10151b 70%);overflow:hidden;box-shadow:0 50px 100px -40px rgba(16,20,25,.55)}
+.arch::before{content:"";position:absolute;inset:14px;border:1px solid rgba(217,194,145,.35);border-radius:999px 999px 18px 18px}
+.arch svg{position:absolute;inset:0;width:100%;height:100%}
+.float-card{position:absolute;background:rgba(247,242,234,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:18px;padding:16px 20px;box-shadow:0 24px 50px -20px rgba(16,20,25,.35);display:flex;align-items:center;gap:14px}
+.float-card.a{inset-inline-start:-6%;bottom:12%}
+.float-card.b{inset-inline-end:-4%;top:14%;flex-direction:column;align-items:flex-start;gap:2px}
+.float-card .big{font-family:var(--serif);font-size:2.3rem;line-height:1}
+.float-card small{font-size:.7rem;color:var(--muted);letter-spacing:.06em;line-height:1.4;display:block}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.9rem}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb.o1{width:46vw;height:46vw;max-width:680px;max-height:680px;inset-inline-end:-14vw;top:-12vw;border:1px solid rgba(184,153,95,.35)}
+.orb.o2{width:30vw;height:30vw;max-width:440px;max-height:440px;inset-inline-end:-6vw;top:-3vw;border:1px solid rgba(184,153,95,.22)}
+.orb.o3{width:360px;height:360px;inset-inline-start:-120px;bottom:-120px;background:radial-gradient(circle,rgba(217,194,145,.35),transparent 70%);filter:blur(10px)}
+.scroll-hint{position:absolute;bottom:26px;inset-inline-start:var(--pad);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;z-index:3}
+.scroll-hint i{width:1px;height:46px;background:var(--line);position:relative;overflow:hidden}
+.scroll-hint i::after{content:"";position:absolute;inset-inline:0;top:-50%;height:50%;background:var(--gold);animation:drip 2.2s infinite var(--ease)}
+@keyframes drip{to{top:110%}}
+@media(max-width:900px){
+  .hero{padding-top:100px;align-items:flex-start}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-vis{max-width:340px;max-height:none;order:-1;margin-inline:auto;margin-bottom:6px}
+  .float-card.a{inset-inline-start:-2%}.float-card.b{inset-inline-end:-2%}
+  .scroll-hint{display:none}
+  .hero-meta{margin-top:38px}
+}
+
+/* Marquee */
+.marquee{background:var(--ink);color:var(--ivory);padding-block:26px;overflow:hidden;white-space:nowrap}
+.marquee .track{display:inline-flex;gap:0;will-change:transform}
+.marquee span{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.8rem);font-style:italic;font-weight:300;padding-inline:28px;display:inline-flex;align-items:center;gap:56px}
+.marquee span::after{content:"✦";color:var(--gold);font-size:.9rem;font-style:normal}
+
+/* Why */
+.why-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,7vw,120px);align-items:start}
+.why-grid .l{position:sticky;top:130px}
+.why-grid h2{margin-block:22px 26px}
+.pillars{display:grid;gap:0}
+.pillar{padding-block:38px;border-top:1px solid var(--line);display:grid;grid-template-columns:70px 1fr;gap:20px;transition:padding .5s var(--ease)}
+.pillar:last-child{border-bottom:1px solid var(--line)}
+.pillar .n{font-family:var(--serif);font-size:1.4rem;color:var(--gold);font-style:italic}
+.pillar h3{font-size:clamp(1.6rem,2.6vw,2.3rem);margin-bottom:10px;transition:transform .5s var(--ease)}
+.pillar p{color:var(--muted);font-weight:300;max-width:46ch}
+.pillar:hover h3{transform:translateX(10px)}
+html[dir="rtl"] .pillar:hover h3{transform:translateX(-10px)}
+@media(max-width:900px){.why-grid{grid-template-columns:1fr}.why-grid .l{position:static}}
+
+/* Treatments */
+.treat{background:var(--sand)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
+.sec-head h2{margin-top:20px;max-width:14ch}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tcard{position:relative;background:var(--ivory);border-radius:22px;padding:34px 28px 30px;min-height:380px;display:flex;flex-direction:column;overflow:hidden;isolation:isolate;transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.tcard::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--ink);transform:translateY(101%);transition:transform .7s var(--ease)}
+.tcard:hover::before{transform:translateY(0)}
+.tcard:hover{color:var(--ivory);transform:translateY(-6px);box-shadow:0 40px 70px -35px rgba(16,20,25,.5)}
+.tcard .ic{width:62px;height:62px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);transition:transform .7s var(--ease)}
+.tcard:hover .ic{transform:rotate(360deg) scale(1.06)}
+.tcard .ic svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.tcard .idx{position:absolute;top:26px;inset-inline-end:26px;font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.1rem}
+.tcard h3{font-size:2rem;margin-top:auto;margin-bottom:12px}
+.tcard p{font-size:.9rem;color:var(--muted);font-weight:300;transition:color .5s}
+.tcard:hover p{color:rgba(247,242,234,.72)}
+.tcard .more{margin-top:22px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;gap:10px;align-items:center}
+html[lang="ar"] .tcard .more{letter-spacing:.02em;font-size:.85rem}
+@media(max-width:1100px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.tgrid{grid-template-columns:1fr}.tcard{min-height:300px}}
+
+/* Story */
+.story{background:var(--ink);color:var(--ivory);height:100svh;min-height:620px;overflow:hidden}
+.story .wrap{height:100%;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,6vw,100px);align-items:center;position:relative}
+.story .eyebrow{position:absolute;top:clamp(90px,13vh,130px);inset-inline-start:var(--pad)}
+.step-stage{position:relative;height:min(52vh,420px)}
+.step{position:absolute;inset:0;opacity:0;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.step .num{font-family:var(--serif);font-size:clamp(5rem,13vw,11rem);line-height:.9;font-weight:300;font-style:italic;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.step h3{font-size:clamp(2rem,4.4vw,3.8rem)}
+.step p{color:rgba(247,242,234,.68);max-width:42ch;font-weight:300}
+.story-vis{position:relative;display:grid;place-items:center}
+.story-vis svg{width:min(78%,440px);height:auto;overflow:visible}
+.story-vis .r{fill:none;stroke:rgba(217,194,145,.28);stroke-width:1}
+.story-vis .rp{fill:none;stroke:var(--gold2);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000}
+.story-vis text{font-family:'Cormorant Garamond',serif;fill:var(--ivory);font-size:15px;text-anchor:middle;letter-spacing:.2em;text-transform:uppercase;opacity:.65}
+.story-vis .dot{fill:var(--gold);transition:r .4s}
+.prog{position:absolute;bottom:clamp(30px,7vh,70px);inset-inline-start:var(--pad);inset-inline-end:var(--pad);display:flex;gap:10px}
+.prog i{flex:1;height:2px;background:rgba(247,242,234,.18);position:relative;overflow:hidden}
+.prog i b{position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left}
+html[dir="rtl"] .prog i b{transform-origin:right}
+@media(max-width:900px){
+  .story .wrap{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:center;gap:0}
+  .story-vis{order:-1;margin-top:100px}
+  .story-vis svg{width:min(52vw,230px)}
+  .step-stage{height:min(46vh,340px)}
+  .step .num{font-size:4.6rem}
+  .story .eyebrow{top:86px}
+}
+
+/* AI */
+.ai{background:linear-gradient(180deg,var(--ivory),#f1e9db)}
+.ai-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.ai h2{margin-block:22px 24px}
+.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;margin-top:30px}
+html[lang="ar"] .chip{letter-spacing:.02em;font-size:.85rem}
+.chip i{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.25;transform:scale(1.6)}}
+.qcard{background:var(--ink);color:var(--ivory);border-radius:30px;padding:clamp(26px,4vw,52px);min-height:520px;position:relative;overflow:hidden;box-shadow:0 60px 100px -50px rgba(16,20,25,.6)}
+.qcard::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;inset-inline-end:-160px;top:-180px;background:radial-gradient(circle,rgba(184,153,95,.28),transparent 70%);pointer-events:none}
+.qtop{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:34px;position:relative;z-index:2}
+html[lang="ar"] .qtop{letter-spacing:.02em;font-size:.85rem}
+.qbar{height:2px;background:rgba(247,242,234,.14);margin-bottom:38px;position:relative;z-index:2}
+.qbar b{position:absolute;inset-block:0;inset-inline-start:0;background:var(--gold);width:0;transition:width .7s var(--ease)}
+.qbody{position:relative;z-index:2}
+.qbody h3{font-size:clamp(1.8rem,3.2vw,2.7rem);margin-bottom:28px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:start;border:1px solid var(--lineD);border-radius:16px;padding:17px 22px;font-size:.98rem;transition:all .4s var(--ease);position:relative;overflow:hidden;opacity:0;transform:translateY(14px)}
+.opt.in{opacity:1;transform:none}
+.opt small{display:block;color:rgba(247,242,234,.5);font-size:.78rem;font-weight:300}
+.opt:hover{border-color:var(--gold);background:rgba(184,153,95,.1);transform:translateX(6px)}
+html[dir="rtl"] .opt:hover{transform:translateX(-6px)}
+.opt svg{width:16px;height:16px;color:var(--gold);flex:none;opacity:0;transition:opacity .3s}
+.opt:hover svg{opacity:1}
+.back{margin-top:22px;font-size:.8rem;color:rgba(247,242,234,.5);letter-spacing:.06em}
+.back:hover{color:var(--gold2)}
+.analyze{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:340px;gap:30px}
+.scan{width:130px;height:130px;position:relative}
+.scan svg{width:100%;height:100%;animation:spin 2.4s linear infinite}
+.scan circle{fill:none;stroke:var(--gold);stroke-width:1.5;stroke-dasharray:90 260;stroke-linecap:round}
+.scan circle.b{stroke:rgba(217,194,145,.3);stroke-dasharray:3 9;animation:none}
+.scan::after{content:"";position:absolute;inset:34%;border-radius:50%;background:var(--gold);opacity:.8;animation:pulse 1.2s infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.analyze p{font-family:var(--serif);font-size:1.6rem;font-style:italic;color:var(--gold2);min-height:2em}
+.result .tag{display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+html[lang="ar"] .result .tag{letter-spacing:.02em;font-size:.85rem}
+.result h3{font-size:clamp(2.4rem,5vw,4rem);margin-bottom:16px}
+.result p.why{color:rgba(247,242,234,.72);font-weight:300;margin-bottom:22px;max-width:50ch}
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.summary span{border:1px solid var(--lineD);border-radius:99px;padding:6px 14px;font-size:.78rem;color:rgba(247,242,234,.8)}
+.alt{font-size:.88rem;color:rgba(247,242,234,.6);margin-bottom:26px}
+.alt b{color:var(--gold2);font-weight:500}
+.result .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.fine{font-size:.72rem;color:rgba(247,242,234,.4);margin-top:20px;line-height:1.6}
+.restart{font-size:.82rem;color:rgba(247,242,234,.6);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.ai-grid{grid-template-columns:1fr}.qcard{min-height:480px}}
+
+/* Slider */
+.ba{background:var(--ivory)}
+.ba-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,6vw,100px);align-items:center}
+.cmp{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:8/5;box-shadow:0 50px 90px -45px rgba(16,20,25,.55);user-select:none;touch-action:pan-y;background:#e9dcc8}
+.cmp svg{position:absolute;inset:0;width:100%;height:100%}
+.cmp .before{clip-path:inset(0 50% 0 0)}
+.cmp .tagl{position:absolute;top:18px;padding:6px 14px;border-radius:99px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(16,20,25,.7);color:var(--ivory);backdrop-filter:blur(6px);z-index:3;font-family:'Manrope','Tajawal',sans-serif}
+.cmp .tagl.l{left:18px}.cmp .tagl.r{right:18px;background:rgba(184,153,95,.9)}
+.handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--ivory);z-index:4;transform:translateX(-1px);pointer-events:none}
+.handle i{position:absolute;top:50%;left:50%;width:54px;height:54px;border-radius:50%;background:var(--ivory);transform:translate(-50%,-50%);box-shadow:0 10px 30px rgba(0,0,0,.3);display:grid;place-items:center;color:var(--ink);transition:transform .3s var(--ease)}
+.cmp:hover .handle i{transform:translate(-50%,-50%) scale(1.1)}
+.handle svg{position:static;width:24px;height:24px}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;margin:0}
+.ba-note{font-size:.76rem;color:var(--muted);margin-top:16px}
+.ba h2{margin-block:22px 24px}
+.ticks{list-style:none;margin-top:30px;display:grid;gap:14px}
+.ticks li{display:flex;gap:14px;align-items:center;font-size:.95rem}
+.ticks li::before{content:"";width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);flex:none}
+@media(max-width:900px){.ba-grid{grid-template-columns:1fr}}
+
+/* Stats */
+.stats{background:var(--ink);color:var(--ivory);overflow:hidden}
+.stats .head{max-width:760px;margin-bottom:clamp(40px,6vw,80px)}
+.stats h2{margin-top:20px}
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--lineD)}
+.stat{padding:42px 26px 40px;border-inline-end:1px solid var(--lineD)}
+.stat:last-child{border-inline-end:0}
+.stat .v{font-family:var(--serif);font-size:clamp(3.2rem,6.5vw,6rem);line-height:1;font-weight:300;color:var(--ivory);display:flex;align-items:baseline;gap:4px;direction:ltr;justify-content:flex-start}
+html[dir="rtl"] .stat .v{justify-content:flex-end}
+.stat .v sup,.stat .v small{font-size:.38em;color:var(--gold);font-weight:400;font-family:var(--sans)}
+.stat p{margin-top:16px;font-size:.85rem;color:rgba(247,242,234,.6);font-weight:300;max-width:24ch}
+.stat .stars{display:block;margin-top:10px}
+.rev-cta{margin-top:56px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+@media(max-width:900px){.sgrid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-inline-end:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--lineD)}}
+
+/* Visit */
+.visit{background:var(--sand)}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:stretch}
+.visit h2{margin-block:22px 34px}
+.info{display:grid;gap:0}
+.info .r{display:grid;grid-template-columns:130px 1fr;gap:16px;padding-block:22px;border-top:1px solid var(--line);font-size:1rem}
+.info .r:last-child{border-bottom:1px solid var(--line)}
+.info .k{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);padding-top:4px}
+html[lang="ar"] .info .k{letter-spacing:.02em;font-size:.88rem}
+.info a:hover{color:var(--gold)}
+.info .v{direction:ltr;unicode-bidi:plaintext}
+html[dir="rtl"] .info .v.ltr{text-align:right}
+.mapcard{border-radius:26px;background:var(--ink);color:var(--ivory);position:relative;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:34px}
+.mapcard svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.mapcard .pin{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%)}
+.mapcard .pin i{display:block;width:16px;height:16px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(184,153,95,.6);animation:ping 2.2s infinite}
+@keyframes ping{to{box-shadow:0 0 0 38px rgba(184,153,95,0)}}
+.mapcard .tx{position:relative;z-index:2}
+.mapcard h3{font-size:2rem;margin-bottom:6px}
+.mapcard p{color:rgba(247,242,234,.65);font-size:.9rem;margin-bottom:20px}
+@media(max-width:900px){.vgrid{grid-template-columns:1fr}.info .r{grid-template-columns:100px 1fr}}
+
+/* Final CTA / Footer */
+.final{background:var(--ink);color:var(--ivory);text-align:center;overflow:hidden}
+.final h2{font-size:clamp(2.8rem,8vw,7.4rem);font-weight:300;max-width:14ch;margin:24px auto 44px}
+.final .orb{inset-inline-start:50%;top:50%;width:70vw;height:70vw;max-width:900px;max-height:900px;transform:translate(-50%,-50%);border:1px solid rgba(184,153,95,.18)}
+html[dir="rtl"] .final .orb{inset-inline-start:auto;inset-inline-end:50%;transform:translate(50%,-50%)}
+.final .wrap{position:relative;z-index:2}
+footer{background:var(--ink);color:rgba(247,242,234,.5);padding:34px var(--pad);border-top:1px solid var(--lineD);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.78rem}
+footer a:hover{color:var(--gold2)}
+
+/* WhatsApp */
+.wa{position:fixed;inset-inline-end:clamp(16px,2.4vw,32px);bottom:clamp(16px,2.4vw,32px);z-index:90;display:flex;align-items:center;gap:12px;background:#1f9d57;color:#fff;border-radius:99px;padding:14px;box-shadow:0 18px 40px -12px rgba(31,157,87,.6);transition:transform .4s var(--ease),padding .5s var(--ease),opacity .5s;opacity:0;transform:translateY(20px)}
+.wa.show{opacity:1;transform:none}
+.wa svg{width:28px;height:28px;flex:none}
+.wa span{max-width:0;overflow:hidden;white-space:nowrap;font-size:.86rem;font-weight:500;transition:max-width .6s var(--ease)}
+.wa:hover{padding-inline:20px 22px}.wa:hover span{max-width:220px}
+.wa::before{content:"";position:absolute;inset:0;border-radius:inherit;border:1px solid #1f9d57;animation:ring 2.8s infinite;pointer-events:none}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+
+/* Reveal fallbacks */
+.no-js-anim .rv,.rm .rv{opacity:1!important;transform:none!important}
+.rm .step{position:static;opacity:1;margin-bottom:40px}
+.rm .story{height:auto;padding-block:120px}
+.rm .step-stage{height:auto}
+.rm .story .eyebrow{position:static;margin-bottom:30px;display:flex}
+.rm .story .wrap{display:block}
+.rm .story-vis,.rm .prog{display:none}
+.rm *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+</style>
+</head>
+<body class="loading">
+
+<!-- Loader -->
+<div id="loader" aria-hidden="true">
+  <svg viewBox="0 0 120 120"><circle class="ring" cx="60" cy="60" r="54"/><text x="60" y="71">OY</text></svg>
+  <div class="name" id="ldName">Omar Yahia Dental Clinic</div>
+  <div class="pct" id="ldPct">0</div>
+  <div class="bar" id="ldBar"></div>
+</div>
+<div class="cur cur-ring" id="curRing"></div><div class="cur cur-dot" id="curDot"></div>
+
+<nav class="top" id="nav">
+  <a href="#top" class="brand" data-hover><i>OY</i><span><span data-i18n="brand">Omar Yahia</span><small data-i18n="brandSub">Dental Clinic · Dubai</small></span></a>
+  <div class="links">
+    <a href="#treatments" data-i18n="nav1">Treatments</a>
+    <a href="#journey" data-i18n="nav2">Your journey</a>
+    <a href="#preview" data-i18n="nav3">Smile Preview</a>
+    <a href="#reviews" data-i18n="nav4">Reviews</a>
+    <a href="#visit" data-i18n="nav5">Visit</a>
+  </div>
+  <div class="nav-r">
+    <button class="lang" id="langBtn" aria-label="Switch language">العربية</button>
+    <a class="btn solid nav-cta waLink" href="#" target="_blank" rel="noopener" data-i18n="bookNow">Book on WhatsApp</a>
+  </div>
+</nav>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="orb o1" data-speed="-60"></div><div class="orb o2" data-speed="40"></div><div class="orb o3" data-speed="-30"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow rv" data-i18n="heroEyebrow">Business Bay · Dubai</span>
+      <h1>
+        <span class="ln"><span data-i18n="h1a">A gentler path</span></span>
+        <span class="ln"><span data-i18n="h1b">to a <em>confident</em></span></span>
+        <span class="ln"><span data-i18n="h1c">smile.</span></span>
+      </h1>
+      <p class="lead rv" data-i18n="heroLead">Veneers, Invisalign, braces and implants — with fair prices for Dubai and a team known for putting anxious patients at ease.</p>
+      <div class="cta-row rv">
+        <a class="btn solid waLink" href="#" target="_blank" rel="noopener" data-mag><span data-i18n="bookNow">Book on WhatsApp</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="#preview" data-mag><span data-i18n="tryAI">Try the AI Smile Preview</span></a>
+      </div>
+      <div class="hero-meta rv">
+        <div><b>4.9 <span class="stars">★</span></b><span data-i18n="gRating">Google rating</span></div>
+        <div><b>250+</b><span data-i18n="gReviews">Google reviews</span></div>
+        <div><b>7/7</b><span data-i18n="openHrs">Open daily hours</span></div>
+      </div>
+    </div>
+    <div class="hero-vis rv">
+      <div class="arch" data-speed="30">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffdf8"/><stop offset="1" stop-color="#e9e1d0"/></linearGradient>
+            <radialGradient id="gl" cx=".5" cy=".4" r=".6"><stop offset="0" stop-color="#d9c291" stop-opacity=".35"/><stop offset="1" stop-color="#d9c291" stop-opacity="0"/></radialGradient>
+            <clipPath id="hm"><path d="M60 270 C 130 215, 270 215, 340 270 C 290 340, 110 340, 60 270Z"/></clipPath>
+          </defs>
+          <circle cx="200" cy="260" r="190" fill="url(#gl)"/>
+          <g fill="none" stroke="#d9c291" stroke-opacity=".28"><circle cx="200" cy="260" r="120"/><circle cx="200" cy="260" r="165"/></g>
+          <path d="M60 270 C 130 215, 270 215, 340 270 C 290 340, 110 340, 60 270Z" fill="#2a1a1d"/>
+          <g clip-path="url(#hm)" id="heroTeeth"></g>
+          <path d="M50 270 C 125 205, 160 218, 200 232 C 240 218, 275 205, 350 270 C 280 245, 240 240, 200 252 C 160 240, 120 245, 50 270Z" fill="#c98f8a"/>
+          <path d="M50 270 C 120 355, 280 355, 350 270 C 300 300, 260 312, 200 314 C 140 312, 100 300, 50 270Z" fill="#bd7f7b"/>
+          <g fill="#d9c291" id="sparks"><path d="M320 120l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/><path d="M82 380l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" opacity=".7"/><circle cx="300" cy="400" r="2.2"/></g>
+        </svg>
+      </div>
+      <div class="float-card b"><span class="stars">★★★★★</span><span class="big">4.9</span><small data-i18n="fc1">on Google · 250+ reviews</small></div>
+      <div class="float-card a"><div><span class="big" style="font-size:1.5rem" data-i18n="fc2t">Follow-up calls</span><small data-i18n="fc2">After every treatment</small></div></div>
+    </div>
+  </div>
+  <div class="scroll-hint"><i></i><span data-i18n="scroll">Scroll</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- WHY -->
+<section class="sec" id="why">
+  <div class="wrap why-grid">
+    <div class="l">
+      <span class="eyebrow rv" data-i18n="whyEy">The clinic</span>
+      <h2 class="rv" data-i18n="whyH">Dentistry that feels <em>calm</em>, not clinical.</h2>
+      <p class="lead rv" data-i18n="whyP">Dr. Omar Yahia's clinic in Business Bay is trusted by patients across Dubai — rated 4.9 from over 250 Google reviews.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv"><span class="n">01</span><div><h3 data-i18n="p1t">Gentle with anxious patients</h3><p data-i18n="p1">Nervous about the dentist? You'll be listened to, never rushed. Comfort comes first.</p></div></div>
+      <div class="pillar rv"><span class="n">02</span><div><h3 data-i18n="p2t">Fair prices for Dubai</h3><p data-i18n="p2">Premium care that stays honest on cost — so a better smile doesn't feel out of reach.</p></div></div>
+      <div class="pillar rv"><span class="n">03</span><div><h3 data-i18n="p3t">We call you after treatment</h3><p data-i18n="p3">Follow-up calls mean you're never left wondering how healing is going.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="sec treat" id="treatments">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv" data-i18n="trEy">Treatments</span><h2 class="rv" data-i18n="trH">Four ways to <em>transform</em> a smile.</h2></div>
+      <p class="lead rv" data-i18n="trP">Known across Dubai for these four signature treatments.</p>
+    </div>
+    <div class="tgrid">
+      <article class="tcard rv" data-hover><span class="idx">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 5.5c-1.8-1.6-5.5-1.4-5.5 2.2 0 2.6 1 3.8 1.4 6.4.4 2.6.9 5.4 2.5 5.4 1.3 0 1-3.6 1.6-3.6s.3 3.6 1.6 3.6c1.6 0 2.1-2.800 2.500-5.400.4-2.600 1.400-3.800 1.400-6.400 0-3.600-3.700-3.800-5.500-2.200z"/></svg></div>
+        <h3 data-i18n="t1">Veneers</h3><p data-i18n="t1p">Reshape colour, shape and symmetry for a refined, natural-looking smile.</p></article>
+      <article class="tcard rv" data-hover><span class="idx">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 14c2.500-6 15.500-6 18 0"/><path d="M5 15.500c2-3.500 12-3.500 14 0"/><path d="M8 17.500c1.200 1.200 6.800 1.200 8 0"/></svg></div>
+        <h3 data-i18n="t2">Invisalign</h3><p data-i18n="t2p">Clear aligners that straighten teeth discreetly, without the look of metal.</p></article>
+      <article class="tcard rv" data-hover><span class="idx">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="4" height="6" rx="1"/><rect x="10" y="9" width="4" height="6" rx="1"/><rect x="16" y="9" width="4" height="6" rx="1"/><path d="M2.500 12h19"/></svg></div>
+        <h3 data-i18n="t3">Braces</h3><p data-i18n="t3p">A proven route to aligned teeth and a well-balanced bite.</p></article>
+      <article class="tcard rv" data-hover><span class="idx">04</span>
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 3.500h10c.6 3-.4 4.500-1 6H8c-.6-1.500-1.600-3-1-6z"/><path d="M9 11h6M9.500 13.500h5M10 16h4M11 18.500h2M12 18.500V21"/></svg></div>
+        <h3 data-i18n="t4">Implants</h3><p data-i18n="t4p">A lasting, natural-feeling way to replace missing teeth.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- STORY (pinned) -->
+<section class="story" id="journey">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="joEy">Your journey</span>
+    <div class="step-stage" id="stage">
+      <div class="step"><span class="num">01</span><h3 data-i18n="s1t">A calm first conversation</h3><p data-i18n="s1">Tell us what bothers you about your smile — and about any nerves. Gentle care is how we work.</p></div>
+      <div class="step"><span class="num">02</span><h3 data-i18n="s2t">A plan that fits you</h3><p data-i18n="s2">We recommend the treatment that suits your goals, with fair pricing for Dubai.</p></div>
+      <div class="step"><span class="num">03</span><h3 data-i18n="s3t">Treatment, done gently</h3><p data-i18n="s3">Veneers, Invisalign, braces or implants — delivered with a careful, reassuring hand.</p></div>
+      <div class="step"><span class="num">04</span><h3 data-i18n="s4t">We call to check on you</h3><p data-i18n="s4">After treatment, a follow-up call makes sure you feel looked after.</p></div>
+    </div>
+    <div class="story-vis">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <circle class="r" cx="200" cy="200" r="170"/><circle class="r" cx="200" cy="200" r="120"/><circle class="r" cx="200" cy="200" r="70"/>
+        <circle class="rp" id="rp" cx="200" cy="200" r="170" transform="rotate(-90 200 200)" pathLength="1000"/>
+        <circle class="dot" cx="200" cy="30" r="5"/><circle class="dot" cx="370" cy="200" r="5"/><circle class="dot" cx="200" cy="370" r="5"/><circle class="dot" cx="30" cy="200" r="5"/>
+        <text x="200" y="206" id="rpTxt">01 / 04</text>
+      </svg>
+    </div>
+    <div class="prog" id="prog"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+  </div>
+</section>
+
+<!-- AI PREVIEW -->
+<section class="sec ai" id="preview">
+  <div class="wrap ai-grid">
+    <div>
+      <span class="eyebrow rv" data-i18n="aiEy">AI Smile Preview</span>
+      <h2 class="rv" data-i18n="aiH">Find your <em>starting point</em> in 30 seconds.</h2>
+      <p class="lead rv" data-i18n="aiP">Answer three quick questions. Our smile assistant suggests the treatment that fits best — then opens a ready-to-send WhatsApp booking message.</p>
+      <span class="chip rv"><i></i><span data-i18n="aiChip">Runs privately in your browser</span></span>
+    </div>
+    <div class="qcard rv" id="qcard" aria-live="polite">
+      <div class="qtop"><span id="qStep"></span><span>AI Smile Preview</span></div>
+      <div class="qbar"><b id="qBar"></b></div>
+      <div class="qbody" id="qBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec ba" id="transform">
+  <div class="wrap ba-grid">
+    <div class="rv">
+      <div class="cmp" id="cmp" dir="ltr">
+        <svg class="after" id="svgAfter" viewBox="0 0 800 500" aria-hidden="true"></svg>
+        <svg class="before" id="svgBefore" viewBox="0 0 800 500" aria-hidden="true"></svg>
+        <span class="tagl l" data-i18n="before">Before</span><span class="tagl r" data-i18n="after">After</span>
+        <div class="handle" id="handle"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></i></div>
+        <input type="range" min="0" max="100" value="50" id="rng" aria-label="Before and after slider">
+      </div>
+      <p class="ba-note" data-i18n="baNote">Illustration for demonstration only — not an actual patient result.</p>
+    </div>
+    <div>
+      <span class="eyebrow rv" data-i18n="baEy">The difference</span>
+      <h2 class="rv" data-i18n="baH">Drag to see what <em>refined</em> can look like.</h2>
+      <ul class="ticks rv"><li data-i18n="k1">Colour, shape and symmetry</li><li data-i18n="k2">Alignment and spacing</li><li data-i18n="k3">Planned around your goals</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS / STATS -->
+<section class="sec stats" id="reviews">
+  <div class="wrap">
+    <div class="head"><span class="eyebrow rv" data-i18n="rvEy">Patient trust</span><h2 class="rv" data-i18n="rvH">Rated <em>4.9</em> by patients who actually came in.</h2></div>
+    <div class="sgrid">
+      <div class="stat rv"><div class="v"><span data-count="4.9" data-dec="1">0</span><small>/5</small></div><span class="stars">★★★★★</span><p data-i18n="st1">Average Google rating</p></div>
+      <div class="stat rv"><div class="v"><span data-count="250">0</span><sup>+</sup></div><p data-i18n="st2">Google reviews</p></div>
+      <div class="stat rv"><div class="v"><span data-count="4">0</span></div><p data-i18n="st3">Signature treatments: veneers, Invisalign, braces, implants</p></div>
+      <div class="stat rv"><div class="v"><span data-count="7">0</span><small>/7</small></div><p data-i18n="st4">Open every day, 09:00 to 20:00</p></div>
+    </div>
+    <div class="rev-cta rv">
+      <a class="btn ghostL" href="https://maps.google.com/?cid=368554375821936350" target="_blank" rel="noopener" data-i18n="readRev">Read the reviews on Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="sec visit" id="visit">
+  <div class="wrap vgrid">
+    <div>
+      <span class="eyebrow rv" data-i18n="viEy">Visit us</span>
+      <h2 class="rv" data-i18n="viH">Find us in <em>Business Bay</em>.</h2>
+      <div class="info rv">
+        <div class="r"><span class="k" data-i18n="kAddr">Address</span><span data-i18n="addr">Fifty One Tower, Office 303, Business Bay, Dubai</span></div>
+        <div class="r"><span class="k" data-i18n="kHours">Hours</span><span class="v ltr">Sat–Wed 09:00–20:00<br>Thu 09:00–18:00<br>Fri 11:00–16:00</span></div>
+        <div class="r"><span class="k">WhatsApp</span><a class="v ltr waLink" href="#" target="_blank" rel="noopener">+971 50 219 5151</a></div>
+        <div class="r"><span class="k">Instagram</span><a class="v ltr" href="https://instagram.com/dr.omaryahya" target="_blank" rel="noopener">@dr.omaryahya</a></div>
+      </div>
+    </div>
+    <div class="mapcard rv">
+      <svg class="bg" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g fill="none" stroke="rgba(217,194,145,.16)" stroke-width="1"><path d="M0 90h400M0 170h400M0 260h400M0 340h400M70 0v420M160 0v420M250 0v420M340 0v420"/><path d="M-20 300C80 240 160 280 240 200S360 120 430 150" stroke="rgba(217,194,145,.4)" stroke-width="14"/><circle cx="200" cy="170" r="110" stroke-dasharray="3 7"/></g>
+      </svg>
+      <div class="pin"><i></i></div>
+      <div class="tx"><h3 data-i18n="mapT">Fifty One Tower</h3><p data-i18n="mapP">Office 303 · Business Bay, Dubai</p>
+        <a class="btn gold" href="https://maps.google.com/?cid=368554375821936350" target="_blank" rel="noopener" data-i18n="dir">Get directions</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="sec final">
+  <div class="orb" data-speed="-40"></div>
+  <div class="wrap">
+    <span class="eyebrow rv" data-i18n="fnEy">Ready when you are</span>
+    <h2 class="rv" data-i18n="fnH">Your best smile starts with a message.</h2>
+    <a class="btn gold waLink rv" href="#" target="_blank" rel="noopener" data-mag><span data-i18n="bookNow">Book on WhatsApp</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <span>© <span id="yr"></span> Omar Yahia Dental Clinic · Business Bay, Dubai</span>
+  <span><a href="https://instagram.com/dr.omaryahya" target="_blank" rel="noopener">@dr.omaryahya</a></span>
+</footer>
+
+<a class="wa waLink" id="waFab" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.100 3 3.500 8.600 3.500 15.500c0 2.200.6 4.400 1.700 6.300L3.400 28.600l7-1.800c1.800 1 3.800 1.500 5.700 1.500 6.900 0 12.500-5.600 12.500-12.500S22.900 3 16 3zm0 22.800c-1.800 0-3.600-.5-5.100-1.400l-.4-.2-4.200 1.100 1.100-4.100-.3-.4c-1-1.600-1.500-3.400-1.500-5.300C5.600 9.800 10.300 5.100 16 5.100s10.400 4.700 10.400 10.400S21.700 25.800 16 25.800zm5.700-7.800c-.3-.2-1.800-.9-2.100-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.300-.5-2.500-1.500-.9-.8-1.500-1.800-1.700-2.100-.2-.3 0-.5.100-.6.100-.1.300-.4.500-.5.200-.2.200-.3.300-.5.100-.2.100-.4 0-.5-.1-.2-.7-1.700-.9-2.300-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400-.3.300-1.100 1.100-1.100 2.600s1.100 3 1.300 3.200c.2.200 2.200 3.400 5.400 4.700.8.300 1.400.5 1.800.6.800.2 1.500.2 2 .1.600-.1 1.800-.7 2-1.400.3-.7.300-1.300.2-1.400-.1-.1-.3-.2-.6-.4z"/></svg>
+  <span data-i18n="waFab">Chat with us</span>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+const NUMBER='971502195151';
+const RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE=window.matchMedia('(pointer:fine) and (min-width:900px)').matches;
+const HAS=typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+if(RM)document.documentElement.classList.add('rm');
+if(!HAS)document.documentElement.classList.add('no-js-anim');
+
+/* ================= I18N ================= */
+const T={
+en:{
+brand:'Omar Yahia',brandSub:'Dental Clinic · Dubai',nav1:'Treatments',nav2:'Your journey',nav3:'Smile Preview',nav4:'Reviews',nav5:'Visit',
+bookNow:'Book on WhatsApp',tryAI:'Try the AI Smile Preview',heroEyebrow:'Business Bay · Dubai',
+h1a:'A gentler path',h1b:'to a <em>confident</em>',h1c:'smile.',
+heroLead:'Veneers, Invisalign, braces and implants — with fair prices for Dubai and a team known for putting anxious patients at ease.',
+gRating:'Google rating',gReviews:'Google reviews',openHrs:'Open every day',fc1:'on Google · 250+ reviews',fc2t:'Follow-up calls',fc2:'After treatment',scroll:'Scroll',
+whyEy:'The clinic',whyH:'Dentistry that feels <em>calm</em>, not clinical.',whyP:"Dr. Omar Yahia's clinic in Business Bay is trusted by patients across Dubai — rated 4.9 from over 250 Google reviews.",
+p1t:'Gentle with anxious patients',p1:"Nervous about the dentist? You'll be listened to, never rushed. Comfort comes first.",
+p2t:'Fair prices for Dubai',p2:"Premium care that stays honest on cost — so a better smile doesn't feel out of reach.",
+p3t:'We call you after treatment',p3:"Follow-up calls mean you're never left wondering how healing is going.",
+trEy:'Treatments',trH:'Four ways to <em>transform</em> a smile.',trP:'Known across Dubai for these four signature treatments.',
+t1:'Veneers',t1p:'Reshape colour, shape and symmetry for a refined, natural-looking smile.',
+t2:'Invisalign',t2p:'Clear aligners that straighten teeth discreetly, without the look of metal.',
+t3:'Braces',t3p:'A proven route to aligned teeth and a well-balanced bite.',
+t4:'Implants',t4p:'A lasting, natural-feeling way to replace missing teeth.',
+joEy:'Your journey',s1t:'A calm first conversation',s1:'Tell us what bothers you about your smile — and about any nerves. Gentle care is how we work.',
+s2t:'A plan that fits you',s2:'We recommend the treatment that suits your goals, with fair pricing for Dubai.',
+s3t:'Treatment, done gently',s3:'Veneers, Invisalign, braces or implants — delivered with a careful, reassuring hand.',
+s4t:'We call to check on you',s4:'After treatment, a follow-up call makes sure you feel looked after.',
+aiEy:'AI Smile Preview',aiH:'Find your <em>starting point</em> in 30 seconds.',aiP:'Answer three quick questions. Our smile assistant suggests the treatment that fits best — then opens a ready-to-send WhatsApp booking message.',aiChip:'Runs privately in your browser',
+baEy:'The difference',baH:'Drag to see what <em>refined</em> can look like.',before:'Before',after:'After',baNote:'Illustration for demonstration only — not an actual patient result.',
+k1:'Colour, shape and symmetry',k2:'Alignment and spacing',k3:'Planned around your goals',
+rvEy:'Patient trust',rvH:'Rated <em>4.9</em> by patients who actually came in.',st1:'Average Google rating',st2:'Google reviews',st3:'Signature treatments: veneers, Invisalign, braces, implants',st4:'Open 7 days a week · Sat–Wed 09:00–20:00',readRev:'Read the reviews on Google',
+viEy:'Visit us',viH:'Find us in <em>Business Bay</em>.',kAddr:'Address',kHours:'Hours',addr:'Fifty One Tower, Office 303, Business Bay, Dubai',mapT:'Fifty One Tower',mapP:'Office 303 · Business Bay, Dubai',dir:'Get directions',
+fnEy:'Ready when you are',fnH:'Your best smile starts with a message.',waFab:'Chat with us',
+// quiz
+qStep:'Question',of:'of',back:'← Back',
+q1:'What bothers you most about your smile?',
+q1o:[['stain','Colour, stains or dullness'],['shape','Chipped, worn or uneven shape'],['crowd','Crowding or gaps between teeth'],['bite','Teeth that feel misaligned or a bite that feels off'],['missing','A missing tooth or teeth']],
+q2:'What feels comfortable for your budget?',
+q2o:[['eco','Keep it economical','Cost-conscious, good value'],['bal','Balanced','Quality and value together'],['prem','Premium','Best result matters most']],
+q3:'When would you like to start?',
+q3o:[['asap','As soon as possible'],['soon','Within the next few months'],['flex','Just exploring for now']],
+an:['Reading your answers…','Matching treatments…','Preparing your preview…'],
+rTag:'Suggested for you',rWhy:{Veneers:'Veneers can refresh colour, shape and symmetry in one considered plan — ideal for what you described.',Invisalign:'Invisalign gently aligns teeth with clear aligners, so your treatment stays discreet.',Braces:'Braces are a dependable, cost-friendly way to correct alignment and bite.',Implants:'Implants replace missing teeth with a lasting, natural-feeling solution.'},
+rAlt:'Also worth discussing:',rBook:'Book this on WhatsApp',rAgain:'Start again',
+fine:'This is a preliminary suggestion, not a diagnosis. Dr. Omar Yahia will confirm the right plan after your consultation.',
+bud:{eco:'Economical',bal:'Balanced',prem:'Premium'},tim:{asap:'As soon as possible',soon:'Within a few months',flex:'Just exploring'},
+con:{stain:'Colour or stains',shape:'Shape or chips',crowd:'Crowding or gaps',bite:'Alignment or bite',missing:'Missing tooth'},
+msg:(t,c,b,tm)=>`Hello Omar Yahia Dental Clinic, I tried the AI Smile Preview on your website.\n• Concern: ${c}\n• Suggested treatment: ${t}\n• Budget: ${b}\n• Timeline: ${tm}\nI'd like to book a consultation. Thank you!`,
+msgGen:"Hello Omar Yahia Dental Clinic, I'd like to book a consultation."
+},
+ar:{
+brand:'عمر يحيى',brandSub:'عيادة أسنان · دبي',nav1:'العلاجات',nav2:'رحلتك',nav3:'معاينة الابتسامة',nav4:'التقييمات',nav5:'زيارتنا',
+bookNow:'احجز عبر واتساب',tryAI:'جرّب معاينة الابتسامة بالذكاء الاصطناعي',heroEyebrow:'الخليج التجاري · دبي',
+h1a:'طريق ألطف',h1b:'نحو <em>ابتسامة</em>',h1c:'واثقة.',
+heroLead:'فينيرز، إنفيزالاين، تقويم وزراعة أسنان — بأسعار عادلة في دبي وفريق معروف بطمأنة المرضى القلقين.',
+gRating:'تقييم جوجل',gReviews:'تقييم على جوجل',openHrs:'مفتوح طوال الأسبوع',fc1:'على جوجل · أكثر من 250 تقييماً',fc2t:'مكالمات متابعة',fc2:'بعد العلاج',scroll:'مرّر',
+whyEy:'العيادة',whyH:'طب أسنان يبعث على <em>الراحة</em>، لا الرهبة.',whyP:'عيادة د. عمر يحيى في الخليج التجاري يثق بها مرضى من أنحاء دبي — بتقييم 4.9 من أكثر من 250 تقييماً على جوجل.',
+p1t:'لطف مع المرضى القلقين',p1:'خائف من طبيب الأسنان؟ سنصغي إليك دون استعجال. راحتك أولاً.',
+p2t:'أسعار عادلة في دبي',p2:'رعاية راقية بتكلفة صادقة — لتبقى الابتسامة الأجمل في متناولك.',
+p3t:'نتصل بك بعد العلاج',p3:'مكالمات المتابعة تعني أنك لن تتساءل يوماً عن حال التعافي.',
+trEy:'العلاجات',trH:'أربع طرق <em>لتحويل</em> الابتسامة.',trP:'معروفون في دبي بهذه العلاجات الأربعة.',
+t1:'الفينيرز',t1p:'إعادة تشكيل اللون والشكل والتناسق لابتسامة راقية وطبيعية.',
+t2:'إنفيزالاين',t2p:'مصفّفات شفافة تُقوّم الأسنان بخصوصية ودون مظهر المعدن.',
+t3:'التقويم',t3p:'طريقة موثوقة لأسنان مستقيمة وإطباق متوازن.',
+t4:'زراعة الأسنان',t4p:'حل دائم وطبيعي الملمس لتعويض الأسنان المفقودة.',
+joEy:'رحلتك',s1t:'حديث أول هادئ',s1:'أخبرنا بما يزعجك في ابتسامتك — وبما يقلقك. اللطف هو أسلوب عملنا.',
+s2t:'خطة تناسبك',s2:'نوصي بالعلاج المناسب لأهدافك، بأسعار عادلة في دبي.',
+s3t:'علاج بلطف',s3:'فينيرز أو إنفيزالاين أو تقويم أو زراعة — بيد حريصة ومطمئنة.',
+s4t:'نتصل بك للاطمئنان',s4:'بعد العلاج، مكالمة متابعة تضمن أنك بخير ومُعتنى بك.',
+aiEy:'معاينة الابتسامة بالذكاء الاصطناعي',aiH:'اعرف <em>نقطة البداية</em> في 30 ثانية.',aiP:'أجب عن ثلاثة أسئلة سريعة. يقترح مساعد الابتسامة العلاج الأنسب ثم يفتح رسالة حجز جاهزة على واتساب.',aiChip:'يعمل بخصوصية داخل متصفحك',
+baEy:'الفرق',baH:'اسحب لترى كيف يمكن أن تبدو الابتسامة <em>الراقية</em>.',before:'قبل',after:'بعد',baNote:'رسم توضيحي للعرض فقط — وليس نتيجة مريض حقيقية.',
+k1:'اللون والشكل والتناسق',k2:'الاصطفاف والمسافات',k3:'خطة مبنية على أهدافك',
+rvEy:'ثقة المرضى',rvH:'تقييم <em>4.9</em> من مرضى جرّبوا العيادة فعلاً.',st1:'متوسط تقييم جوجل',st2:'تقييم على جوجل',st3:'علاجات مميزة: فينيرز، إنفيزالاين، تقويم، زراعة',st4:'نعمل 7 أيام · السبت–الأربعاء 09:00–20:00',readRev:'اقرأ التقييمات على جوجل',
+viEy:'زورونا',viH:'تجدوننا في <em>الخليج التجاري</em>.',kAddr:'العنوان',kHours:'ساعات العمل',addr:'برج فيفتي ون، مكتب 303، الخليج التجاري، دبي',mapT:'برج فيفتي ون',mapP:'مكتب 303 · الخليج التجاري، دبي',dir:'احصل على الاتجاهات',
+fnEy:'جاهزون متى كنت جاهزاً',fnH:'أجمل ابتسامة تبدأ برسالة.',waFab:'تحدث معنا',
+qStep:'السؤال',of:'من',back:'→ رجوع',
+q1:'ما أكثر ما يزعجك في ابتسامتك؟',
+q1o:[['stain','اللون أو البقع أو الباهتة'],['shape','أسنان مكسورة أو متآكلة أو غير منتظمة الشكل'],['crowd','ازدحام أو فراغات بين الأسنان'],['bite','أسنان غير مصطفة أو إطباق غير مريح'],['missing','سن أو أسنان مفقودة']],
+q2:'ما الميزانية التي تناسبك؟',
+q2o:[['eco','اقتصادية','قيمة جيدة بتكلفة محسوبة'],['bal','متوازنة','الجودة والقيمة معاً'],['prem','مميزة','أفضل نتيجة هي الأهم']],
+q3:'متى تودّ أن تبدأ؟',
+q3o:[['asap','في أقرب وقت'],['soon','خلال الأشهر القادمة'],['flex','أستكشف فقط حالياً']],
+an:['نقرأ إجاباتك…','نطابق العلاجات…','نجهّز معاينتك…'],
+rTag:'مقترح لك',rWhy:{Veneers:'يمكن للفينيرز تجديد اللون والشكل والتناسق ضمن خطة واحدة مدروسة — مناسبة لما وصفته.',Invisalign:'يقوّم إنفيزالاين الأسنان بلطف بمصفّفات شفافة، فيبقى علاجك غير ظاهر.',Braces:'التقويم وسيلة موثوقة واقتصادية لتصحيح الاصطفاف والإطباق.',Implants:'تعوّض الزراعة الأسنان المفقودة بحل دائم وطبيعي الملمس.'},
+rAlt:'يستحق النقاش أيضاً:',rBook:'احجز هذا عبر واتساب',rAgain:'ابدأ من جديد',
+fine:'هذا اقتراح أولي وليس تشخيصاً. سيؤكد د. عمر يحيى الخطة المناسبة بعد الاستشارة.',
+bud:{eco:'اقتصادية',bal:'متوازنة',prem:'مميزة'},tim:{asap:'في أقرب وقت',soon:'خلال أشهر',flex:'أستكشف فقط'},
+con:{stain:'اللون أو البقع',shape:'الشكل أو الكسور',crowd:'ازدحام أو فراغات',bite:'الاصطفاف أو الإطباق',missing:'سن مفقود'},
+msg:(t,c,b,tm)=>`مرحباً عيادة عمر يحيى لطب الأسنان، جرّبت معاينة الابتسامة بالذكاء الاصطناعي على موقعكم.\n• ما يزعجني: ${c}\n• العلاج المقترح: ${t}\n• الميزانية: ${b}\n• الموعد المناسب: ${tm}\nأود حجز استشارة. شكراً!`,
+msgGen:'مرحباً عيادة عمر يحيى لطب الأسنان، أود حجز استشارة.'
+}};
+const TREAT_NAME={en:{Veneers:'Veneers',Invisalign:'Invisalign',Braces:'Braces',Implants:'Implants'},ar:{Veneers:'الفينيرز',Invisalign:'إنفيزالاين',Braces:'التقويم',Implants:'زراعة الأسنان'}};
+let lang='en';
+const t=k=>T[lang][k];
+const waUrl=m=>`https://wa.me/${NUMBER}?text=${encodeURIComponent(m)}`;
+
+function applyLang(){
+  const d=document.documentElement;d.lang=lang;d.dir=lang==='ar'?'rtl':'ltr';
+  $$('[data-i18n]').forEach(el=>{const v=T[lang][el.dataset.i18n];if(v!==undefined)el.innerHTML=v});
+  $('#langBtn').textContent=lang==='ar'?'English':'العربية';
+  $('#ldName').textContent=lang==='ar'?'عيادة عمر يحيى لطب الأسنان':'Omar Yahia Dental Clinic';
+  $$('.waLink').forEach(a=>a.href=waUrl(t('msgGen')));
+  buildMarquee();renderQuiz(true);
+  if(window.ScrollTrigger)setTimeout(()=>ScrollTrigger.refresh(),60);
+}
+
+/* ================= Marquee ================= */
+function buildMarquee(){
+  const w=lang==='ar'?['فينيرز','إنفيزالاين','تقويم','زراعة الأسنان','لطف مع القلقين','أسعار عادلة']:['Veneers','Invisalign','Braces','Implants','Gentle care','Fair prices'];
+  const html=w.map(x=>`<span>${x}</span>`).join('');
+  $('#mq').innerHTML=html+html+html+html;
+}
+
+/* ================= Teeth SVG ================= */
+const NS='http://www.w3.org/2000/svg';
+function mouth(svg,kind){
+  const defs=`<defs>
+  <linearGradient id="wg${kind}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffefb"/><stop offset="1" stop-color="#ece5d6"/></linearGradient>
+  <linearGradient id="yg${kind}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2d3a6"/><stop offset="1" stop-color="#c9b27a"/></linearGradient>
+  <linearGradient id="bg${kind}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1e4d0"/><stop offset="1" stop-color="#e2cfb4"/></linearGradient>
+  <clipPath id="mc${kind}"><path d="M130 250 C 250 150, 550 150, 670 250 C 560 375, 240 375, 130 250Z"/></clipPath></defs>
+  <rect width="800" height="500" fill="url(#bg${kind})"/>
+  <ellipse cx="400" cy="250" rx="360" ry="200" fill="rgba(255,255,255,.18)"/>
+  <path d="M130 250 C 250 150, 550 150, 670 250 C 560 375, 240 375, 130 250Z" fill="#2b1b1e"/>`;
+  let g='<g clip-path="url(#mc'+kind+')">';
+  const good=kind==='a';
+  const seed=[.8,-.5,1.2,-1,.3,1.4,-.7,.6];
+  const N=8;
+  for(let i=0;i<N;i++){
+    const x=198+i*52, tt=(x+26-400)/270, top=250-98*(1-tt*tt);
+    let w=good?50:[46,56,40,52,48,58,44,50][i], h=good?96-Math.abs(tt)*36:[84,98,70,92,80,100,74,88][i]-Math.abs(tt)*30;
+    let dx=good?0:seed[i]*5, dy=good?0:[0,10,-6,8,-4,12,0,6][i], rot=good?0:[3,-5,8,-4,6,-8,5,-3][i];
+    if(!good&&i===3){w=36}
+    const cx=x+w/2+dx, y=top+dy;
+    g+=`<g transform="rotate(${rot} ${cx} ${y+h/2})"><rect x="${x+dx}" y="${y}" width="${w}" height="${h}" rx="${good?20:14}" fill="url(#${good?'wg':'yg'}${kind})" stroke="rgba(120,100,60,${good?.12:.3})" stroke-width="1"/>${good?`<rect x="${x+8}" y="${y+8}" width="7" height="${h*0.55}" rx="3.500" fill="#fff" opacity=".7"/>`:`<path d="M${x+dx+6} ${y+h-16}q${w/2-6} 8 ${w-12} 0" stroke="rgba(130,100,40,.25)" fill="none"/>`}</g>`;
+  }
+  // lower teeth
+  for(let i=0;i<7;i++){
+    const x=222+i*48,tt=(x+24-400)/240,bot=250+88*(1-tt*tt);
+    const h=good?52:[44,56,40,50,46,54,42][i],w=good?46:[42,50,38,46,44,48,40][i];
+    const dy=good?0:[0,-6,4,-8,2,-4,6][i];
+    g+=`<rect x="${x}" y="${bot-h+dy}" width="${w}" height="${h}" rx="${good?16:12}" fill="url(#${good?'wg':'yg'}${kind})" opacity=".96" stroke="rgba(120,100,60,${good?.1:.25})"/>`;
+  }
+  g+='</g>';
+  const lips=`<path d="M105 255 C 200 128, 330 152, 400 178 C 470 152, 600 128, 695 255 C 600 220, 500 205, 400 214 C 300 205, 200 220, 105 255Z" fill="#c78d88"/>
+  <path d="M105 255 C 210 395, 590 395, 695 255 C 600 295, 500 320, 400 322 C 300 320, 200 295, 105 255Z" fill="#b97a77"/>
+  <path d="M130 252 C 260 232, 540 232, 670 252" fill="none" stroke="rgba(60,25,30,.0)"/>`;
+  svg.innerHTML=defs+g+lips;
+}
+function heroTeeth(){
+  const g=$('#heroTeeth');if(!g)return;let s='';
+  for(let i=0;i<7;i++){const x=104+i*29,tt=(x+14-200)/140,top=235-34*(1-tt*tt);
+    s+=`<rect x="${x}" y="${top}" width="27" height="${52-Math.abs(tt)*14}" rx="11" fill="url(#tg)"/>`}
+  for(let i=0;i<6;i++){const x=118+i*27,tt=(x+13-200)/130,bot=290+16*(1-tt*tt);
+    s+=`<rect x="${x}" y="${bot-26}" width="25" height="28" rx="9" fill="url(#tg)" opacity=".95"/>`}
+  g.innerHTML=s;
+}
+
+/* ================= Quiz ================= */
+const ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const state={step:0,a:{},busy:false};
+function decide(a){
+  const bud=a.q2,list={Veneers:0,Invisalign:0,Braces:0,Implants:0};
+  const c=a.q1;
+  if(c==='stain'||c==='shape'){list.Veneers+=5;list.Invisalign+=1}
+  if(c==='crowd'){list.Invisalign+=4;list.Braces+=3;list.Veneers+=1}
+  if(c==='bite'){list.Braces+=4;list.Invisalign+=3}
+  if(c==='missing'){list.Implants+=6}
+  if(bud==='eco'){list.Braces+=2;list.Veneers-=1;list.Invisalign-=1}
+  if(bud==='prem'){list.Veneers+=1;list.Invisalign+=1;list.Implants+=1}
+  if(a.q3==='asap'&&c!=='missing'){list.Veneers+=.5}
+  const r=Object.entries(list).sort((x,y)=>y[1]-x[1]);
+  return {main:r[0][0],alt:r[1][1]>=2?r[1][0]:null};
+}
+function renderQuiz(keep){
+  const body=$('#qBody');if(!body)return;
+  if(state.busy&&keep)return;
+  if(state.step>=3&&state.result){return renderResult()}
+  const qs=['q1','q2','q3'],i=state.step,key=qs[i];
+  $('#qStep').textContent=`${t('qStep')} ${i+1} ${t('of')} 3`;
+  $('#qBar').style.width=((i)/3*100+ (100/3)*.35)+'%';
+  const opts=t(key+'o');
+  body.innerHTML=`<h3>${t(key)}</h3><div class="opts">${opts.map(o=>`<button class="opt" data-v="${o[0]}" data-hover><span>${o[1]}${o[2]?`<small>${o[2]}</small>`:''}</span>${ICON}</button>`).join('')}</div>${i>0?`<button class="back">${t('back')}</button>`:''}`;
+  $$('.opt',body).forEach((b,n)=>{setTimeout(()=>b.classList.add('in'),RM?0:90+n*70);b.onclick=()=>{state.a[key]=b.dataset.v;state.step++;state.step<3?renderQuiz():analyze()}});
+  const bk=$('.back',body);if(bk)bk.onclick=()=>{state.step--;renderQuiz()};
+}
+function analyze(){
+  state.busy=true;const body=$('#qBody');
+  $('#qBar').style.width='100%';$('#qStep').textContent='…';
+  const msgs=t('an');
+  body.innerHTML=`<div class="analyze"><div class="scan"><svg viewBox="0 0 100 100"><circle class="b" cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="44"/></svg></div><p id="anMsg">${msgs[0]}</p></div>`;
+  let n=0;const iv=setInterval(()=>{n++;const el=$('#anMsg');if(el&&msgs[n])el.textContent=msgs[n]},900);
+  setTimeout(()=>{clearInterval(iv);state.busy=false;state.result=decide({q1:state.a.q1,q2:state.a.q2,q3:state.a.q3});renderResult()},RM?600:2800);
+}
+function renderResult(){
+  const r=state.result,a=state.a,L=TREAT_NAME[lang];
+  $('#qStep').textContent=t('rTag');
+  const concern=t('con')[a.q1],bud=t('bud')[a.q2],tim=t('tim')[a.q3];
+  const url=waUrl(t('msg')(L[r.main],concern,bud,tim));
+  $('#qBody').innerHTML=`<div class="result"><span class="tag">${t('rTag')}</span><h3>${L[r.main]}</h3><p class="why">${t('rWhy')[r.main]}</p>
+  <div class="summary"><span>${concern}</span><span>${bud}</span><span>${tim}</span></div>
+  ${r.alt?`<p class="alt">${t('rAlt')} <b>${L[r.alt]}</b></p>`:''}
+  <div class="row"><a class="btn gold" href="${url}" target="_blank" rel="noopener" data-hover><span>${t('rBook')}</span>${ICON}</a><button class="restart" data-hover>${t('rAgain')}</button></div>
+  <p class="fine">${t('fine')}</p></div>`;
+  $('.restart').onclick=()=>{state.step=0;state.a={};state.result=null;renderQuiz()};
+  if(HAS&&!RM)gsap.from('#qBody .result > *',{y:20,opacity:0,stagger:.08,duration:.7,ease:'power3.out'});
+}
+
+/* ================= Slider ================= */
+function initSlider(){
+  mouth($('#svgAfter'),'a');mouth($('#svgBefore'),'b');
+  const rng=$('#rng'),bef=$('#svgBefore'),h=$('#handle');
+  const set=v=>{bef.style.clipPath=`inset(0 ${100-v}% 0 0)`;h.style.left=v+'%'};
+  rng.addEventListener('input',()=>set(+rng.value));set(50);
+  if(HAS&&!RM){ScrollTrigger.create({trigger:'#cmp',start:'top 75%',once:true,onEnter:()=>{
+    const o={v:50};gsap.timeline().to(o,{v:18,duration:1,ease:'power2.inOut',onUpdate:()=>{rng.value=o.v;set(o.v)}}).to(o,{v:82,duration:1.4,ease:'power2.inOut',onUpdate:()=>{rng.value=o.v;set(o.v)}}).to(o,{v:50,duration:.9,ease:'power2.inOut',onUpdate:()=>{rng.value=o.v;set(o.v)}})}})}
+}
+
+/* ================= Cursor ================= */
+function initCursor(){
+  if(!FINE||RM)return;
+  document.body.classList.add('cursor-on');
+  const ring=$('#curRing'),dot=$('#curDot');let x=innerWidth/2,y=innerHeight/2,rx=x,ry=y;
+  addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;dot.style.transform=`translate(${x}px,${y}px)`},{passive:true});
+  (function loop(){rx+=(x-rx)*.16;ry+=(y-ry)*.16;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(loop)})();
+  document.addEventListener('mouseover',e=>{ring.classList.toggle('hov',!!e.target.closest('a,button,[data-hover],input'))});
+  // magnetic
+  $$('[data-mag]').forEach(el=>{el.addEventListener('mousemove',e=>{const b=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-b.left-b.width/2)*.18}px,${(e.clientY-b.top-b.height/2)*.28}px)`});el.addEventListener('mouseleave',()=>el.style.transform='')});
+}
+
+/* ================= Motion ================= */
+let lenis=null;
+function initScroll(){
+  if(typeof Lenis!=='undefined'&&!RM){
+    lenis=new Lenis({duration:1.15,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+    if(HAS){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+    else{(function r(t){lenis.raf(t);requestAnimationFrame(r)})(0)}
+  }
+  $$('a[href^="#"]').forEach(a=>{const id=a.getAttribute('href');if(id.length<2)return;a.addEventListener('click',e=>{const el=$(id);if(!el)return;e.preventDefault();if(lenis)lenis.scrollTo(el,{offset:-10,duration:1.6});else el.scrollIntoView({behavior:RM?'auto':'smooth'})})});
+  // nav state
+  const nav=$('#nav');let last=0;
+  addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('scrolled',y>30);nav.classList.toggle('hide',y>last&&y>500);last=y;$('#waFab').classList.toggle('show',y>400)},{passive:true});
+}
+function initMotion(){
+  if(!HAS||RM){$('#waFab').classList.add('show');counters(true);return}
+  gsap.registerPlugin(ScrollTrigger);
+  // reveals
+  $$('.rv').forEach(el=>{
+    if(el.closest('.hero')||el.classList.contains('tcard'))return;
+    gsap.fromTo(el,{y:46,opacity:0},{y:0,opacity:1,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+  });
+  // parallax
+  $$('[data-speed]').forEach(el=>{gsap.to(el,{y:+el.dataset.speed*3,ease:'none',scrollTrigger:{trigger:el.closest('section')||el,start:'top bottom',end:'bottom top',scrub:true}})});
+  // marquee
+  const mq=$('#mq');
+  let mqT=null;const run=()=>{const w=mq.scrollWidth/4;gsap.killTweensOf(mq);mqT=gsap.fromTo(mq,{x:0},{x:lang==='ar'?w:-w,duration:34,ease:'none',repeat:-1})};
+  run();ScrollTrigger.create({trigger:'.marquee',start:'top bottom',end:'bottom top',onUpdate:s=>{if(!mqT)return;gsap.to(mqT,{timeScale:1+Math.min(4,Math.abs(s.getVelocity())/900),duration:.3,overwrite:true,onComplete:()=>gsap.to(mqT,{timeScale:1,duration:.8})})}});
+  window.__runMq=run;
+  // tcards stagger
+  gsap.fromTo('.tcard',{y:70,opacity:0},{y:0,opacity:1,duration:1.1,stagger:.12,ease:'power3.out',scrollTrigger:{trigger:'.tgrid',start:'top 82%',once:true}});
+  // pillars line
+  // story pin
+  const steps=$$('.step'),bars=$$('#prog b'),rp=$('#rp'),txt=$('#rpTxt'),dots=$$('.story-vis .dot');
+  gsap.set(steps,{opacity:0,y:40});gsap.set(steps[0],{opacity:1,y:0});
+  let cur=0;
+  const show=n=>{if(n===cur)return;gsap.to(steps[cur],{opacity:0,y:-40,duration:.45,ease:'power2.in'});gsap.fromTo(steps[n],{opacity:0,y:50},{opacity:1,y:0,duration:.7,delay:.2,ease:'power3.out'});cur=n;txt.textContent=`0${n+1} / 04`;dots.forEach((d,i)=>gsap.to(d,{attr:{r:i<=n?9:5},duration:.4}))};
+  ScrollTrigger.create({trigger:'.story',start:'top top',end:()=>'+='+(innerHeight*3),pin:true,scrub:true,anticipatePin:1,invalidateOnRefresh:true,
+    onUpdate:s=>{const p=s.progress;rp.style.strokeDashoffset=1000-1000*p;const n=Math.min(3,Math.floor(p*4));show(n);bars.forEach((b,i)=>{const v=Math.max(0,Math.min(1,p*4-i));b.style.transform=`scaleX(${v})`})}});
+  gsap.set(dots[0],{attr:{r:9}});
+  counters(false);
+}
+function counters(instant){
+  $$('[data-count]').forEach(el=>{
+    const end=+el.dataset.count,dec=+(el.dataset.dec||0),fmt=v=>v.toFixed(dec);
+    if(instant||!HAS){el.textContent=fmt(end);return}
+    const o={v:0};ScrollTrigger.create({trigger:el,start:'top 88%',once:true,onEnter:()=>gsap.to(o,{v:end,duration:2.2,ease:'power2.out',onUpdate:()=>el.textContent=fmt(o.v)})});
+  });
+}
+
+/* ================= Intro ================= */
+function intro(){
+  const done=()=>{document.body.classList.remove('loading');$('#loader').style.display='none';if(lenis)lenis.start()};
+  if(lenis)lenis.stop();
+  if(!HAS||RM){setTimeout(done,RM?200:900);return}
+  const pct=$('#ldPct'),bar=$('#ldBar'),o={v:0};
+  const tl=gsap.timeline({onComplete:done});
+  tl.to('#loader .ring',{strokeDashoffset:0,duration:1.6,ease:'power2.inOut'},0)
+    .from('#loader text',{opacity:0,y:8,duration:.8},.3)
+    .from('#loader .name',{opacity:0,y:10,duration:.8},.5)
+    .to(o,{v:100,duration:1.7,ease:'power1.inOut',onUpdate:()=>{pct.textContent=Math.round(o.v);bar.style.width=o.v+'%'}},0)
+    .to('#loader > *:not(.bar)',{opacity:0,y:-20,duration:.5,ease:'power2.in'},1.9)
+    .to('#loader',{yPercent:-100,duration:1.1,ease:'power4.inOut'},2.1)
+    .from('.hero h1 .ln > span',{yPercent:110,duration:1.3,stagger:.12,ease:'power4.out'},2.55)
+    .from('.hero .rv',{y:30,opacity:0,duration:1,stagger:.1,ease:'power3.out'},2.7)
+    .fromTo('nav.top',{y:-30,opacity:0},{y:0,opacity:1,duration:.9,ease:'power3.out',clearProps:'transform,opacity'},2.9)
+    .from('.arch',{clipPath:'inset(100% 0 0 0)',duration:1.4,ease:'power4.out'},2.5)
+    .add(()=>{if(lenis)lenis.start()},2.8);
+  gsap.to('.arch svg',{scale:1.05,duration:7,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('#sparks',{y:-8,rotation:3,transformOrigin:'50% 50%',duration:3,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('.float-card.a',{y:-10,duration:3.2,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  gsap.to('.float-card.b',{y:10,duration:3.6,yoyo:true,repeat:-1,ease:'sine.inOut'});
+  setTimeout(()=>{if(!document.body.classList.contains('loading'))return;done()},9000);
+}
+
+/* ================= Boot ================= */
+$('#yr').textContent=new Date().getFullYear();
+heroTeeth();initSlider();
+$('#langBtn').addEventListener('click',()=>{lang=lang==='en'?'ar':'en';applyLang();if(window.__runMq)window.__runMq()});
+applyLang();
+initScroll();initCursor();initMotion();intro();
+})();
+</script>
+</body>
+</html>

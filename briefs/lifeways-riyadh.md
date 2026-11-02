@@ -1,0 +1,12 @@
+# Life Way's Clinics (عيادات لايف ويز / مجمع طرق الحياة الطبي) — Al Mursalat, Riyadh (Derma/Cosmetic/Laser)
+- Rating: Google 4.9 from ~822 reviews (exa place snapshot)
+- Phone/WhatsApp: +966 55 408 0703 → wa.me/966554080703
+- Address: Abi Bakr As Siddiq Rd, Al Mursalat, Riyadh 12464
+- Hours: Sat–Wed 12:00–22:00, Thu 12:00–21:00, Fri closed
+- Web: Google website = instagram.com/lifeways.sa + a Leadly link page (leadly.sa/lifeways, returned HTTP 500 when checked = broken). LinkedIn: founded 2023, ~6 staff, partnership.
+- Weakness: no own website; only link-in-bio page, which was erroring.
+- Services/prices (from Leadly snippet): laser package 5 sessions men 1,500 SAR (was 2,500); women 1,199 SAR (was 2,000); a 100 SAR offer (item unclear); skin cleaning/facials; dermatology, cosmetics, laser.
+- Selling points: 800+ reviews at 4.9; reviews praise reception, medical team and management ("قمة في الرقي"); disabled access and parking; cash and card; clinic tagline "تجربة استثنائية في الجلدية والتجميل والليزر".
+- Brand colors/vibe: unknown, check Instagram; suggest soft nude/rose-gold luxury.
+- AI feature: "AI Skin Analysis quiz" (skin type and concerns, optional selfie) → recommended treatment and package → WhatsApp booking. Arabic-first.
+- Language: AR primary + EN toggle.

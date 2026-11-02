@@ -1,0 +1,578 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hero Gym Maadi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Lalezar&display=swap">
+<script>(function(){var h=document.documentElement;h.classList.add('js');var l='ar';try{l=localStorage.getItem('hg-lang')==='en'?'en':'ar'}catch(e){}h.lang=l;h.dir=l==='ar'?'rtl':'ltr'})();</script>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{ink:'var(--ink)',steel:{900:'var(--steel-900)',800:'var(--steel-800)',700:'var(--steel-700)',500:'var(--steel-500)',300:'var(--steel-300)'},paper:'var(--paper)',accent:'var(--accent)'},fontFamily:{display:'var(--font-display)',body:'var(--font-body)'}}}};
+</script>
+<style>
+:root{
+  /* Layout concept: a weight-room spec sheet. Stamped display type, plate-colour scale, one hero moment (barbell + 24/7), everything else held quiet. */
+  --ink:#0A0C0F;
+  --steel-900:#10141A;
+  --steel-800:#171C23;
+  --steel-700:#242B35;
+  --steel-500:#4C5766;
+  --steel-300:#9CA7B4;
+  --paper:#F3F5F8;
+  --accent:#FFC21A;
+  --accent-ink:#171100;
+  --p25:#E5392E;--p20:#2F6BFF;--p15:#FFC21A;--p10:#2EB16A;--p5:#E8ECF1;
+  --font-display:'Lalezar','Anton',system-ui,sans-serif;
+  --font-body:'IBM Plex Sans Arabic',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --ls:0em;
+  color-scheme:dark;
+}
+html[lang="en"]{--font-display:'Anton','Lalezar',Impact,sans-serif;--ls:.035em}
+html[lang="ar"] [data-l="en"],html[lang="en"] [data-l="ar"]{display:none!important}
+body{background:var(--ink);color:var(--paper);font-family:var(--font-body);line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:clip}
+html[lang="en"] body{line-height:1.6}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+section[id]{scroll-margin-top:72px}
+:focus-visible{outline:3px solid var(--paper);outline-offset:3px}
+.wrap{width:100%;max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.section{padding-block:clamp(56px,9vw,104px)}
+.muted{color:var(--steel-300)}
+.small{font-size:.875rem}
+.ic{width:1.25rem;height:1.25rem;flex:none}
+[dir="rtl"] .flip{transform:scaleX(-1)}
+.display{font-family:var(--font-display);font-weight:400;letter-spacing:var(--ls);text-wrap:balance}
+html[lang="en"] .display{text-transform:uppercase}
+.h2{font-size:clamp(2.1rem,6.5vw,3.6rem);line-height:1.15}
+html[lang="en"] .h2{line-height:1}
+.h3{font-weight:700;font-size:1.2rem;line-height:1.45}
+.lead{font-size:clamp(1.05rem,2.6vw,1.3rem);color:color-mix(in srgb,var(--paper) 86%,var(--steel-300));max-width:36rem}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--steel-700)}
+.brand-mark{width:30px;height:30px;flex:none}
+.brand-name{font-size:1.4rem;line-height:1;white-space:nowrap}
+.demo-chip{font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:.15rem .5rem;border:1px solid var(--steel-500);color:var(--steel-300);border-radius:2px}
+html[lang="ar"] .demo-chip{letter-spacing:0}
+.nav a{color:var(--steel-300);transition:color .2s}.nav a:hover{color:var(--paper)}
+.lang-btn{min-height:40px;min-width:56px;padding:0 .9rem;border:1px solid var(--steel-500);border-radius:3px;font-weight:700;color:var(--paper);background:transparent;cursor:pointer}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:50px;padding:.8rem 1.4rem;font-weight:700;font-size:1rem;line-height:1.3;border-radius:3px;transition:transform .2s,box-shadow .2s,border-color .2s;text-align:center}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -12px var(--accent)}
+.btn-ghost{border:1px solid var(--steel-500);color:var(--paper)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(70% 60% at 85% 0%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 70%),var(--ink);padding-block:clamp(28px,6vw,80px) clamp(36px,6vw,72px)}
+.ghost{position:absolute;inset-block-start:-4%;inset-inline-end:-4%;font-family:'Anton',Impact,sans-serif;font-size:clamp(150px,42vw,460px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--paper) 12%,transparent);direction:ltr;user-select:none;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:.6rem;padding:.35rem .95rem;border:1px solid color-mix(in srgb,var(--accent) 55%,transparent);color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);border-radius:999px;font-weight:700;font-size:.95rem}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.h1{font-size:clamp(3.2rem,14vw,7rem);line-height:1.05;margin:.9rem 0 1rem}
+html[lang="en"] .h1{line-height:.92}
+.h1 .a{display:block}.h1 .b{display:block;color:var(--accent)}
+.proof{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1.8rem;color:var(--steel-300);font-size:.95rem}
+.proof li{display:flex;align-items:center;gap:.5rem}
+.proof b{color:var(--paper)}
+.barbell{width:100%;max-width:460px;height:auto;margin-inline:auto;display:block}
+.barbell .plate{stroke:color-mix(in srgb,var(--ink) 35%,transparent);stroke-width:1}
+
+/* marquee */
+.marquee{background:var(--accent);color:var(--accent-ink);overflow:hidden}
+.marquee-track{display:flex;width:max-content}
+.marquee-group{display:flex;flex:none}
+.marquee-item{display:flex;align-items:center;gap:2.6rem;padding:.65rem 1.3rem;font-family:var(--font-display);font-size:1.2rem;white-space:nowrap}
+.marquee-item::after{content:"";width:9px;height:9px;background:var(--accent-ink);transform:rotate(45deg)}
+
+/* cards, dial */
+.card{background:var(--steel-900);border:1px solid var(--steel-700);border-radius:4px;padding:clamp(18px,3vw,28px);transition:border-color .25s}
+.card:hover{border-color:color-mix(in srgb,var(--accent) 60%,var(--steel-700))}
+.icon-box{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--steel-500);border-radius:3px;color:var(--accent);margin-bottom:1rem}
+.dial{margin-top:1.6rem}
+.ticks{display:grid;grid-template-columns:repeat(24,1fr);gap:3px}
+.ticks span{height:38px;background:var(--accent);border-radius:1px}
+.tick-labels{display:flex;justify-content:space-between;margin-top:.5rem;font-size:.78rem;color:var(--steel-300)}
+
+/* equipment */
+.spec li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:1.1rem 0;border-top:1px solid var(--steel-700)}
+.spec li:last-child{border-bottom:1px solid var(--steel-700)}
+.spec .ic{color:var(--accent);margin-top:.25rem}
+.plates-panel{background:var(--steel-900);border:1px solid var(--steel-700);border-radius:4px;padding:clamp(18px,3vw,28px)}
+.plates{display:flex;flex-wrap:wrap;gap:14px;margin:1.4rem 0}
+.plate-item{display:flex;flex-direction:column;align-items:center;gap:.4rem;font-family:var(--font-display);font-size:1.3rem;line-height:1}
+.plate-item small{font-family:var(--font-body);font-size:.75rem;color:var(--steel-300)}
+.plate{position:relative;width:clamp(48px,14vw,68px);aspect-ratio:1;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 5px color-mix(in srgb,var(--ink) 22%,transparent)}
+.plate::after{content:"";position:absolute;inset:38%;border-radius:50%;background:var(--ink)}
+
+/* coach */
+.ai-tag{display:inline-block;vertical-align:middle;margin-inline-start:.6rem;padding:.1rem .6rem;background:var(--accent);color:var(--accent-ink);font-family:'Anton',Impact,sans-serif;font-size:.9rem;letter-spacing:.06em;border-radius:2px}
+.coach-band{background:var(--steel-900);border-block:1px solid var(--steel-700)}
+.coach-card{background:var(--steel-800);border:1px solid var(--steel-700);border-radius:4px;overflow:hidden}
+.hazard{height:8px;background:repeating-linear-gradient(-45deg,var(--accent) 0 12px,var(--ink) 12px 24px)}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+legend{font-weight:700;margin-bottom:.7rem;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem}
+.chip{min-height:48px;padding:.6rem 1.1rem;border:1px solid var(--steel-500);border-radius:3px;font-weight:600;background:transparent;color:var(--paper);cursor:pointer;transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.week-bars,.week-labels{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.bar-track{height:64px;display:flex;align-items:flex-end}
+.bar{display:block;width:100%;border-radius:2px;transform-origin:bottom}
+.bar-g{height:100%;background:var(--accent)}.bar-a{height:40%;background:var(--steel-500)}.bar-r{height:10%;background:var(--steel-700)}
+.bar-label{display:block;margin-top:.35rem;text-align:center;font-size:.72rem;color:var(--steel-300)}
+.plan-days{list-style:none;margin:1rem 0 0;padding:0}
+.day{display:grid;grid-template-columns:minmax(4.5rem,6rem) minmax(0,1fr);gap:12px;padding:.7rem 0;border-top:1px solid var(--steel-700)}
+.day-name{font-weight:700}
+.day-g .day-name{color:var(--accent)}
+.day-a .day-name,.day-r .day-name,.day-r .day-text{color:var(--steel-300)}
+.plan-tips{list-style:none;margin:1rem 0 1.2rem;padding:0;display:grid;gap:.6rem;font-size:.95rem}
+.plan-tips li{display:flex;gap:.6rem;align-items:flex-start}
+.plan-tips .ic{color:var(--accent);margin-top:.3rem}
+
+/* reviews, location */
+.score{font-family:'Anton',Impact,sans-serif;font-size:clamp(7rem,30vw,14rem);line-height:.85;color:var(--accent);direction:ltr;display:inline-block;font-variant-numeric:tabular-nums}
+.score-of{font-family:'Anton',Impact,sans-serif;font-size:2rem;color:var(--steel-300);margin-inline-start:.4rem}
+.count-row{display:flex;align-items:baseline;gap:.7rem;margin-top:1rem}
+.count{font-family:'Anton',Impact,sans-serif;font-size:2.4rem;line-height:1;direction:ltr}
+.dl>div{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:12px;padding:.9rem 0;border-top:1px solid var(--steel-700)}
+.dl>div:last-child{border-bottom:1px solid var(--steel-700)}
+.dl dt{color:var(--steel-300)}.dl dd{margin:0;font-weight:600}
+.map{position:relative;aspect-ratio:4/3;max-width:100%;border:1px solid var(--steel-700);border-radius:4px;overflow:hidden;background:var(--steel-900)}
+.map svg{width:100%;height:100%;display:block}
+.map-label{position:absolute;inset-block-end:12px;inset-inline-start:12px;padding:.25rem .8rem;background:var(--ink);border:1px solid var(--steel-500);border-radius:2px;font-weight:700;font-size:.9rem}
+
+/* dock, footer */
+.dock{position:fixed;inset-inline:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--ink) 92%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--steel-700)}
+.footer{border-top:1px solid var(--steel-700);padding-block:36px 40px}
+@media (max-width:767px){.footer{padding-bottom:104px}}
+.demo-credit{font-family:'Anton',Impact,sans-serif;font-size:1.3rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);direction:ltr;display:inline-block}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:.35;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
+  .js .rv.in{opacity:1;transform:none}
+  .hero-in{animation:rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0ms)}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}}
+  .pl-left{animation:plateL .9s cubic-bezier(.2,.7,.2,1) .25s both}
+  .pl-right{animation:plateR .9s cubic-bezier(.2,.7,.2,1) .25s both}
+  @keyframes plateL{from{opacity:0;transform:translateX(-60px)}}
+  @keyframes plateR{from{opacity:0;transform:translateX(60px)}}
+  .live-dot{animation:ping 1.8s ease-out infinite}
+  @keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+  .marquee-track{animation:marq 34s linear infinite}
+  @keyframes marq{to{transform:translateX(-50%)}}
+  .ticks span{animation:tick 4.8s ease-in-out infinite}
+  @keyframes tick{0%,100%{opacity:1}50%{opacity:.5}}
+  .anim .bar{animation:grow .5s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes grow{from{transform:scaleY(.1)}}
+  .anim .day{animation:rowIn .35s ease both;animation-delay:calc(var(--i)*40ms)}
+  @keyframes rowIn{from{opacity:0;transform:translateY(8px)}}
+  .pin-ring{animation:pinring 2.2s ease-out infinite;transform-origin:220px 160px}
+  @keyframes pinring{from{transform:scale(.6);opacity:.5}to{transform:scale(1.5);opacity:0}}
+}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs><linearGradient id="star49" x1="0" x2="1" y1="0" y2="0"><stop offset="0.9" style="stop-color:var(--accent)"/><stop offset="0.9" style="stop-color:var(--steel-700)"/></linearGradient></defs>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.4-1.2A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 9.2c.3 2.4 2.3 4.6 4.9 5.4l1.4-1.2-1.7-1-.8.6c-.8-.4-1.5-1.1-1.9-1.9l.6-.8-1-1.7z" fill="currentColor"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-plate" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6L2.5 9.5l6.6-.9z" fill="var(--accent)"/></symbol>
+  <symbol id="i-star-part" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.1 6.6.9-4.8 4.6 1.2 6.6L12 17.5l-5.9 3.2 1.2-6.6L2.5 9.5l6.6-.9z" fill="url(#star49)"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 1 1 13 0c0 5-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap flex items-center justify-between gap-3 h-16">
+    <a href="#top" data-scroll class="flex items-center gap-3 min-w-0">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke-width="3" style="stroke:var(--accent)"/><rect x="2" y="14" width="28" height="4" style="fill:var(--paper)"/><circle cx="16" cy="16" r="3.5" style="fill:var(--ink)"/></svg>
+      <span class="display brand-name"><span data-l="ar">هيرو جيم</span><span data-l="en">Hero Gym</span></span>
+      <span class="demo-chip"><span data-l="ar">تجريبي</span><span data-l="en">DEMO</span></span>
+    </a>
+    <nav class="nav hidden md:flex items-center gap-6 text-sm" aria-label="Sections">
+      <a href="#why" data-scroll><span data-l="ar">ليه هيرو</span><span data-l="en">Why Hero</span></a>
+      <a href="#equipment" data-scroll><span data-l="ar">الحديد</span><span data-l="en">Equipment</span></a>
+      <a href="#coach" data-scroll><span data-l="ar">المدرب الذكي</span><span data-l="en">AI Coach</span></a>
+      <a href="#reviews" data-scroll><span data-l="ar">التقييمات</span><span data-l="en">Reviews</span></a>
+      <a href="#location" data-scroll><span data-l="ar">الموقع</span><span data-l="en">Location</span></a>
+    </nav>
+    <button id="langBtn" type="button" class="lang-btn">EN</button>
+  </div>
+</header>
+
+<main>
+<section id="top" class="hero">
+  <div class="ghost" aria-hidden="true">24/7</div>
+  <div class="wrap relative grid gap-9 items-center md:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)]">
+    <div class="min-w-0">
+      <span class="badge hero-in" style="--d:0ms"><span class="live-dot"></span><span data-l="ar">مفتوح 24/7</span><span data-l="en">Open 24/7</span></span>
+      <h1 class="display h1 hero-in" style="--d:90ms">
+        <span class="a"><span data-l="ar">هيرو جيم</span><span data-l="en">Hero Gym</span></span>
+        <span class="b"><span data-l="ar">المعادي</span><span data-l="en">Maadi</span></span>
+      </h1>
+      <p class="lead hero-in" style="--d:180ms">
+        <span data-l="ar">جيم شغال 24 ساعة بفلور هامر ستراينث كامل. تعالى في أي وقت، الحديد مستنيك.</span>
+        <span data-l="en">A 24/7 gym with a full Hammer Strength floor. Come at any hour. The iron is waiting.</span>
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7 hero-in" style="--d:270ms">
+        <a id="heroCta" data-wa class="btn btn-primary" href="https://wa.me/" target="_blank" rel="noopener">
+          <svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg>
+          <span data-l="ar">احجز حصة تجريبية مجانية على واتساب</span><span data-l="en">Book a free trial on WhatsApp</span>
+        </a>
+        <a class="btn btn-ghost" href="#reviews" data-scroll><span data-l="ar">شوف التقييمات</span><span data-l="en">See the reviews</span></a>
+      </div>
+      <ul class="proof hero-in" style="--d:360ms">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><span><b>4.9</b> <span data-l="ar">على جوجل</span><span data-l="en">on Google</span></span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span><b>660+</b> <span data-l="ar">تقييم</span><span data-l="en">reviews</span></span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-plate"/></svg><span data-l="ar">فلور هامر ستراينث كامل</span><span data-l="en">Full Hammer Strength floor</span></li>
+      </ul>
+    </div>
+    <div class="min-w-0" aria-hidden="true">
+      <svg class="barbell" viewBox="0 0 440 240">
+        <rect x="6" y="115" width="428" height="10" rx="5" style="fill:var(--steel-300)"/>
+        <g class="pl-left">
+          <rect x="62" y="108" width="10" height="24" style="fill:var(--steel-500)"/>
+          <rect class="plate" x="76" y="72" width="10" height="96" rx="3" style="fill:var(--p5)"/>
+          <rect class="plate" x="90" y="57" width="12" height="126" rx="3" style="fill:var(--p10)"/>
+          <rect class="plate" x="106" y="42" width="14" height="156" rx="3" style="fill:var(--p15)"/>
+          <rect class="plate" x="124" y="27" width="16" height="186" rx="3" style="fill:var(--p20)"/>
+          <rect class="plate" x="144" y="12" width="18" height="216" rx="3" style="fill:var(--p25)"/>
+        </g>
+        <g class="pl-right">
+          <rect x="368" y="108" width="10" height="24" style="fill:var(--steel-500)"/>
+          <rect class="plate" x="354" y="72" width="10" height="96" rx="3" style="fill:var(--p5)"/>
+          <rect class="plate" x="338" y="57" width="12" height="126" rx="3" style="fill:var(--p10)"/>
+          <rect class="plate" x="320" y="42" width="14" height="156" rx="3" style="fill:var(--p15)"/>
+          <rect class="plate" x="300" y="27" width="16" height="186" rx="3" style="fill:var(--p20)"/>
+          <rect class="plate" x="278" y="12" width="18" height="216" rx="3" style="fill:var(--p25)"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" dir="ltr" aria-hidden="true"><div class="marquee-track" id="marqueeTrack"></div></div>
+
+<section id="why" class="section">
+  <div class="wrap">
+    <h2 class="display h2 rv"><span data-l="ar">ليه هيرو جيم؟</span><span data-l="en">Why Hero Gym?</span></h2>
+    <p class="muted mt-2 rv"><span data-l="ar">أربع حاجات بتفرق، من غير لف ودوران.</span><span data-l="en">Four things that matter, no fluff.</span></p>
+    <div class="grid gap-4 mt-9 md:grid-cols-6">
+      <article class="card rv md:col-span-4 min-w-0">
+        <div class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg></div>
+        <h3 class="h3"><span data-l="ar">مفتوح 24 ساعة، 7 أيام في الأسبوع</span><span data-l="en">Open 24 hours, 7 days a week</span></h3>
+        <p class="muted mt-2"><span data-l="ar">شيفت بدري؟ سهر؟ بعد الشغل؟ التمرين على مواعيدك إنت، مش مواعيد الجيم.</span><span data-l="en">Early shift, late night, straight after work? You train on your hours, not ours.</span></p>
+        <div class="dial" aria-hidden="true">
+          <div class="ticks" id="ticks"></div>
+          <div class="tick-labels">
+            <span data-l="ar">12 ص</span><span data-l="en">12 AM</span>
+            <span data-l="ar">6 ص</span><span data-l="en">6 AM</span>
+            <span data-l="ar">12 ظ</span><span data-l="en">12 PM</span>
+            <span data-l="ar">6 م</span><span data-l="en">6 PM</span>
+            <span data-l="ar">12 ص</span><span data-l="en">12 AM</span>
+          </div>
+        </div>
+      </article>
+      <article class="card rv md:col-span-2 min-w-0" style="--d:80ms">
+        <div class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-plate"/></svg></div>
+        <h3 class="h3"><span data-l="ar">فلور هامر ستراينث كامل</span><span data-l="en">A full Hammer Strength floor</span></h3>
+        <p class="muted mt-2"><span data-l="ar">أجهزة بلاتات معروفة بحركتها المضبوطة وقوتها. كل عضلة ليها مكان.</span><span data-l="en">Plate-loaded machines known for guided, solid movement. Every muscle group has a home.</span></p>
+      </article>
+      <article class="card rv md:col-span-3 min-w-0">
+        <div class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></div>
+        <h3 class="h3"><span data-l="ar">4.9 من 5 على جوجل</span><span data-l="en">4.9 out of 5 on Google</span></h3>
+        <p class="muted mt-2"><span data-l="ar">أكتر من 660 تقييم على خرائط جوجل.</span><span data-l="en">More than 660 reviews on Google Maps.</span></p>
+      </article>
+      <article class="card rv md:col-span-3 min-w-0" style="--d:80ms">
+        <div class="icon-box"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></div>
+        <h3 class="h3"><span data-l="ar">في المعادي، القاهرة</span><span data-l="en">In Maadi, Cairo</span></h3>
+        <p class="muted mt-2"><span data-l="ar">شوف المكان على خرائط جوجل وتعالى جرّب.</span><span data-l="en">Check the spot on Google Maps and come try a session.</span></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="equipment" class="section" style="padding-top:0">
+  <div class="wrap grid gap-12 items-start md:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)]">
+    <div class="min-w-0">
+      <h2 class="display h2 rv"><span data-l="ar">الحديد اللي هتتمرن عليه</span><span data-l="en">The iron you'll train on</span></h2>
+      <p class="muted mt-2 rv"><span data-l="ar">فلور هامر ستراينث كامل، مصمم عشان تتمرن صح وتشوف تقدمك.</span><span data-l="en">A full Hammer Strength floor, built so you train well and see your progress.</span></p>
+      <ul class="spec list-none p-0 mt-7">
+        <li class="rv"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><div><h3 class="h3"><span data-l="ar">حركة مضبوطة</span><span data-l="en">Guided movement</span></h3><p class="muted"><span data-l="ar">الأجهزة بتوجّه مسار الحركة، فتركّز على العضلة نفسها.</span><span data-l="en">The machines guide the movement path so you can focus on the muscle.</span></p></div></li>
+        <li class="rv"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><div><h3 class="h3"><span data-l="ar">جسمك كله في مكان واحد</span><span data-l="en">Your whole body, one floor</span></h3><p class="muted"><span data-l="ar">فلور كامل يخليك تغطي الصدر والضهر والرجل والأكتاف والدراعات.</span><span data-l="en">A full floor lets you cover chest, back, legs, shoulders and arms.</span></p></div></li>
+        <li class="rv"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><div><h3 class="h3"><span data-l="ar">تقدم تقدر تقيسه</span><span data-l="en">Progress you can measure</span></h3><p class="muted"><span data-l="ar">كل بلاتة زيادة هي رقم واضح تشوفه في سجل تمرينك.</span><span data-l="en">Every added plate is a clear number in your training log.</span></p></div></li>
+        <li class="rv"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><div><h3 class="h3"><span data-l="ar">مناسب لكل المستويات</span><span data-l="en">Fits every level</span></h3><p class="muted"><span data-l="ar">المبتدئ بيتعلم الحركة، والمتقدم بيرفع الحِمل.</span><span data-l="en">Beginners learn the movement. Advanced lifters push the load.</span></p></div></li>
+      </ul>
+    </div>
+    <div class="plates-panel rv min-w-0">
+      <h3 class="h3"><span data-l="ar">ألوان البلاتات القياسية</span><span data-l="en">Standard plate colours</span></h3>
+      <div class="plates" aria-hidden="true">
+        <div class="plate-item"><span class="plate" style="--c:var(--p5)"></span>5<small>kg</small></div>
+        <div class="plate-item"><span class="plate" style="--c:var(--p10)"></span>10<small>kg</small></div>
+        <div class="plate-item"><span class="plate" style="--c:var(--p15)"></span>15<small>kg</small></div>
+        <div class="plate-item"><span class="plate" style="--c:var(--p20)"></span>20<small>kg</small></div>
+        <div class="plate-item"><span class="plate" style="--c:var(--p25)"></span>25<small>kg</small></div>
+      </div>
+      <p class="muted small"><span data-l="ar">نظام الألوان المستخدم في بلاتات المسابقات، عشان تعرف الوزن من بعيد.</span><span data-l="en">The colour code used on competition plates, so you can read the weight at a glance.</span></p>
+    </div>
+  </div>
+</section>
+<section id="coach" class="section coach-band">
+  <div class="wrap">
+    <h2 class="display h2 rv"><span data-l="ar">المدرب الذكي</span><span data-l="en">AI Coach</span><span class="ai-tag">AI</span></h2>
+    <p class="muted mt-2 rv"><span data-l="ar">اختار هدفك ومستواك، وخطة الأسبوع تظهر قدامك في ثانية.</span><span data-l="en">Pick your goal and level. Your weekly plan shows up in a second.</span></p>
+    <div class="coach-card mt-8 rv">
+      <div class="hazard" aria-hidden="true"></div>
+      <div class="grid gap-8 p-5 md:p-9 md:grid-cols-[minmax(0,.85fr)_minmax(0,1.3fr)]">
+        <div class="min-w-0 grid gap-6 content-start">
+          <fieldset>
+            <legend><span data-l="ar">هدفك إيه؟</span><span data-l="en">What's your goal?</span></legend>
+            <div class="chips">
+              <button type="button" class="chip" data-goal="lose" aria-pressed="false"><span data-l="ar">أخسّ وزن</span><span data-l="en">Lose weight</span></button>
+              <button type="button" class="chip" data-goal="muscle" aria-pressed="true"><span data-l="ar">أبني عضل</span><span data-l="en">Build muscle</span></button>
+              <button type="button" class="chip" data-goal="fit" aria-pressed="false"><span data-l="ar">أبقى فِت</span><span data-l="en">Get fit</span></button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><span data-l="ar">مستواك إيه؟</span><span data-l="en">What's your level?</span></legend>
+            <div class="chips">
+              <button type="button" class="chip" data-level="b" aria-pressed="false"><span data-l="ar">مبتدئ</span><span data-l="en">Beginner</span></button>
+              <button type="button" class="chip" data-level="m" aria-pressed="true"><span data-l="ar">متوسط</span><span data-l="en">Intermediate</span></button>
+              <button type="button" class="chip" data-level="a" aria-pressed="false"><span data-l="ar">متقدم</span><span data-l="en">Advanced</span></button>
+            </div>
+          </fieldset>
+          <p class="muted small"><span data-l="ar">خطة استرشادية عامة وبسيطة، مش بديل لمدرب. لو عندك إصابة أو حالة صحية، كلّم دكتور قبل ما تبدأ.</span><span data-l="en">A simple general guide, not a replacement for a coach. If you have an injury or health condition, talk to a doctor first.</span></p>
+        </div>
+        <div class="min-w-0" id="coachResult" aria-live="polite">
+          <h3 class="display" style="font-size:1.7rem;line-height:1.2" id="planHead"></h3>
+          <p class="muted" id="planSub"></p>
+          <div class="week-bars mt-5" id="weekBars" aria-hidden="true"></div>
+          <ol class="plan-days" id="planDays"></ol>
+          <ul class="plan-tips" id="planTips"></ul>
+          <a id="planCta" class="btn btn-primary w-full sm:w-auto" href="https://wa.me/" target="_blank" rel="noopener">
+            <svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg>
+            <span data-l="ar">احجز حصتك التجريبية على واتساب</span><span data-l="en">Book your free trial on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="section">
+  <div class="wrap grid gap-10 items-center md:grid-cols-2">
+    <div class="min-w-0 rv">
+      <div><span class="score" data-count="4.9" data-dec="1">4.9</span><span class="score-of">/5</span></div>
+      <div class="flex gap-1 mt-3" aria-hidden="true">
+        <svg class="ic" style="width:30px;height:30px"><use href="#i-star"/></svg><svg class="ic" style="width:30px;height:30px"><use href="#i-star"/></svg><svg class="ic" style="width:30px;height:30px"><use href="#i-star"/></svg><svg class="ic" style="width:30px;height:30px"><use href="#i-star"/></svg><svg class="ic" style="width:30px;height:30px"><use href="#i-star-part"/></svg>
+      </div>
+      <p class="count-row"><span class="count" data-count="660" data-suffix="+">660+</span><span class="muted"><span data-l="ar">تقييم على جوجل</span><span data-l="en">Google reviews</span></span></p>
+    </div>
+    <div class="min-w-0 rv" style="--d:100ms">
+      <h2 class="display h2"><span data-l="ar">الناس قالت كلمتها</span><span data-l="en">People have spoken</span></h2>
+      <p class="muted mt-3"><span data-l="ar">4.9 من 5 بناءً على أكتر من 660 تقييم على جوجل. عشان تقرا اللي الناس كتبته بنفسها، افتح التقييمات على جوجل.</span><span data-l="en">4.9 out of 5 from more than 660 Google reviews. To read what people wrote in their own words, open the reviews on Google.</span></p>
+      <a class="btn btn-ghost mt-6" href="https://www.google.com/maps/search/?api=1&query=Hero+Gym+Maadi+Cairo" target="_blank" rel="noopener">
+        <span data-l="ar">اقرا التقييمات على جوجل</span><span data-l="en">Read the reviews on Google</span>
+        <svg class="ic flip" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="location" class="section" style="padding-top:0">
+  <div class="wrap grid gap-10 items-center md:grid-cols-2">
+    <div class="min-w-0 rv">
+      <h2 class="display h2"><span data-l="ar">تلاقينا في المعادي</span><span data-l="en">Find us in Maadi</span></h2>
+      <dl class="dl mt-6">
+        <div><dt><span data-l="ar">المنطقة</span><span data-l="en">Area</span></dt><dd><span data-l="ar">المعادي، القاهرة</span><span data-l="en">Maadi, Cairo</span></dd></div>
+        <div><dt><span data-l="ar">المواعيد</span><span data-l="en">Hours</span></dt><dd><span data-l="ar">24 ساعة، 7 أيام في الأسبوع</span><span data-l="en">24 hours, 7 days a week</span></dd></div>
+      </dl>
+      <p class="muted small mt-3"><span data-l="ar">العنوان بالتفصيل بيتضاف هنا عند التفعيل.</span><span data-l="en">The full street address is added here at launch.</span></p>
+      <a class="btn btn-primary mt-6" href="https://www.google.com/maps/search/?api=1&query=Hero+Gym+Maadi+Cairo" target="_blank" rel="noopener">
+        <svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>
+        <span data-l="ar">افتح على خرائط جوجل</span><span data-l="en">Open in Google Maps</span>
+      </a>
+    </div>
+    <div class="min-w-0 rv" style="--d:100ms">
+      <div class="map">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M-10 40 C 90 75, 130 15, 230 48 S 360 95, 410 62" fill="none" stroke-width="24" style="stroke:var(--steel-700)"/>
+          <g style="stroke:var(--steel-700)" stroke-width="2">
+            <path d="M0 110H400M0 150H400M0 190H400M0 230H400M0 270H400"/>
+            <path d="M60 0V300M120 0V300M180 0V300M240 0V300M300 0V300M360 0V300"/>
+          </g>
+          <path d="M0 262L400 128" fill="none" stroke-width="6" style="stroke:var(--steel-500)" opacity=".6"/>
+          <circle class="pin-ring" cx="220" cy="160" r="26" style="fill:var(--accent)" opacity=".18"/>
+          <path d="M220 196C212 184 200 172 200 160A20 20 0 1 1 240 160C240 172 228 184 220 196Z" style="fill:var(--accent)"/>
+          <circle cx="220" cy="160" r="7" style="fill:var(--ink)"/>
+        </svg>
+        <span class="map-label"><span data-l="ar">المعادي</span><span data-l="en">Maadi</span></span>
+      </div>
+      <p class="muted small mt-2"><span data-l="ar">رسم توضيحي، مش خريطة حقيقية.</span><span data-l="en">Illustration, not a real map.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-top:1px solid var(--steel-700)">
+  <div class="wrap rv">
+    <h2 class="display h2" style="max-width:16ch"><span data-l="ar">جاهز تبدأ؟ أول حصة علينا.</span><span data-l="en">Ready to start? Your first session is on us.</span></h2>
+    <p class="muted mt-3"><span data-l="ar">ابعتلنا على واتساب وإحنا نظبطلك معاد التجربة.</span><span data-l="en">Message us on WhatsApp and we'll set up your trial.</span></p>
+    <a data-wa class="btn btn-primary mt-6" href="https://wa.me/" target="_blank" rel="noopener">
+      <svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg>
+      <span data-l="ar">احجز حصة تجريبية مجانية على واتساب</span><span data-l="en">Book a free trial on WhatsApp</span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap flex flex-wrap items-center justify-between gap-4">
+    <span class="demo-credit">Demo by Hazem Hegazy</span>
+    <p class="muted small" style="max-width:34rem"><span data-l="ar">ده تصميم تجريبي مش الموقع الرسمي للجيم. الأرقام والتفاصيل بتتأكد مع الجيم قبل أي نشر.</span><span data-l="en">This is an unofficial design demo, not the gym's own website. Details are confirmed with the gym before any launch.</span></p>
+  </div>
+</footer>
+
+<div id="dock" class="dock md:hidden" hidden>
+  <a data-wa class="btn btn-primary w-full" href="https://wa.me/" target="_blank" rel="noopener">
+    <svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg>
+    <span data-l="ar">احجز حصة تجريبية مجانية</span><span data-l="en">Book a free trial</span>
+  </a>
+</div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s,r){return (r||document).querySelector(s)};
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var lang=function(){return document.documentElement.lang==='en'?'en':'ar'};
+
+  // Demo: no real number. Put the gym's WhatsApp number here (digits only, with country code).
+  var WA_NUMBER='201004767329';
+  var waUrl=function(t){return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(t)};
+  var WA_TEXT={ar:'أهلًا هيرو جيم المعادي، عايز أحجز حصة تجريبية مجانية.',en:'Hi Hero Gym Maadi, I would like to book a free trial session.'};
+
+  var MQ={
+    ar:['مفتوح 24/7','فلور هامر ستراينث كامل','المعادي · القاهرة','4.9 على جوجل','660+ تقييم'],
+    en:['OPEN 24/7','FULL HAMMER STRENGTH FLOOR','MAADI · CAIRO','4.9 ON GOOGLE','660+ REVIEWS']
+  };
+  function buildMarquee(){
+    var g='<div class="marquee-group">'+MQ[lang()].map(function(t){return '<span class="marquee-item">'+t+'</span>'}).join('')+'</div>';
+    $('#marqueeTrack').innerHTML=g+g+g+g;
+  }
+
+  var DAYS={
+    ar:{full:['السبت','الأحد','الإتنين','التلات','الأربع','الخميس','الجمعة'],short:['سبت','أحد','إتنين','تلات','أربع','خميس','جمعة']},
+    en:{full:['Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday'],short:['Sat','Sun','Mon','Tue','Wed','Thu','Fri']}
+  };
+  // t: g = gym, a = active rest, r = rest
+  var S={
+    FB:{t:'g',ar:'جسم كامل على أجهزة الهامر',en:'Full body on the Hammer machines'},
+    UP:{t:'g',ar:'نصف علوي: صدر وضهر وأكتاف',en:'Upper body: chest, back, shoulders'},
+    LO:{t:'g',ar:'نصف سفلي: رجل وبطن',en:'Lower body: legs and core'},
+    PU:{t:'g',ar:'دفع: صدر وأكتاف وتراي',en:'Push: chest, shoulders, triceps'},
+    PL:{t:'g',ar:'سحب: ضهر وباي',en:'Pull: back and biceps'},
+    LG:{t:'g',ar:'يوم الرجل كامل',en:'Full leg day'},
+    AR:{t:'g',ar:'دراعات وأكتاف',en:'Arms and shoulders'},
+    CO:{t:'g',ar:'بطن وثبات 20 دقيقة',en:'20 min core and stability'},
+    HI:{t:'g',ar:'كارديو فترات 20 دقيقة',en:'20 min interval cardio'},
+    C15:{t:'g',ar:'15 دقيقة كارديو',en:'15 min cardio'},
+    C20:{t:'g',ar:'20 دقيقة كارديو',en:'20 min cardio'},
+    M10:{t:'g',ar:'10 دقايق شد ومرونة',en:'10 min stretching and mobility'},
+    WK:{t:'a',ar:'مشي 30 دقيقة',en:'30 min walk'},
+    AC:{t:'a',ar:'راحة نشطة: مشي خفيف وشد',en:'Active rest: easy walk and stretching'},
+    RS:{t:'r',ar:'راحة',en:'Rest day'}
+  };
+  var PLANS={
+    'lose-b':[['FB','C15'],['WK'],['FB','C15'],['RS'],['FB','C15'],['WK'],['RS']],
+    'lose-m':[['UP','C15'],['LO','C15'],['WK'],['FB','C15'],['RS'],['HI'],['RS']],
+    'lose-a':[['PU','C20'],['PL','C20'],['LG','C15'],['HI','CO'],['AR','C20'],['AC'],['RS']],
+    'muscle-b':[['FB'],['RS'],['FB'],['RS'],['FB'],['AC'],['RS']],
+    'muscle-m':[['UP'],['LO'],['RS'],['UP'],['LO'],['AC'],['RS']],
+    'muscle-a':[['PU'],['PL'],['LG'],['RS'],['AR','CO'],['LO'],['RS']],
+    'fit-b':[['FB','M10'],['WK'],['FB','C15'],['RS'],['FB','M10'],['AC'],['RS']],
+    'fit-m':[['UP','C15'],['LO','M10'],['AC'],['FB','C15'],['RS'],['HI'],['RS']],
+    'fit-a':[['PU','C15'],['PL','M10'],['HI','CO'],['LG'],['AC'],['UP','M10'],['RS']]
+  };
+  var GOALS={
+    lose:{ar:'أخسّ وزن',en:'Lose weight',title:{ar:'خسارة الوزن',en:'Weight loss'},tip:{ar:'الأكل والنوم والمية بيفرقوا قد التمرين. ركّز على الاستمرارية مش على الكمال.',en:'Food, sleep and water matter as much as training. Aim for consistency, not perfection.'}},
+    muscle:{ar:'أبني عضل',en:'Build muscle',title:{ar:'بناء العضل',en:'Muscle building'},tip:{ar:'بروتين كفاية ونوم كويس، العضل بيتبني وإنت بترتاح.',en:'Enough protein and good sleep. Muscle is built while you recover.'}},
+    fit:{ar:'أبقى فِت',en:'Get fit',title:{ar:'اللياقة العامة',en:'General fitness'},tip:{ar:'نوّع بين الحديد والكارديو والشد عشان لياقتك تتحسن من كل ناحية.',en:'Mix strength, cardio and stretching to improve all-round fitness.'}}
+  };
+  var LEVELS={
+    b:{ar:'مبتدئ',en:'Beginner',tip:{ar:'ابدأ بأوزان خفيفة وركّز على الحركة الصح. اسأل مدرب الجيم لو مش متأكد من جهاز.',en:"Start light and focus on clean form. Ask a gym coach if you're unsure about a machine."}},
+    m:{ar:'متوسط',en:'Intermediate',tip:{ar:'لما تخلص الجولات بسهولة، زوّد البلاتات شوية كل أسبوع.',en:'When your sets feel easy, add a little weight each week.'}},
+    a:{ar:'متقدم',en:'Advanced',tip:{ar:'سجّل أوزانك، وخلّي أسبوع أخف كل 6 إلى 8 أسابيع عشان تفضل مستمر.',en:'Log your weights and take a lighter week every 6 to 8 weeks to keep progressing.'}}
+  };
+  var state={goal:'muscle',level:'m'};
+
+  function renderPlan(animate){
+    var lg=lang(),g=GOALS[state.goal],lv=LEVELS[state.level];
+    var plan=PLANS[state.goal+'-'+state.level]||[];
+    var n=0;
+    var rows=plan.map(function(codes,i){
+      var main=S[codes[0]]||S.RS;
+      if(main.t==='g')n++;
+      return {type:main.t,text:codes.map(function(c){return (S[c]||S.RS)[lg]}).join(' + '),day:DAYS[lg].full[i],short:DAYS[lg].short[i]};
+    });
+    $('#coachResult').classList.toggle('anim',!!animate);
+    $('#planHead').textContent=lg==='ar'?('خطة '+g.title.ar+' · '+lv.ar):(g.title.en+' plan · '+lv.en);
+    $('#planSub').textContent=lg==='ar'?(n+' أيام جيم، والباقي راحة أو حركة خفيفة'):(n+' gym days, the rest is recovery or easy movement');
+    $('#weekBars').innerHTML=rows.map(function(r){return '<div><div class="bar-track"><span class="bar bar-'+r.type+'"></span></div><span class="bar-label">'+r.short+'</span></div>'}).join('');
+    $('#planDays').innerHTML=rows.map(function(r,i){return '<li class="day day-'+r.type+'" style="--i:'+i+'"><span class="day-name">'+r.day+'</span><span class="day-text">'+r.text+'</span></li>'}).join('');
+    $('#planTips').innerHTML=[lv.tip[lg],g.tip[lg]].map(function(t){return '<li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span>'+t+'</span></li>'}).join('');
+    var msg=lg==='ar'
+      ?('أهلًا هيرو جيم المعادي، عايز أحجز حصة تجريبية مجانية. هدفي: '+g.ar+'، ومستواي: '+lv.ar+'.')
+      :('Hi Hero Gym Maadi, I would like to book a free trial session. My goal: '+g.en+'. My level: '+lv.en+'.');
+    $('#planCta').href=waUrl(msg);
+    $$('[data-goal]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.goal===state.goal))});
+    $$('[data-level]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.level===state.level))});
+  }
+
+  function updateWa(){$$('[data-wa]').forEach(function(a){a.href=waUrl(WA_TEXT[lang()])})}
+
+  var langBtn=$('#langBtn');
+  function setLang(l){
+    var h=document.documentElement;h.lang=l;h.dir=l==='ar'?'rtl':'ltr';
+    try{localStorage.setItem('hg-lang',l)}catch(e){}
+    langBtn.textContent=l==='ar'?'EN':'عربي';
+    langBtn.setAttribute('aria-label',l==='ar'?'Switch to English':'التبديل إلى العربية');
+    buildMarquee();renderPlan(false);updateWa();
+  }
+  langBtn.addEventListener('click',function(){setLang(lang()==='ar'?'en':'ar')});
+
+  $$('[data-goal]').forEach(function(b){b.addEventListener('click',function(){state.goal=b.dataset.goal;renderPlan(true)})});
+  $$('[data-level]').forEach(function(b){b.addEventListener('click',function(){state.level=b.dataset.level;renderPlan(true)})});
+
+  var ticks=$('#ticks');
+  for(var i=0;i<24;i++){var s=document.createElement('span');s.style.animationDelay=(i*0.12)+'s';ticks.appendChild(s)}
+
+  $$('[data-scroll]').forEach(function(a){a.addEventListener('click',function(e){
+    var t=$(a.getAttribute('href'));if(!t)return;
+    e.preventDefault();t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  })});
+
+  function countUp(el){
+    if(reduce)return;
+    var target=parseFloat(el.dataset.count),dec=+(el.dataset.dec||0),suf=el.dataset.suffix||'',t0=performance.now(),dur=1100;
+    (function step(t){
+      var p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);
+      el.textContent=(p<1?target*e:target).toFixed(dec)+suf;
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+  }
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return;
+    e.target.classList.add('in');
+    $$('[data-count]',e.target).forEach(countUp);
+    io.unobserve(e.target);
+  })},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  $$('.rv').forEach(function(el){io.observe(el)});
+
+  var dock=$('#dock');
+  new IntersectionObserver(function(es){dock.hidden=es[0].isIntersecting}).observe($('#heroCta'));
+
+  setLang(lang());
+})();
+</script>
+
+</body></html>

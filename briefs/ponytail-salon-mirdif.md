@@ -1,0 +1,12 @@
+# Ponytail Style Spa & Beauty Center — Mirdif, Dubai (Ladies' salon)
+- Rating: Google 4.8 from 388 reviews (only 3 of 27 Mirdif ladies' salons are rated higher)
+- Phone (mobile, likely WhatsApp): +971 50 456 2611 → wa.me/971504562611
+- Address: The 77 Hub, 1st Floor, Mirdif, Dubai
+- Hours: daily 12:00–22:00
+- Owner-run: "Managed and Owned by Senior Stylist Reem" (Google description). Independent, so a likely decision-maker.
+- Web: Google website = instagram.com (handle not confirmed, so find it). Weakness: no website, no online booking or price list.
+- Services: hair, nails (gel extensions, mani-pedi), spa. Prices: unknown.
+- Selling points (reviews): complimentary coffee; stylist Rama "true artist" for hair; nail team Puja, Mina, Grace; clean, relaxing; welcoming owner; aftercare tips.
+- Vibe: "Luxury ladies beauty centre"; colors unknown.
+- AI feature: "AI Hair & Nail Style Matcher": answer a quiz or upload a photo → suggested look, colour and nail set → book on WhatsApp.
+- Language: EN + AR.
